@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<html lang="en">
+		<title>Folk ARPS | Missions DB</title>
+		<link rel="stylesheet" href="css/normalize.css">
+		<!-- NOTE: The link to Google fonts is optional and commented-out by default. -->
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,500|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<!-- <meta name="viewport" content"width=device-width, initial-scale=1.0"> -->
+		<meta name="viewport" content="initial-scale=1.0">
+	</head>
+	<body>
+		<header>
+			<a name="top"></a>
+			<a href="index.html" id="logo">
+				<h1>FA Missions DB</h1>
+				<h2>Missions on the Folk ARPS server(s)</h2>
+			</a>
+			<nav>
+				<ul>
+					<li><a href="add.html" id="AddButton">Add</a></li>
+					<li><a href="#" id="LogoutButton">Logout</a></li>
+				</ul>
+			</nav>
+		</header>
+		<!-- NOTE: The wrapper div is centered via CSS. -->
+		<div id="wrapper">
+			<section id="filters">
+				<div id="filtersHeader">
+					<h3>Filters</h3>
+					<p>These filters operate at the same time (an AND query). The more filters you use, the more demanding the search.</p>
+				</div>
+				<form action="#" method="POST" name="form_filters">
+					<fieldset>
+						<legend align="left">Session</legend>
+						<select name="sessionSelected" id="sessionSelected">
+							<option>All Sessions</option>
+							<option>ArmA 3: Vanilla</option>
+							<option>ArmA 3: V+</option>
+							<option>ArmA 3: All</option>
+							<option>ArmA 2:  Vanilla</option>
+							<option>ArmA 2: V+</option>
+							<option>ArmA 2: All</option>
+						</select>
+					</fieldset>
+					<fieldset>
+						<legend align="left">Island</legend>
+						<select name="islandSelected" id="islandSelected">
+							<option>All Islands</option>
+							<option>Proving Grounds</option>
+							<option>Celle2</option>
+							<option>Chernarus</option>
+							<option>Desert</option>
+							<option>Fallujah</option>
+							<option>Podagorsk</option>
+							<option>Proving Grounds</option>
+							<option>Shapur</option>
+							<option>Stratis</option>
+							<option>Takistan</option>
+							<option>United Sahrani</option>
+							<option>Utes</option>
+							<option>Zargabad</option> <!-- Mis-spelt as 'Zagrabad' in Head's front-end -->
+						</select>
+					</fieldset>
+					<fieldset>
+						<legend align="left">Mission Type</legend>
+						<input type="checkbox" name="missionType" value="Adversarial" id="Adversarial" checked><label for="Adversarial">Adversarial</label><br>
+						<input type="checkbox" name="missionType" value="Coop" id="Coop" checked><label for="Coop">Coop</label><br>
+						<input type="checkbox" name="missionType" value="Other" id="Other" checked><label for="Coop">Other</label>
+					</fieldset>
+					<fieldset>
+						<legend align="left">Slots</legend>
+						<input type="text" maxlength="3" name="slotsMin" value="1" id="slotsMin" class="slots"><label for="slotsMin">Min</label>
+						<input type="text" maxlength="3" name="slotsMax" value="255" id="slotsMax" class="slots"><label for="slotsMax">Max</label>
+					</fieldset>
+					<fieldset>
+						<legend align="left">Other</legend>
+						<label for="searchText">Text</label><br>
+						<input type="text" maxlength="36" name="searchText" value="" id="searchText" class="searchBox">
+						<select name="authorSelected" id="authorSelected">
+							<option>All Authors</option>
+							<option>Fer</option>
+							<option>Head</option>
+							<option>Tigershark</option>
+							<option>Wolfenswan</option>
+						</select><br>
+						<input type="checkbox" name="missionBroken" id="missionBroken"><label for="missionBroken">Broken?</label>
+					</fieldset>
+					<input type="reset" value="Reset">&nbsp;<input type="submit" id="submitButton" value="Apply"><br>
+				</form>
+			</section>
+			<section id="missionsList">
+				<div id="missionsListHeader">
+					<h3>Missions</h3>
+				</div>
+				<div id="missionsListTableContainer">
+					<table class="tableMissions" border="0" id="missionTable" data-role="table">
+						<thead class="rowHeader">
+							<th class="cellHeaderMissions"><a href="#">Mission</a></th>
+							<th class="cellHeaderIsland"><a href="#">Island</a></th>
+							<th class="cellHeaderPlayed"><a href="#">#</a></th>
+							<th class="cellHeaderLastPlayed"><a href="#">Last</a></th>
+							<th class="cellHeaderAuthor"><a href="#">Author(s)</a></th>
+							<th class="cellHeaderModified"><a href="#">Modified</th>
+							<th class="cellHeaderBroken">&nbsp;</th></a>
+						</thead>
+						<tr class="row">
+							<td class="cellMissions"><a href="#">&#9698; fa3_a76_long_name_example_v2</a></td>
+							<td class="cellIsland">Proving Grounds</td>
+							<td class="cellPlayed">255</td>
+							<td class="cellLastPlayed">140512</td>
+							<td class="cellAuthor">ComradeHeadless, ComradeOther</td>
+							<td class="cellModified">140512</td>
+							<td class="cellBroken">x</td>
+						</tr>
+						<tr class="row">
+							<td class="cellDropdown" colspan="7">
+								<p class="fullInfo">
+									<span class="cellDropdownSubtitle">Island</span><br>
+									Proving Grounds
+								</p>
+								<p class="fullInfo">
+									<span class="cellDropdownSubtitle"># Played</span><br>
+									255
+								</p>
+								<p class="fullInfo">
+									<span class="cellDropdownSubtitle">Last Played</span><br>
+									140512
+								</p>
+								<p class="fullInfo">
+									<span class="cellDropdownSubtitle">Author(s)</span><br>
+									ComradeHeadless, ComradeOther
+								</p>
+								<p class="fullInfo">
+									<span class="cellDropdownSubtitle">Last Modified</span><br>
+									140512
+								</p>
+								<p>
+									<span class="cellDropdownSubtitle">Description</span><br>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+								</p>
+								<p class="fullInfo">
+									<span class="cellDropdownSubtitle">Broken</span><br>
+									Yes
+								</p>
+								<p>
+									<span class="cellDropdownSubtitle">Broken Message</span><br>
+									Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+								</p>
+								<ul>
+									<li><a href="#">Delete</a></li>
+									<li><a href="#">Edit</a></li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<p><a href="#top" >&#9650; Back to top</a></p>
+			</section>
+		</div>
+		<footer>
+			<p>&copy; 2014 <a href="http://www.folkarps.com">Folk ARPS</a></p>
+		</footer>
+        <div id="loginWindow" class="popupWindow">
+            <div id="loginScreen">
+                <label for="loginName">Username</label><br>
+                <input type="text" maxlength="56" class="searchBox" name="loginName" value="" id="loginName"><br>
+                <label for="loginName">Password</label><br>
+                <input type="password" maxlength="56" class="searchBox" name="PasswordInput" value="" id="PasswordInput"><br>
+                <span id="errorLogin"></span>
+                <a id="forgottonPassword">Forgotten your password?</a>
+                <buttongroup>
+                    <ul>
+                        <li><a id="loginWindowCancel" href="#">Cancel</a></li>
+                        <li><a id="loginWindowSignup" href="#">SignUp</a></li>
+                        <li><a id="loginWindowOk" href="#">Login</a></li>
+                    </ul>
+                </buttongroup>
+            </div>
+            <div id = "forgottenScreen" style="display:none">
+                <label for="email">Email</label><br>
+                <input type="email" maxlength="56" class="searchBox" name="email" value="" id="forgottonUsername"><br>
+                <buttongroup>
+                    <ul>
+                        <li><a id="forgottenWindowCancel" href="#">Cancel</a></li>
+                        <li><a id="forgottenWindowOk" href="#">Send</a></li>
+                    </ul>
+                </buttongroup>
+            </div>
+            <div id = "signupScreen" style="display:none">
+                <label for="loginName">Username</label><br>
+                <input type="text" maxlength="56" class="searchBox" name="loginName" value="" id="signupName"><br>
+                <label for="PasswordInput">Password</label><br>
+                <input type="password" maxlength="56" class="searchBox" name="PasswordInput" value="" id="signupPassword"><br>
+                <label for="email">Email</label><br>
+                <input type="email" maxlength="56" class="searchBox" name="email" value="" id="signupEmail"><br>
+                <span id="errorSignup"></span>
+                <buttongroup>
+                    <ul>
+                        <li><a id="signupWindowCancel" href="#">Cancel</a></li>
+                        <li><a id="signupWindowOk" href="#">SignUp</a></li>
+                    </ul>
+                </buttongroup>
+            </div>
+        </div>
+        <div id="deleteWindow" class="popupWindow">
+            <span>Are you sure you want delete this mission?</span>
+            <buttongroup>
+                <ul>
+                    <li><a id="deleteWindowCancel" href="#" onClick="HidePopup('#deleteWindow')">Cancel</a></li>
+                    <li><a id="deleteWindowOk" href="#" onClick="DeleteRow()">Yes</a></li>
+                </ul>
+            </buttongroup>
+        </div>
+        <div class ="backgroundPopup" id="backgroundPopup">
+        </div>
+        <script type="text/javascript" src="js\jquery-2.1.0.js"></script>
+        <script type="text/javascript" src="js\parse-1.2.16.min.js"></script>
+        <script type="text/javascript" src="js\moment.min.js"></script>
+        <script type="text/javascript" src="js\jExpand.js"></script>
+        <script type="text/javascript" src="js\popup.js"></script>
+        <script type="text/javascript" src="js\user.js"></script>
+        <script type="text/javascript" src="js\jquery.tablesorter.js"></script>
+        <script type="text/javascript" src="js\jquery.tablePagination.0.5.min.js"></script>
+        <script type="text/javascript" src="js\missions.js"></script>
+        <script type="text/javascript" src="js\init.js"></script>
+	</body>
+</html>

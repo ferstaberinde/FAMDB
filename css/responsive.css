@@ -1,0 +1,429 @@
+@media screen and (min-width: 1024px) {
+
+	/************************************************************
+	DEVICE TYPE: MONITOR
+	************************************************************/
+
+	body {
+		background: #1c1c1c; /* Old browsers */
+	background: -moz-linear-gradient(top, #1c1c1c 0%, #4f4f4f 40%, #000000 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1c1c1c), color-stop(40%,#4f4f4f), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #1c1c1c 0%,#4f4f4f 40%,#000000 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #1c1c1c 0%,#4f4f4f 40%,#000000 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #1c1c1c 0%,#4f4f4f 40%,#000000 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #1c1c1c 0%,#4f4f4f 40%,#000000 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c1c1c', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+	}
+
+	#wrapper {
+		max-width: 1200px;
+		margin: 0px auto 0px;
+		padding: 0px 2.5% 0px;
+	}
+
+	/************************************************************
+	HEADER
+	************************************************************/
+
+	header {
+		border-bottom: 4px solid #303030;
+	}
+
+	#logo {
+		float: left;
+		width: 45%;
+	}
+
+	header a h1 {
+		display: block;
+		font-size: 1.4em;
+		margin: 0.5em 15px 0.25em;
+	}
+
+	header a h2 {
+		display: block;
+		margin: 0 15px 1em;
+	}
+
+	/************************************************************
+	NAVIGATION
+	************************************************************/
+
+	nav {
+		float: right;
+		text-align: right;
+		width: 45%;
+		margin: 20px 15px 0px 0px;
+		background: none;
+	}
+
+	nav li {
+		margin: 0.25em 0px 0.25em 10px; 
+		padding: 0.20em 0px;
+		font-size: 1em;
+	}
+
+	nav a, nav a:visited {
+		padding: 0.25em 0.8em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellDropdown li {
+		margin: 0.25em 5px 1em 0px; 
+		padding: 0.20em 0px;
+		font-size: 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellDropdown a, nav a:visited {
+		padding: 0.25em 0.8em;
+	}
+
+	/************************************************************
+	SECTION: FILTERS
+	************************************************************/
+
+	#filters {
+		float: left;
+		width: 20%;
+		padding: 0px 1% 0px;
+	}
+
+	#filtersHeader {
+		display: block;
+	}
+	
+	#filtersHeader h3 {
+		margin: 0.5em 0px;
+		font-size: 1.2em;
+	}
+
+	#filters fieldset {
+		padding-top: 10px;
+	}
+
+	#filters fieldset label {
+		padding: 0px 0.5em 0px;
+		font-size: 0.8em;
+	}
+
+	#filters fieldset select {
+		padding: 5px;
+		font-size: 1em;
+	}
+
+	#filters fieldset input[type="text"] {
+		padding: 5px;
+		margin-bottom: 15px;
+		font-size: 1em;
+	}
+
+	#filters fieldset input.slots[type="text"] {
+		width: 20%;
+		margin: 10px 0px;
+	}
+
+	#filters fieldset input.searchBox[type="text"] {
+		padding: 5px;
+		margin: 10px 0px 15px;
+		font-size: 1em;
+	}
+
+	#filters fieldset input[type="checkbox"] {
+		padding: 5px;
+		margin: 10px 0px 6px 0px;
+		font-size: 1em;
+	}
+
+	#filters input[type="submit"] {
+		padding: 0.2em 1em;
+		font-size: 1em;
+	}
+
+	#filters input[type="reset"] {
+		margin: 0px 10px 0px 3px;
+		padding: 0.2em 1em;
+		font-size: 1em;
+	}
+
+	/************************************************************
+	SECTION: MISSIONSLIST
+	************************************************************/
+
+	#missionsListHeader {
+		display: block;
+	}
+	
+	#missionsListHeader h3 {
+		margin: 0.5em 0px;
+		font-size: 1.2em;
+	}
+
+	#missionsList {
+		float: right;
+		width: 76%;
+		padding: 0px 1% 0px;
+	}
+
+	#missionsList p {
+		font-size: 0.8em;
+	}
+
+	#missionsListTableContainer {
+		border: 2px solid #eaa724;
+		padding: 5px 5px;
+		border-radius: 6px;
+	}
+
+	#missionsListTableContainer table.tableMissions {
+		display: table;
+		width: 100%;
+		font-size: 0.9em;
+		padding: 5px;
+	}
+
+	#missionsListTableContainer table.tableMissions thead.rowHeader {
+		font-size: 0.9em;
+	}
+
+	#missionsListTableContainer table.tableMissions th.cellHeaderMissions {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions th.cellHeaderIsland {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions th.cellHeaderPlayed {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions th.cellHeaderLastPlayed {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions th.cellHeaderAuthor {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions th.cellHeaderModified {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions th.cellHeaderBroken {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellMissions {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellIsland {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellPlayed {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellLastPlayed {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellAuthor {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellModified {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellBroken {
+		display: table-cell;
+		padding: 0.5em 1em;
+		color: #f00;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellDropdown {
+		display: table-cell;
+		padding: 5px;
+		background-color: #000;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellDropdown p {
+		font-size: 1em;
+		line-height: 1.2em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellDropdown p.fullInfo {
+		display: none;
+	}	
+
+
+
+	/************************************************************
+	SECTION: ACTIONS
+	************************************************************/
+
+	#actions {
+		float: left;
+		width: 20%;
+		padding: 0px 1% 0px;
+	}
+
+	#actions #actionsHeader {
+		display: block;
+	}
+	
+	#actions #actionsHeader h3 {
+		margin: 0.5em 0px;
+		font-size: 1.2em;
+	}
+
+	#actions ul {
+		list-style: none;
+		margin: 0px;
+		padding: 10px 0px 5px 0px;
+	}
+
+	#actions li {
+		display: inline-block;
+		margin: 0px 0px 0px 0px;
+		padding: 0.2em 0px;
+		font-size: 1em;
+	}
+
+	#actions a, nav a:visited {
+		color: #000;
+		margin: 0px;
+		padding: 0.5em 1em;
+		background-color: #eaa724;
+		border-radius: 6px;
+		text-transform: uppercase;
+		font-family: 'Ubuntu Condensed';
+		font-weight: 400;
+	}
+
+	#actions a:hover, nav a:active {
+		background-color: #ffcb05;
+		color: #000;
+	}
+
+
+
+	/************************************************************
+	SECTION: EDIT MISSIONS
+	************************************************************/
+
+	#editMissionsHeader {
+		display: block;
+	}
+	
+	#editMissionsHeader h3 {
+		margin: 0.5em 0px;
+		font-size: 1.2em;
+	}
+
+	#editMissions {
+		float: left;
+		width: 76%;
+		padding: 0px 1% 0px;
+	}
+
+	#editMissions p {
+		font-size: 0.8em;
+	}
+
+	#editMissionsContainer {
+		border: 2px solid #eaa724;
+		padding: 15px 15px 15px 15px;
+		border-radius: 6px;
+	}
+
+	#editMissionsContainerLeft {
+		float: left;
+		width: 46%;
+		padding: 0px 4% 0px 0px;
+	}
+
+	#editMissionsContainerRight {
+		float: left;
+		width: 46%;
+		padding: 0px px 0px 4%;
+	}
+
+	#editMissionsContainerBottom {
+		clear: both;
+		padding-top: 10px;
+	}
+
+	#editMissionsContainer fieldset {
+		padding-top: 10px;
+	}
+
+	#editMissionsContainer label {
+		padding: 0px 0px 0px 0px;
+		font-size: 0.9em;
+	}
+
+	#editMissionsContainer input[type="text"] {
+		padding: 5px;
+		margin-bottom: 15px;
+		font-size: 1em;
+	}
+
+	#editMissionsContainer #editMissionsContainerTop input[type="text"] {
+		padding: 5px;
+		margin-bottom: 15px;
+		font-size: 2em;
+	}
+
+	#editMissionsContainer select {
+		margin: 10px 0px 15px 0px;
+		padding: 5px;
+		font-size: 1em
+	}
+
+	#editMissionsContainer input.slots[type="text"] {
+		padding: 5px;
+		margin-bottom: 15px;
+		font-size: 1em;
+
+		width: 10%;
+		border: 1px solid #ccc;
+		background-color: #303030;
+		color: #ccc;
+	}
+
+	#editMissionsContainer input[type="submit"] {
+		margin: 10px 10px 10px 0px;
+		padding: 0.2em 1em;
+		font-size: 1em;
+	}
+
+	#editMissionsContainer input[type="reset"] {
+		margin: 10px 10px 0px 3px;
+		padding: 0.2em 1em;
+		font-size: 1em;
+	}
+
+	/************************************************************
+	FOOTER
+	************************************************************/
+
+	footer p {
+		font-size: 0.75em;
+	}
+
+}

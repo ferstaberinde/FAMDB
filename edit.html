@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <html lang="en">
+            <title>Folk ARPS | Missions DB | Edit Mission</title>
+            <link rel="stylesheet" href="css/normalize.css">
+            <!-- NOTE: The link to Google fonts is optional and commented-out by default. -->
+            <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,500|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="css/main.css">
+            <link rel="stylesheet" href="css/responsive.css">
+            <!-- <meta name="viewport" content"width=device-width, initial-scale=1.0"> -->
+            <meta name="viewport" content="initial-scale=1.0">
+        </head>
+        <body>
+            <header>
+                <a name="top"></a>
+                <a href="index.html" id="logo">
+                    <h1>FA Missions DB</h1>
+                    <h2>Missions on the Folk ARPS server(s)</h2>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="add.html" id="AddButton">Add</a></li>
+                        <li><a href="#" id="LogoutButton">Logout</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- NOTE: The wrapper div is centered via CSS. -->
+            <div id="wrapper">
+                <section id="actions">
+                    <div id="actionsHeader">
+                        <h3>Actions</h3>
+                    </div>
+                    <ul>
+                        <li><a href="index.html">Browse Missions</a></li>
+                    </ul>
+                </section>
+                <section id="editMissions">
+                    <div id="editMissionsHeader">
+                        <h3>Edit Mission</h3>
+                    </div>
+                    <div id="editMissionsContainer">
+                        <div id="loading" style="display:none">
+                            <img class="loader" src="images/loader.gif"  width="32" height="32">
+                    </div>
+                    <form action="#" method="POST" name="form_edit" id="form_edit">
+                        <div id="editMissionsContainerTop">
+                            <label for="missionName">Mission Name</label><br>
+                            <input type="text" maxlength="56" name="missionName" value="" id="missionName"><br>
+                        </div>
+                        <div id="editMissionsContainerLeft">
+                            <label for="missionGame">Game</label><br>
+                            <select name="missionGame" id="missionGame">
+                                <option>Arma 3</option>
+                                <option>Arma 2</option>
+                            </select><br>
+                            <label for="missionIsland">Island</label><br>
+                            <select name="missionIsland" id="missionIsland">
+                                <option>Proving Grounds</option>
+                                <option>Celle2</option>
+                                <option>Chernarus</option>
+                                <option>Desert</option>
+                                <option>Fallujah</option>
+                                <option>Podagorsk</option>
+                                <option>Proving Grounds</option>
+                                <option>Shapur</option>
+                                <option>Stratis</option>
+                                <option>Takistan</option>
+                                <option>United Sahrani</option>
+                                <option>Utes</option>
+                                <option>Zargabad</option>
+                            </select><br>
+                            <label for="missionSession">Session</label><br>
+                            <select name="missionSession" id="missionSession">
+                                <option>Vanilla</option>
+                                <option>V+</option>
+                            </select><br>
+                        </div>
+                        <div id="editMissionsContainerRight">
+                            <label for="missionType">Mission Type</label><br>
+                            <select name="missionType" id="missionType">
+                                <option>Adversarial</option>
+                                <option>Coop</option>
+                                <option>Other</option>
+                            </select><br>
+                            <label for="missionSlots">Slots</label><br>
+                            <input type="text" size="3" maxlength="3" name="missionSlots" value="" id="missionSlots" class="slots"><br>
+                            <label for="missionAuthors">Author(s)</label><br>
+                            <input type="text" maxlength="56" name="missionAuthors" value="" id="missionAuthors"><br>
+                        </div>
+                        <div id="editMissionsContainerBottom">
+                            <label for="missionDescription">Description</label><br>
+                            <textarea name="missionDescription" value="" id="missionDescription"></textarea><br>
+
+                            <input type="checkbox" name="missionBroken" id="missionBroken">&nbsp;<label for="missionBroken">Broken?</label><br>
+                            <label for="missionBrokenMessage">Broken Message</label><br>
+                            <textarea name="missionBrokenMessage" value="" id="missionBrokenMessage"></textarea><br>
+                        </div>
+                        <span id="errorEdit"></span>
+                        <input type="submit" value="Save" id="missionSave"><br>
+                    </form>
+                </div>
+                <p><a href="#top" >&#9650; Back to top</a></p>
+            </section>
+        </div>
+        <footer>
+            <p>&copy; 2014 <a href="http://www.folkarps.com">Folk ARPS</a></p>
+        </footer>
+        <div id="loginWindow" class="popupWindow">
+            <div id="loginScreen">
+                <label for="loginName">Username</label><br>
+                <input type="text" maxlength="56" class="searchBox" name="loginName" value="" id="loginName"><br>
+                <label for="loginName">Password</label><br>
+                <input type="password" maxlength="56" class="searchBox" name="PasswordInput" value="" id="PasswordInput"><br>
+                <span id="errorLogin"></span>
+                <a id="forgottonPassword">Forgotten your password?</a>
+                <buttongroup>
+                    <ul>
+                        <li><a id="loginWindowCancel" href="#">Cancel</a></li>
+                        <li><a id="loginWindowSignup" href="#">SignUp</a></li>
+                        <li><a id="loginWindowOk" href="#">Login</a></li>
+                    </ul>
+                </buttongroup>
+            </div>
+            <div id = "forgottenScreen" style="display:none">
+                <label for="email">Email</label><br>
+                <input type="email" maxlength="56" class="searchBox" name="email" value="" id="forgottonUsername"><br>
+                <buttongroup>
+                    <ul>
+                        <li><a id="forgottenWindowCancel" href="#">Cancel</a></li>
+                        <li><a id="forgottenWindowOk" href="#">Send</a></li>
+                    </ul>
+                </buttongroup>
+            </div>
+            <div id = "signupScreen" style="display:none">
+                <label for="loginName">Username</label><br>
+                <input type="text" maxlength="56" class="searchBox" name="loginName" value="" id="signupName"><br>
+                <label for="PasswordInput">Password</label><br>
+                <input type="password" maxlength="56" class="searchBox" name="PasswordInput" value="" id="signupPassword"><br>
+                <label for="email">Email</label><br>
+                <input type="email" maxlength="56" class="searchBox" name="email" value="" id="signupEmail"><br>
+                <span id="errorSignup"></span>
+                <buttongroup>
+                    <ul>
+                        <li><a id="signupWindowCancel" href="#">Cancel</a></li>
+                        <li><a id="signupWindowOk" href="#">SignUp</a></li>
+                    </ul>
+                </buttongroup>
+            </div>
+        </div>
+        <script type="text/javascript" src="js\jquery-2.1.0.js"></script>
+        <script type="text/javascript" src="js\parse-1.2.16.min.js"></script>
+        <script type="text/javascript" src="js\moment.min.js"></script>
+        <script type="text/javascript" src="js\jExpand.js"></script>
+        <script type="text/javascript" src="js\popup.js"></script>
+        <script type="text/javascript" src="js\user.js"></script>
+        <script type="text/javascript" src="js\edit.js"></script>
+        <script type="text/javascript" src="js\jquery.tablesorter.js"></script>
+    </body>
+</html>
