@@ -2,750 +2,738 @@
 GENERAL
 ************************************************************/
 body {
-	font-family: 'Ubuntu', sans-serif;
-	font-weight: 300;
-	margin: 0px;
-	background-color: #1c1c1c;
-	color: #aaa;
+    font-family:'Ubuntu',sans-serif;
+    font-weight:300;
+    margin:0;
+    background-color:#1c1c1c;
+    color:#aaa
 }
 
 #wrapper {
-	max-width: 940px;
-	margin: 0px auto 0px;
-	padding: 0px 2.5% 0px;
+    max-width:940px;
+    margin:0 auto;
+    padding:0 2.5%
 }
 
-a, a:visited {
-	color: #eaa724;
-	text-decoration: none;
+a,a:visited {
+    color:#eaa724;
+    text-decoration:none
 }
 
-a:hover, a:active {
-	color: #ffcb05;
+a:hover,a:active {
+    color:#ffcb05
 }
 
 /************************************************************
 HEADER
 ************************************************************/
-
 header {
-	float: left;
-	margin: 0px 0px 20px 0px;
-	padding: 0px;
-	width: 100%;
-	background-color: #000;
-	text-transform: uppercase;
+    float:left;
+    margin:0 0 20px;
+    padding:0;
+    width:100%;
+    background-color:#000;
+    text-transform:uppercase
 }
 
 #logo {
-	margin: 0px;
+    margin:0
 }
 
 header a {
-	text-decoration: none;
+    text-decoration:none
 }
 
 header a h1 {
-	margin: 0.5em 10px 0.25em 12px;
-	padding: 0px;
-	font-size: 0.9em;
-	font-weight: 500;
-	color: #eaa724;
+    margin:.5em 10px .25em 12px;
+    padding:0;
+    font-size:.9em;
+    font-weight:500;
+    color:#eaa724
 }
 
 header a h2 {
-	display: none;
-	margin: 0em 10px 1em;
-	padding: 0px;
-	font-size: 0.8em;
-	font-weight: 300;
-	color: #aaa;
+    display:none;
+    margin:0 10px 1em;
+    padding:0;
+    font-size:.8em;
+    font-weight:300;
+    color:#aaa
 }
 
 /************************************************************
 NAVIGATION
 ************************************************************/
-
 nav {
-	float: left;
-	margin: 0px;
-	padding: 0px;
-	width: 100%;
-	background-color: #303030;
+    float:left;
+    margin:0;
+    padding:0;
+    width:100%;
+    background-color:#303030
 }
 
 nav ul {
-	list-style: none;
-	margin: 0px;
-	padding: 0px 0px 0px 12px;
+    list-style:none;
+    margin:0;
+    padding:0 0 0 12px
 }
 
 nav li {
-	display: inline-block;
-	margin: 0px 10px 0px 0px;
-	padding: 1em 0px;
-	font-size: 1.3em;
+    display:inline-block;
+    margin:0 10px 0 0;
+    padding:1em 0;
+    font-size:1.3em
 }
 
-nav a, nav a:visited {
-	color: #000;
-	margin: 0px;
-	padding: 0.5em 1em;
-	background-color: #eaa724;
-	border-radius: 6px;
-	text-transform: uppercase;
-	font-family: 'Ubuntu Condensed';
-	font-weight: 400;
+nav a,nav a:visited {
+    color:#000;
+    margin:0;
+    padding:.5em 1em;
+    background-color:#eaa724;
+    border-radius:6px;
+    text-transform:uppercase;
+    font-family:'Ubuntu Condensed';
+    font-weight:400
 }
 
-nav a:hover, nav a:active {
-	background-color: #ffcb05;
-	color: #000;
+nav a:hover,nav a:active {
+    background-color:#ffcb05;
+    color:#000
 }
 
 /************************************************************
 SECTION: FILTERS
 ************************************************************/
-
 #filters {
-	margin-bottom: 20px;
+    margin-bottom:20px
 }
 
 #filtersHeader {
-	display: none;
+    display:none
 }
 
 #filtersHeader h3 {
-	margin: 0px 0px 10px;
-	font-size: 1em;
-	font-weight: normal;
-	color: #eaa724;
-	text-transform: uppercase;
+    margin:0 0 10px;
+    font-size:1em;
+    font-weight:400;
+    color:#eaa724;
+    text-transform:uppercase
 }
 
 #filtersHeader p {
-	font-size: 0.8em;
+    font-size:.8em
 }
 
 #filters fieldset {
-	margin-bottom: 10px;
-	padding-top: 20px;
-	background-color: #0f0f0f;
-	border: 2px solid #eaa724;
-	border-radius: 6px;
+    margin-bottom:10px;
+    padding-top:20px;
+    background-color:#0f0f0f;
+    border:2px solid #eaa724;
+    border-radius:6px
 }
 
 #filters fieldset legend {
-	padding: 0.3em 0.5em;
-	font-size: 11px;
-	font-weight: 500;
-	color: #fff;
-	background-color: #000;
-	border: 2px solid #eaa724;
-	border-radius: 6px;
-	text-transform: uppercase;
+    padding:.3em .5em;
+    font-size:11px;
+    font-weight:500;
+    color:#fff;
+    background-color:#000;
+    border:2px solid #eaa724;
+    border-radius:6px;
+    text-transform:uppercase
 }
 
 #filters fieldset label {
-	padding: 0px 0.5em 0px;
-	font-size: 1em;
+    padding:0 .5em;
+    font-size:1em
 }
 
 #filters fieldset select {
-	margin: 5px 0px;
-	padding: 15px 0px;
-	width: 90%;
-	font-family: 'Ubuntu Condensed';
-	font-size: 1em;
-	font-weight: 400;
-	color: #aaa;
-	background-color: #303030;
+    margin:5px 0;
+    padding:15px 0;
+    width:90%;
+    font-family:'Ubuntu Condensed';
+    font-size:1em;
+    font-weight:400;
+    color:#aaa;
+    background-color:#303030
 }
 
 #filters fieldset input[type="text"] {
-	font-size: 1em;
-	border: 1px solid #ccc;
-	background-color: #303030;
-	padding: 15px 2px;
-	margin: 20px 0px;
-	color: #ccc;
+    font-size:1em;
+    border:1px solid #ccc;
+    background-color:#303030;
+    padding:15px 2px;
+    margin:20px 0;
+    color:#ccc
 }
 
 #filters fieldset input.searchBox[type="text"] {
-	font-size: 1em;
-	width: 90%;
-	border: 1px solid #ccc;
-	background-color: #303030;
-	padding: 15px 2px;
-	margin: 20px 0px;
-	color: #ccc;
+    font-size:1em;
+    width:90%;
+    border:1px solid #ccc;
+    background-color:#303030;
+    padding:15px 2px;
+    margin:20px 0;
+    color:#ccc
 }
 
 #filters fieldset input[type="checkbox"] {
-	font-size: 1em;
-	border: 1px solid #ccc;
-	background-color: #303030;
-	padding: 15px 2px;
-	margin: 20px 0px;
-	color: #ccc;
+    font-size:1em;
+    border:1px solid #ccc;
+    background-color:#303030;
+    padding:15px 2px;
+    margin:20px 0;
+    color:#ccc
 }
 
 #filters input[type="submit"] {
-	margin: 0px 10px 0px 0px;
-	background-color: #eaa724;
-	border: none;
-	border-radius: 6px;
-	padding: 0.5em 1em;
-	font-family: 'Ubuntu Condensed';
-	font-size: 1.3em;
-	font-weight: 400;
-	color: #000;
-	text-transform: uppercase;
+    margin:0 10px 0 0;
+    background-color:#eaa724;
+    border:none;
+    border-radius:6px;
+    padding:.5em 1em;
+    font-family:'Ubuntu Condensed';
+    font-size:1.3em;
+    font-weight:400;
+    color:#000;
+    text-transform:uppercase
 }
 
-#filters input[type="submit"]:hover, #filters input[type="submit"]:active {
-	border: 1px none;
-	background-color: #ffcb05;
-	color: #000;
+#filters input[type="submit"]:hover,#filters input[type="submit"]:active {
+    border:1px none;
+    background-color:#ffcb05;
+    color:#000
 }
 
 #filters input[type="reset"] {
-	margin: 5px 10px 5px 3px;
-	background-color: #eaa724;
-	border: none;
-	border-radius: 6px;
-	padding: 0.5em 1em;
-	font-family: 'Ubuntu Condensed';
-	font-size: 1.3em;
-	font-weight: 400;
-	color: #000;
-	text-transform: uppercase;
+    margin:5px 10px 5px 3px;
+    background-color:#eaa724;
+    border:none;
+    border-radius:6px;
+    padding:.5em 1em;
+    font-family:'Ubuntu Condensed';
+    font-size:1.3em;
+    font-weight:400;
+    color:#000;
+    text-transform:uppercase
 }
 
-#filters input[type="reset"]:hover, #filters input[type="submit"]:active {
-	background-color: #ffcb05;
-	color: #000;
+#filters input[type="reset"]:hover,#filters input[type="submit"]:active {
+    background-color:#ffcb05;
+    color:#000
 }
-
 
 /************************************************************
 SECTION: MISSIONSLIST
 ************************************************************/
-
 #missionsListHeader {
-	display: none;
+    display:none
 }
 
 #missionsList h3 {
-	margin: 0px 0px 10px;
-	font-size: 1em;
-	font-weight: normal;
-	color: #eaa724;
-	text-transform: uppercase;
+    margin:0 0 10px;
+    font-size:1em;
+    font-weight:400;
+    color:#eaa724;
+    text-transform:uppercase
 }
 
 #missionsList p {
-	padding-left: 0.5em;
-	font-size: 1em;
+    padding-left:.5em;
+    font-size:1em
 }
 
 #missionsListTableContainer {
-	border-width: 2px 0px;
-	border-style: solid;
-	border-color: #eaa724;
-	background-color: #0f0f0f;
-	padding: 5px 0px;
+    border-width:2px 0;
+    border-style:solid;
+    border-color:#eaa724;
+    background-color:#0f0f0f;
+    padding:5px 0
 }
 
 #missionsListTableContainer table.tableMissions {
-	width: 100%;
-	font-size: 1em;
-	font-family: 'Ubuntu Condensed';
-	font-weight: 400;
-	text-align: left;
+    width:100%;
+    font-size:1em;
+    font-family:'Ubuntu Condensed';
+    font-weight:400;
+    text-align:left
 }
 
 #missionsListTableContainer table.tableMissions thead.rowHeader {
-	background-color: #000;
-	text-transform: uppercase;
+    background-color:#000;
+    text-transform:uppercase
 }
 
-#missionsListTableContainer table.tableMissions thead.rowHeader a, .rowHeader a:visited {
-	color: #fff;
-	text-decoration: none;
-	font-weight: 400;
+#missionsListTableContainer table.tableMissions thead.rowHeader a,.rowHeader a:visited {
+    color:#fff;
+    text-decoration:none;
+    font-weight:400
 }
 
-#missionsListTableContainer table.tableMissions thead.rowHeader a:hover, .rowHeader a:active {
-	color: #fff;
-	text-decoration: none;
-	font-weight: 400;
+#missionsListTableContainer table.tableMissions thead.rowHeader a:hover,.rowHeader a:active {
+    color:#fff;
+    text-decoration:none;
+    font-weight:400
 }
 
 #missionsListTableContainer table.tableMissions th.cellHeaderMissions {
-	padding: 1em 0.5em;
-	text-align: left;
+    padding:1em .5em;
+    text-align:left
 }
 
 #missionsListTableContainer table.tableMissions th.cellHeaderSlots {
-	display: none;
-	text-align: left;
+    display:none;
+    text-align:left
 }
 
 #missionsListTableContainer table.tableMissions th.cellHeaderIsland {
-	display: none;
-	text-align: left;
+    display:none;
+    text-align:left
 }
 
 #missionsListTableContainer table.tableMissions th.cellHeaderPlayed {
-	display: none;
-	text-align: left;
+    display:none;
+    text-align:left
 }
 
 #missionsListTableContainer table.tableMissions th.cellHeaderLastPlayed {
-	display: none;
-	text-align: left;
+    display:none;
+    text-align:left
 }
 
 #missionsListTableContainer table.tableMissions th.cellHeaderAuthor {
-	display: none;
-	text-align: left;
+    display:none;
+    text-align:left
 }
 
 #missionsListTableContainer table.tableMissions th.cellHeaderModified {
-	display: none;
-	text-align: left;
+    display:none;
+    text-align:left
 }
 
 #missionsListTableContainer table.tableMissions th.cellHeaderBroken {
-	display: none;
-	text-align: left;
+    display:none;
+    text-align:left
 }
 
-#missionsListTableContainer table.tableMissions tr.row.odd  {
-	background-color: #303030;
+#missionsListTableContainer table.tableMissions tr.row.odd {
+    background-color:#303030
 }
 
 #missionsListTableContainer table.tableMissions tr.row.even {
-	background-color: #0f0f0f;
+    background-color:#0f0f0f
 }
 
 #missionsListTableContainer table.tableMissions td.cellMissions {
-	padding: 1em 0.5em;
+    padding:1em .5em
 }
 
 #missionsListTableContainer table.tableMissions td.cellSlots {
-	display: none;
+    display:none
 }
 
 #missionsListTableContainer table.tableMissions td.cellIsland {
-	display: none;
+    display:none
 }
 
 #missionsListTableContainer table.tableMissions td.cellPlayed {
-	display: none;
+    display:none
 }
 
 #missionsListTableContainer table.tableMissions td.cellLastPlayed {
-	display: none;
+    display:none
 }
 
 #missionsListTableContainer table.tableMissions td.cellAuthor {
-	display: none;
+    display:none
 }
 
 #missionsListTableContainer table.tableMissions td.cellModified {
-	display: none;
+    display:none
 }
 
 #missionsListTableContainer table.tableMissions td.cellBroken {
-	display: none;
+    display:none
 }
 
 #missionsListTableContainer table.tableMissions td.cellDropdown {
-	display: table-cell;
-	padding: 5px;
-	background-color: #000;
+    display:table-cell;
+    padding:5px;
+    background-color:#000
 }
 
 #missionsListTableContainer table.tableMissions td.cellDropdown p {
-	font-size: 1em;
-	line-height: 1.2em;
+    font-size:1em;
+    line-height:1.2em
 }
 
 p.fullInfo {
-	font-size: 1em;
-	line-height: 1.2em;
+    font-size:1em;
+    line-height:1.2em
 }
 
 .cellDropdownSubtitle {
-	font-family: 'Ubuntu', sans-serif;
-	font-weight: 500;
-	font-size: 1em;
-	color: #fff;
+    font-family:'Ubuntu',sans-serif;
+    font-weight:500;
+    font-size:1em;
+    color:#fff
 }
 
 #missionsListTableContainer table.tableMissions td.cellDropdown ul {
-	list-style: none;
-	margin: 0px;
-	padding: 0px 0px 5px 10px;
+    list-style:none;
+    margin:0;
+    padding:0 0 5px 10px
 }
 
 #missionsListTableContainer table.tableMissions td.cellDropdown li {
-	display: inline-block;
-	margin: 0px 10px 0px 0px;
-	padding: 1em 0px;
-	font-size: 1.3em;
+    display:inline-block;
+    margin:0 10px 0 0;
+    padding:1em 0;
+    font-size:1.3em
 }
 
-#missionsListTableContainer table.tableMissions td.cellDropdown a, nav a:visited {
-	color: #000;
-	margin: 0px;
-	padding: 0.5em 1em;
-	background-color: #eaa724;
-	border-radius: 6px;
-	text-transform: uppercase;
-	font-family: 'Ubuntu Condensed';
-	font-weight: 400;
+#missionsListTableContainer table.tableMissions td.cellDropdown a,nav a:visited {
+    color:#000;
+    margin:0;
+    padding:.5em 1em;
+    background-color:#eaa724;
+    border-radius:6px;
+    text-transform:uppercase;
+    font-family:'Ubuntu Condensed';
+    font-weight:400
 }
 
-#missionsListTableContainer table.tableMissions td.cellDropdown a:hover, nav a:active {
-	background-color: #ffcb05;
-	color: #000;
+#missionsListTableContainer table.tableMissions td.cellDropdown a:hover,nav a:active {
+    background-color:#ffcb05;
+    color:#000
 }
-
-
 
 /************************************************************
 SECTION: ACTIONS
 ************************************************************/
-
 #actions {
-	margin-bottom: 20px;
+    margin-bottom:20px
 }
 
 #actions #actionsHeader {
-	display: none;
+    display:none
 }
 
 #actions #actionsHeader h3 {
-	margin: 0px 0px 10px;
-	font-size: 1em;
-	font-weight: normal;
-	color: #eaa724;
-	text-transform: uppercase;
+    margin:0 0 10px;
+    font-size:1em;
+    font-weight:400;
+    color:#eaa724;
+    text-transform:uppercase
 }
 
 #actions p {
-	font-size: 0.8em;
+    font-size:.8em
 }
 
 #actions ul {
-	list-style: none;
-	margin: 0px;
-	padding: 0px 0px 5px 5px;
+    list-style:none;
+    margin:0;
+    padding:0 0 5px 5px
 }
 
 #actions li {
-	display: inline-block;
-	margin: 0px 10px 0px 0px;
-	padding: 1em 0px;
-	font-size: 1.3em;
+    display:inline-block;
+    margin:0 10px 0 0;
+    padding:1em 0;
+    font-size:1.3em
 }
 
-#actions a, nav a:visited {
-	color: #000;
-	margin: 0px;
-	padding: 0.5em 1em;
-	background-color: #eaa724;
-	border-radius: 6px;
-	text-transform: uppercase;
-	font-family: 'Ubuntu Condensed';
-	font-weight: 400;
+#actions a,nav a:visited {
+    color:#000;
+    margin:0;
+    padding:.5em 1em;
+    background-color:#eaa724;
+    border-radius:6px;
+    text-transform:uppercase;
+    font-family:'Ubuntu Condensed';
+    font-weight:400
 }
 
-#actions a:hover, nav a:active {
-	background-color: #ffcb05;
-	color: #000;
+#actions a:hover,nav a:active {
+    background-color:#ffcb05;
+    color:#000
 }
-
-
 
 /************************************************************
 SECTION: EDITMISSIONS
 ************************************************************/
-
 #editMissionsHeader {
-	display: none;
+    display:none
 }
 
 #editMissionsHeader h3 {
-	margin: 0px 0px 10px;
-	font-size: 1em;
-	font-weight: normal;
-	color: #eaa724;
-	text-transform: uppercase;
+    margin:0 0 10px;
+    font-size:1em;
+    font-weight:400;
+    color:#eaa724;
+    text-transform:uppercase
 }
 
 #editMissionsHeader p {
-	padding-left: 0.5em;
-	font-size: 1em;
+    padding-left:.5em;
+    font-size:1em
 }
 
 #editMissionsContainer {
-	border-width: 2px 0px;
-	border-style: solid;
-	border-color: #eaa724;
-	background-color: #0f0f0f;
-	padding: 10px 5px;
+    border-width:2px 0;
+    border-style:solid;
+    border-color:#eaa724;
+    background-color:#0f0f0f;
+    padding:10px 5px
 }
 
 #editMissionsContainer fieldset {
-	margin-bottom: 10px;
-	padding-top: 20px;
-	background-color: #0f0f0f;
-	border: 2px solid #eaa724;
-	border-radius: 6px;
+    margin-bottom:10px;
+    padding-top:20px;
+    background-color:#0f0f0f;
+    border:2px solid #eaa724;
+    border-radius:6px
 }
 
 #editMissionsContainer fieldset legend {
-	padding: 0.3em 0.5em;
-	font-size: 11px;
-	font-weight: 500;
-	color: #fff;
-	background-color: #000;
-	border: 2px solid #eaa724;
-	border-radius: 6px;
-	text-transform: uppercase;
+    padding:.3em .5em;
+    font-size:11px;
+    font-weight:500;
+    color:#fff;
+    background-color:#000;
+    border:2px solid #eaa724;
+    border-radius:6px;
+    text-transform:uppercase
 }
 
 #editMissionsContainer label {
-	font-family: 'Ubuntu', sans-serif;
-	font-weight: 500;
-	font-size: 1em;
-	color: #fff;
+    font-family:'Ubuntu',sans-serif;
+    font-weight:500;
+    font-size:1em;
+    color:#fff
 }
 
 #editMissionsContainer select {
-	margin: 10px 0px;
-	padding: 15px 0px;
-	width: 95%;
-	font-family: 'Ubuntu Condensed';
-	font-size: 1em;
-	font-weight: 400;
-	color: #aaa;
-	background-color: #303030;
+    margin:10px 0;
+    padding:15px 0;
+    width:95%;
+    font-family:'Ubuntu Condensed';
+    font-size:1em;
+    font-weight:400;
+    color:#aaa;
+    background-color:#303030
 }
 
 #editMissionsContainer input[type="text"] {
-	font-size: 1em;
-	margin: 10px 0px;
-	padding: 15px 0px;
-
-	width: 95%;
-	border: 1px solid #ccc;
-	background-color: #303030;
-	padding-left: 2px;
-	color: #ccc;
+    font-size:1em;
+    margin:10px 0;
+    padding:15px 0;
+    width:95%;
+    border:1px solid #ccc;
+    background-color:#303030;
+    padding-left:2px;
+    color:#ccc
 }
 
 #editMissionsContainer input.slots[type="text"] {
-	font-size: 1em;
-	margin: 10px 0px;
-	padding: 15px 0px;
-
-	width: 95%;
-	border: 1px solid #ccc;
-	background-color: #303030;
-	padding-left: 2px;
-	color: #ccc;
+    font-size:1em;
+    margin:10px 0;
+    padding:15px 0;
+    width:95%;
+    border:1px solid #ccc;
+    background-color:#303030;
+    padding-left:2px;
+    color:#ccc
 }
 
 #editMissionsContainer input[type="checkbox"] {
-	margin: 10px 10px 20px 0px;
-	border: 1px solid #ccc;
-	background-color: #303030;
-	padding-left: 0px;
-	color: #ccc;
+    margin:10px 10px 20px 0;
+    border:1px solid #ccc;
+    background-color:#303030;
+    padding-left:0;
+    color:#ccc
 }
 
 #editMissionsContainer textarea {
-	width: 95%;
-	height: 4em;
-	border: 1px solid #ccc;
-	background-color: #303030;
-	font-size: 1em;
-	margin: 10px 0px;
-	padding: 5px;
-	color: #ccc;
+    width:95%;
+    height:4em;
+    border:1px solid #ccc;
+    background-color:#303030;
+    font-size:1em;
+    margin:10px 0;
+    padding:5px;
+    color:#ccc
 }
 
 #editMissionsContainer input[type="submit"] {
-	margin: 10px 10px 10px 0px;
-	background-color: #eaa724;
-	border: none;
-	border-radius: 6px;
-	padding: 0.5em 1em;
-	font-family: 'Ubuntu Condensed';
-	font-size: 1.3em;
-	font-weight: 400;
-	color: #000;
-	text-transform: uppercase;
+    margin:10px 10px 10px 0;
+    background-color:#eaa724;
+    border:none;
+    border-radius:6px;
+    padding:.5em 1em;
+    font-family:'Ubuntu Condensed';
+    font-size:1.3em;
+    font-weight:400;
+    color:#000;
+    text-transform:uppercase
 }
 
-#editMissionsContainer input[type="submit"]:hover, #filters input[type="submit"]:active {
-	border: 1px none;
-	background-color: #ffcb05;
-	color: #000;
+#editMissionsContainer input[type="submit"]:hover,#filters input[type="submit"]:active {
+    border:1px none;
+    background-color:#ffcb05;
+    color:#000
 }
 
 #editMissionsContainer input[type="reset"] {
-	margin: 10px 10px 0px 0px;
-	background-color: #eaa724;
-	border: none;
-	border-radius: 6px;
-	padding: 0.5em 1em;
-	font-family: 'Ubuntu Condensed';
-	font-size: 1.3em;
-	font-weight: 400;
-	color: #000;
-	text-transform: uppercase;
+    margin:10px 10px 0 0;
+    background-color:#eaa724;
+    border:none;
+    border-radius:6px;
+    padding:.5em 1em;
+    font-family:'Ubuntu Condensed';
+    font-size:1.3em;
+    font-weight:400;
+    color:#000;
+    text-transform:uppercase
 }
 
-#editMissionsContainer input[type="reset"]:hover, #filters input[type="submit"]:active {
-	background-color: #ffcb05;
-	color: #000;
+#editMissionsContainer input[type="reset"]:hover,#filters input[type="submit"]:active {
+    background-color:#ffcb05;
+    color:#000
 }
-.loader
-{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px 50px;
+
+.loader {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    padding:10px 50px
 }
 
 /************************************************************
 FOOTER
 ************************************************************/
-
 footer {
-	clear: both;
-	margin: 0px 0px 20px 15px;
-	padding-top: 50px;
+    clear:both;
+    margin:0 0 20px 15px;
+    padding-top:50px
 }
 
 footer p {
-	font-size: 0.75em;
-	font-weight: normal;
-	color: #999;
+    font-size:.75em;
+    font-weight:400;
+    color:#999
 }
+
 /************************************************************
 POPUP
 ************************************************************/
 #backgroundPopup {
-  display:none;
-  position:fixed;
-  _position:absolute; /* hack for internet explorer 6*/
-  height:100%;
-  width:100%;
-  top:0;
-  left:0;
-  background:#000000;
-  z-index:1;
+    display:none;
+    position:fixed;
+    _position:absolute;
+/* hack for internet explorer 6*/
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    background:#000;
+    z-index:1
 }
 
 .popupWindow {
-  display:none;
-  position:fixed;
-  _position:absolute; /* hack for internet explorer 6*/
-  /*height:200px;*/
-  width:408px;
-  border-width: 2px 0px;
-  border-style: solid;
-  border-color: #eaa724;
-  background-color: #0f0f0f;
-  z-index:2;
-  padding:12px;
-  font-size:13px;
+    display:none;
+    position:fixed;
+    _position:absolute;
+/* hack for internet explorer 6*/
+/*height:200px;*/
+    width:408px;
+    border-width:2px 0;
+    border-style:solid;
+    border-color:#eaa724;
+    background-color:#0f0f0f;
+    z-index:2;
+    padding:12px;
+    font-size:13px
 }
+
 /************************************************************
 Login
 ************************************************************/
-#loginWindow input[type="text"]
-{
-  font-size: 1em;
-  margin: 5px 0px;
-  padding: 15px 0px;
+#loginWindow input[type="text"] {
+    font-size:1em;
+    margin:5px 0;
+    padding:15px 0;
+    width:95%;
+    border:1px solid #ccc;
+    background-color:#303030;
+    padding-left:2px;
+    color:#ccc
+}
 
-  width: 95%;
-  border: 1px solid #ccc;
-  background-color: #303030;
-  padding-left: 2px;
-  color: #ccc;
+#loginWindow input[type="password"] {
+    font-size:1em;
+    margin:5px 0;
+    padding:15px 0;
+    width:95%;
+    border:1px solid #ccc;
+    background-color:#303030;
+    padding-left:2px;
+    color:#ccc
 }
-#loginWindow input[type="password"]
-{
-  font-size: 1em;
-  margin: 5px 0px;
-  padding: 15px 0px;
 
-  width: 95%;
-  border: 1px solid #ccc;
-  background-color: #303030;
-  padding-left: 2px;
-  color: #ccc;
+#loginWindow input[type="email"] {
+    font-size:1em;
+    margin:5px 0;
+    padding:15px 0;
+    width:95%;
+    border:1px solid #ccc;
+    background-color:#303030;
+    padding-left:2px;
+    color:#ccc
 }
-#loginWindow input[type="email"]
-{
-  font-size: 1em;
-  margin: 5px 0px;
-  padding: 15px 0px;
-  width: 95%;
-  border: 1px solid #ccc;
-  background-color: #303030;
-  padding-left: 2px;
-  color: #ccc;
-}
+
 #loginWindow label {
-	font-family: 'Ubuntu', sans-serif;
-	font-weight: 500;
-	font-size: 1em;
-	color: #fff;
+    font-family:'Ubuntu',sans-serif;
+    font-weight:500;
+    font-size:1em;
+    color:#fff
 }
-buttongroup {
-	float: left;
-	margin: 0px;
-	padding: 0px;
-	width: 100%;
 
+buttongroup {
+    float:left;
+    margin:0;
+    padding:0;
+    width:100%
 }
 
 buttongroup ul {
-	list-style: none;
-  float:right;
-	margin: 0px;
-	padding: 0px 0px 0px 12px;
+    list-style:none;
+    float:right;
+    margin:0;
+    padding:0 0 0 12px
 }
 
 buttongroup li {
-	display: inline-block;
-	margin: 0px 10px 0px 0px;
-	padding: 1em 0px;
-	font-size: 1.3em;
+    display:inline-block;
+    margin:0 10px 0 0;
+    padding:1em 0;
+    font-size:1.3em
 }
 
-buttongroup a, buttongroup a:visited {
-	color: #000;
-	margin: 0px;
-	padding: 0.5em 1em;
-	background-color: #eaa724;
-	border-radius: 6px;
-	text-transform: uppercase;
-	font-family: 'Ubuntu Condensed';
-	font-weight: 400;
+buttongroup a,buttongroup a:visited {
+    color:#000;
+    margin:0;
+    padding:.5em 1em;
+    background-color:#eaa724;
+    border-radius:6px;
+    text-transform:uppercase;
+    font-family:'Ubuntu Condensed';
+    font-weight:400
 }
 
-buttongroup a:hover, nav a:active {
-	background-color: #ffcb05;
-	color: #000;
+buttongroup a:hover,nav a:active {
+    background-color:#ffcb05;
+    color:#000
 }
