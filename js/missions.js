@@ -64,11 +64,11 @@ function LoadData() {
                     obj.get("missionName") + '</a></td>';
                 data += '<td class="cellIsland">' + obj.get(
                     "missionMap") + '</td>';
-                if (obj.get("playedCounter") !== null) data +=
+                if (obj.get("playedCounter")) data +=
                     '<td class="cellPlayed">' + obj.get(
                         "playedCounter") + '</td>';
                 else data += '<td class="cellPlayed">0</td>';
-                if (obj.get("lastPlayed") !== null) data +=
+                if (obj.get("lastPlayed")) data +=
                     '<td class="cellLastPlayed">' + moment(obj.get(
                         "lastPlayed")).format("YYYY MM DD") +
                     '</td>';
@@ -112,14 +112,17 @@ function LoadData() {
                     '<p><span class="cellDropdownSubtitle">Description</span><br>' +
                     obj.get("missionDesc").replace(/\n/g,
                         "<br />") + "</p>";
+              if(obj.get("Scripts"))
+              {
                 data +=
-                    '<p><span class="cellDropdownSubtitle">Scripts</span><br>' +
+                    '<p><span class="cellDropdownSubtitle">F3 Version</span><br>' +
                     obj.get("Scripts").replace(/\n/g, "<br />") +
                     "</p>";
+              }
                 if (obj.get("isBroken") === true) {
                     data +=
                         '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>Yes</p>';
-                    if (obj.get("brokenMsg") !== null) data +=
+                    if (obj.get("brokenMsg")) data +=
                         '<p><span class="cellDropdownSubtitle">Broken Message</span><br>' +
                         obj.get("brokenMsg").replace(/\n/g,
                             "<br />") + "</p>";
@@ -185,9 +188,12 @@ function LoadData() {
 function CheckRights(rowid, userid, ACL) {
     var currentUser = Parse.User.current();
     if (currentUser.id == userid) {
-        $("#" + rowid).append(
-            '<ul><li><a href="#">Delete</a></li><li><a href="#">Edit</a></li></ul>'
-        );
+      $("#" + rowid).append(
+        '<ul><li><a href="#" onClick="DeletePopup(\'' +
+        rowid +
+        '\')">Delete</a></li><li><a href="edit.html?row=' +
+        rowid + '">Edit</a></li></ul>');
+
         return;
     }
     var query = new Parse.Query(Parse.Role);

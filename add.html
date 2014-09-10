@@ -18,9 +18,7 @@
 <body>
     <header>
         <a id="top" name="top"></a> <a href="index.html" id="logo">
-        <h1>FA Missions DB</h1>
-
-        <h2>Missions on the Folk ARPS server(s)</h2></a>
+        <h1><img alt="Folk Arps" src="images/logo.png"></h1></a>
 
         <nav>
             <ul>
@@ -139,6 +137,9 @@
                                 V+
                             </option>
                         </select><br>
+                        <label for="missionSlots">Slots</label><br>
+                        <input class="slots" id="missionSlots" maxlength="3"
+                        name="missionSlots" size="3" type="text" value=""><br>
                     </div>
 
                     <div id="editMissionsContainerRight">
@@ -156,15 +157,28 @@
                                 Other
                             </option>
                         </select><br>
-                        <label for="missionSlots">Slots</label><br>
-                        <input class="slots" id="missionSlots" maxlength="3"
-                        name="missionSlots" size="3" type="text" value=""><br>
+                         <label for="f3Version">F3 Version</label><br>
+                        <select id="f3Version" name="f3Version">
+                            <option>
+                                3.1.1
+                            </option>
+                            <option>
+                                3-1-1 RC1
+                            </option>
+                            <option>
+                                3-1-0
+                            </option>
+                            <option>
+                                3-1-0 RC6
+                            </option>
+                        </select><br>
                         <label for="missionAuthors">Author(s)</label><br>
                         <input id="missionAuthors" maxlength="56" name=
                         "missionAuthors" type="text" value=""><br>
                     </div>
 
                     <div id="editMissionsContainerBottom">
+
                         <label for="missionDescription">Description</label><br>
                         <textarea id="missionDescription" name=
                         "missionDescription">

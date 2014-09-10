@@ -9,7 +9,7 @@ function LoadRow() {
     location.search.substr(1).split("&").forEach(function(item) {
         queryDict[item.split("=")[0]] = item.split("=")[1];
     });
-    if (queryDict.row !== null) {
+    if (queryDict.row) {
         var MissionObject = Parse.Object.extend("Missions");
         var query = new Parse.Query(MissionObject);
         query.get(queryDict.row, {
@@ -65,6 +65,11 @@ function LoadRow() {
                                 ).val(object.get(
                                     "brokenMsg"
                                 ));
+                                $(
+                                    "#f3Version"
+                                ).val(object.get(
+                                    "Scripts"
+                                ));
                                 var bool = object.get(
                                     "isBroken");
                                 if (bool) {
@@ -91,6 +96,10 @@ function LoadRow() {
                 alert("Error: " + error.code + " " + error.message);
             }
         });
+    }
+    else
+    {
+      window.location.href = "index.html";
     }
 }
 
@@ -147,6 +156,7 @@ $('#missionSave').click(function() {
     var missionsAuthors = $("#missionAuthors").val();
     var missionDescription = $("#missionDescription").val();
     var missionBrokenMessage = $("#missionBrokenMessage").val();
+    var missionF3version = $("#f3Version").val();
     var isBroken = $('#missionBroken').prop('checked');
     if (missionName === "" || missionName === null) {
         MissionSaveError("Name is invaild.");
@@ -180,6 +190,10 @@ $('#missionSave').click(function() {
         MissionSaveError("Invaild data in Mission Description field");
         return false;
     }
+    if (missionF3version === "" || missionF3version === null) {
+        MissionSaveError("Invaild data in F3 version field");
+        return false;
+    }
     if (isBroken) {
         if (missionBrokenMessage === "" || missionBrokenMessage === null) {
             MissionSaveError("Missing Broken message");
@@ -195,6 +209,7 @@ $('#missionSave').click(function() {
     window.row.set("missionAuthor", missionsAuthors);
     window.row.set("missionDesc", missionDescription);
     window.row.set("isBroken", isBroken);
+    window.row.set("Scripts",missionF3version);
     window.row.set("brokenMsg", missionBrokenMessage);
     window.row.save(null, {
         success: function(gameScore) {
