@@ -326,9 +326,10 @@
             <label for="loginName">Password</label><br>
             <input class="searchBox" id="PasswordInput" maxlength="56" name=
             "PasswordInput" type="password" value=""><br>
-            <span id="errorLogin"></span> <a id="forgottonPassword">Forgotten
+            <a id="forgottonPassword">Forgotten
             your password?</a>
-
+			<br><span id="errorLogin"></span>
+			<buttongroup>
             <ul>
                 <li>
                     <a href="#" id="loginWindowCancel">Cancel</a>
@@ -342,22 +343,24 @@
                     <a href="#" id="loginWindowOk">Login</a>
                 </li>
             </ul>
+			</buttongroup>
         </div>
 
         <div id="forgottenScreen" style="display:none">
             <label for="email">Email</label><br>
             <input class="searchBox" id="forgottonUsername" maxlength="56"
             name="email" type="email" value=""><br>
+			<buttongroup>
+				<ul>
+					<li>
+						<a href="#" id="forgottenWindowCancel">Cancel</a>
+					</li>
 
-            <ul>
-                <li>
-                    <a href="#" id="forgottenWindowCancel">Cancel</a>
-                </li>
-
-                <li>
-                    <a href="#" id="forgottenWindowOk">Send</a>
-                </li>
-            </ul>
+					<li>
+						<a href="#" id="forgottenWindowOk">Send</a>
+					</li>
+				</ul>
+			</buttongroup>
         </div>
 
         <div id="signupScreen" style="display:none">
@@ -371,7 +374,7 @@
             <input class="searchBox" id="signupEmail" maxlength="56" name=
             "email" type="email" value=""><br>
             <span id="errorSignup"></span>
-
+			<buttongroup>
             <ul>
                 <li>
                     <a href="#" id="signupWindowCancel">Cancel</a>
@@ -381,6 +384,7 @@
                     <a href="#" id="signupWindowOk">SignUp</a>
                 </li>
             </ul>
+			</buttongroup>
         </div>
     </div>
 
