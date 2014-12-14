@@ -312,7 +312,7 @@ SECTION: MISSIONSLIST
     text-align:left
 }
 
-#missionsListTableContainer table.tableMissions th.cellHeaderBroken {
+#missionsListTableContainer table.tableMissions th.cellHeaderBroken, th.cellHeaderRevision {
     display:none;
     text-align:left
 }

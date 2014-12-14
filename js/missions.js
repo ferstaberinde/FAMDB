@@ -10,6 +10,7 @@ function LoadData() {
         authorVal);
 		/*
     if ($("#missionBroken:checked").val()) query.equalTo("isBroken", true);
+    if ($("#missionNeedsRevision:checked").val()) query.equalTo("needsRevision", true);
     if (!$("#Adversarial:checked").val()) query.notEqualTo("missionType",
         "Adversarial");
     if (!$("#Coop:checked").val()) query.notEqualTo("missionType", "Coop");
@@ -94,6 +95,9 @@ function LoadData() {
                 if (obj.get("isBroken") === true) data +=
                     '<td class="cellBroken">x</td>';
                 else data += '<td class="cellBroken"></td>';
+                if (obj.get("needsRevision") === true) data +=
+                    '<td class="cellRevision">x</td>';
+                else data += '<td class="cellRevision"></td>';
                 data += '</tr>';
                 data +=
                     '<tr id="descRow" class="row descRow"><td id="' +
@@ -131,12 +135,12 @@ function LoadData() {
                     obj.get("Scripts").replace(/\n/g, "<br />") +
                     "</p>";
               }
-                if (obj.get("isBroken") === true) {
+                if (obj.get("missionNotes")) {
                     data +=
                         '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>Yes</p>';
-                    if (obj.get("brokenMsg")) data +=
-                        '<p><span class="cellDropdownSubtitle">Broken Message</span><br>' +
-                        obj.get("brokenMsg").replace(/\n/g,
+                    if (obj.get("missionNotes")) data +=
+                        '<p><span class="cellDropdownSubtitle">Mission Notes</span><br>' +
+                        obj.get("missionNotes").replace(/\n/g,
                             "<br />") + "</p>";
                 }
                 else data +=
