@@ -1,8 +1,3 @@
-var maps = ["All", "Chernarus", "Utes", "Takistan", "Desert", "Zargrabad",
-    "Proving Grounds", "Shapur", "United Sahrani", "Podagorsk", "Fallujah",
-    "Celle2", "Altis", "Stratis"
-];
-
 function LoadData() {
     var sessionVal = $("#sessionSelected").val();
     var mapVal = $("#islandSelected").val();

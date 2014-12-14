@@ -55,15 +55,20 @@ $("#forgottonPassword").click(function() {
     $("#loginScreen").hide();
 });
 $("#forgottenWindowOk").click(function() {
+	$("#errorForgot").text("");
     var val = $("#forgottonUsername").val();
     Parse.User.requestPasswordReset(val, {
         success: function() {
             $("#forgottenScreen").hide();
             $("#loginScreen").show();
-        }
+        },
+		error: function(error) {
+			$("#errorForgot").text(error.message);
+		}
     });
 });
 $('#forgottenWindowCancel').click(function() {
+	$("#errorForgot").text("");
     $("#forgottenScreen").hide();
     $("#loginScreen").show();
 });
