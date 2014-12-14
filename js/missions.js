@@ -230,12 +230,16 @@ function GetMissionAuthor() {
             var arr = [];
             for (var x = 0; x < results.length; x++) {
                 var obj = results[x];
-                if (arr.indexOf(obj.get("missionAuthor")) == -1) {
-                    $("#authorSelected").append("<option>" +
-                        obj.get("missionAuthor") +
-                        "</option>");
-                    arr.push(obj.get("missionAuthor"));
-                }
+				var authors = obj.get("missionAuthor").split(",");
+				for(var y = 0; y < authors.length;y++) {
+					var author = authors[y].trim();
+					if (arr.indexOf(author) == -1) {
+						$("#authorSelected").append("<option>" +
+							author +
+							"</option>");
+						arr.push(author);
+					}
+				}
             }
         },
         error: function(error) {
