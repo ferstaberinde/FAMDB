@@ -11,7 +11,7 @@ function LoadData() {
     var searchVal = $("#searchText").val();
     var query = new Parse.Query(MissionObject);
     if (mapVal != "All Islands") query.equalTo("missionMap", mapVal);
-    if (authorVal != "All Authors") query.equalTo("missionAuthor",
+    if (authorVal != "All Authors") query.contains("missionAuthor",
         authorVal);
     if ($("#missionBroken:checked").val()) query.equalTo("isBroken", true);
     if (!$("#Adversarial:checked").val()) query.notEqualTo("missionType",
