@@ -15,9 +15,10 @@ $('#missionSave').click(function() {
     var missionSlots = Number($("#missionSlots").val());
     var missionsAuthors = $("#missionAuthors").val();
     var missionDescription = $("#missionDescription").val();
-    var missionBrokenMessage = $("#missionBrokenMessage").val();
+    var missionNotes = $("#missionNotes").val();
     var missionF3version = $("#f3Version").val();
     var isBroken = $('#missionBroken').prop('checked');
+    var needsRevision = $('#missionNeedsRevision').prop('checked');
     if (missionName === "" || missionName === null) {
         MissionSaveError("Name is invaild.");
         return false;
@@ -55,9 +56,16 @@ $('#missionSave').click(function() {
         return false;
     }
     if (isBroken) {
-        if (missionBrokenMessage === "" || missionBrokenMessage ===
+        if (missionNotes === "" || missionNotes ===
             null) {
-            MissionSaveError("Missing Broken message");
+            MissionSaveError("Missing mission notes");
+            return false;
+        }
+    }
+    if (needsRevision) {
+        if (missionNotes === "" || missionNotes ===
+            null) {
+            MissionSaveError("Missing mission notes");
             return false;
         }
     }
@@ -73,8 +81,9 @@ $('#missionSave').click(function() {
     objMission.set("missionAuthor", missionsAuthors);
     objMission.set("missionDesc", missionDescription);
     objMission.set("isBroken", isBroken);
+    objMission.set("needsRevision", needsRevision);
     objMission.set("Scripts",missionF3version);
-    objMission.set("brokenMsg", missionBrokenMessage);
+    objMission.set("missionNotes", missionNotes);
     objMission.set("playedCounter", 0);
     objMission.set("createdBy", Parse.User.current());
     var postACL = new Parse.ACL();

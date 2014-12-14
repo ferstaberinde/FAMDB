@@ -61,15 +61,16 @@ function LoadRow() {
                                     "missionDesc"
                                 ));
                                 $(
-                                    "#missionBrokenMessage"
+                                    "#missionNotes"
                                 ).val(object.get(
-                                    "brokenMsg"
+                                    "missionNotes"
                                 ));
                                 $(
                                     "#f3Version"
                                 ).val(object.get(
                                     "Scripts"
                                 ));
+                                
                                 var bool = object.get(
                                     "isBroken");
                                 if (bool) {
@@ -79,6 +80,17 @@ function LoadRow() {
                                         'checked',
                                         true);
                                 }
+
+                                var bool = object.get(
+                                    "needsRevision");
+                                if (bool) {
+                                    $(
+                                        "#missionNeedsRevision"
+                                    ).prop(
+                                        'checked',
+                                        true);
+                                }
+
                                 $("#loading").hide();
                                 //   $("#form_edit").show();
                                 return;
@@ -155,9 +167,10 @@ $('#missionSave').click(function() {
     var missionSlots = Number($("#missionSlots").val());
     var missionsAuthors = $("#missionAuthors").val();
     var missionDescription = $("#missionDescription").val();
-    var missionBrokenMessage = $("#missionBrokenMessage").val();
+    var missionNotes = $("#missionNotes").val();
     var missionF3version = $("#f3Version").val();
     var isBroken = $('#missionBroken').prop('checked');
+    var needsRevision = $('#missionNeedsRevision').prop('checked');
     if (missionName === "" || missionName === null) {
         MissionSaveError("Name is invaild.");
         return false;
@@ -194,9 +207,9 @@ $('#missionSave').click(function() {
         MissionSaveError("Invaild data in F3 version field");
         return false;
     }
-    if (isBroken) {
-        if (missionBrokenMessage === "" || missionBrokenMessage === null) {
-            MissionSaveError("Missing Broken message");
+    if (isBroken || needsRevision) {
+        if (missionNotes === "" || missionNotes === null) {
+            MissionSaveError("Missing mission notes");
             return false;
         }
     }
@@ -209,8 +222,9 @@ $('#missionSave').click(function() {
     window.row.set("missionAuthor", missionsAuthors);
     window.row.set("missionDesc", missionDescription);
     window.row.set("isBroken", isBroken);
+    window.row.set("needsRevision", needsRevision);
     window.row.set("Scripts",missionF3version);
-    window.row.set("brokenMsg", missionBrokenMessage);
+    window.row.set("missionNotes", missionNotes);
     window.row.save(null, {
         success: function(gameScore) {
             window.location.href = "index.html";
