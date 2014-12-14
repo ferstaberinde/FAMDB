@@ -57,6 +57,9 @@ function LoadData() {
                 data +=
                     '<td class="cellMissions"><a href="#"><span class="up">&#9701</span> ' +
                     obj.get("missionName") + '</a></td>';
+				data +=
+					'<td class="cellPlayed">' +
+					obj.get("missionPlayers") + '</td>';
                 data += '<td class="cellIsland">' + obj.get(
                     "missionMap") + '</td>';
                 if (obj.get("playedCounter")) data +=
