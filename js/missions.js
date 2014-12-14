@@ -8,11 +8,25 @@ function LoadData() {
     if (mapVal != "All Islands") query.equalTo("missionMap", mapVal);
     if (authorVal != "All Authors") query.contains("missionAuthor",
         authorVal);
+		/*
     if ($("#missionBroken:checked").val()) query.equalTo("isBroken", true);
     if (!$("#Adversarial:checked").val()) query.notEqualTo("missionType",
         "Adversarial");
     if (!$("#Coop:checked").val()) query.notEqualTo("missionType", "Coop");
-    if ($("#Other:checked").val()) query.notEqualTo("missionType", "Other");
+    if ($("#Other:checked").val()) query.notEqualTo("missionType", "Other");*/
+	var checkboxes = $("#missionTypes").find(':checkbox');
+	var strings = [];
+	for(var x = 0;x<checkboxes.length;x++) {
+		var checkbox = checkboxes[x];
+		if(checkbox.checked === true) {
+			strings.push(checkbox.id);
+		}
+	}
+	query.containedIn("missionType",strings);
+	
+	
+	
+	
     if (searchVal !== "") query.contains("missionName", searchVal);
     query.greaterThanOrEqualTo("missionPlayers", Number($("#slotsMin").val()));
     query.lessThanOrEqualTo("missionPlayers", Number($("#slotsMax").val()));

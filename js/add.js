@@ -5,6 +5,7 @@ if (!Parse.User.current()) {
 }
 function MissionSaveError(string)
 {
+	$("#errorEdit").text(string);
 }
 $('#missionSave').click(function() {
     var missionName = $("#missionName").val();
@@ -38,7 +39,7 @@ $('#missionSave').click(function() {
         MissionSaveError("Invaild mission type selection");
         return false;
     }
-    if ((missionSlots < 0) || missionSlots === null) {
+    if ((missionSlots <= 0) || missionSlots === null) {
         MissionSaveError("Invaild data in Slots field");
         return false;
     }
