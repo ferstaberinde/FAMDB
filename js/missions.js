@@ -135,16 +135,31 @@ function LoadData() {
                     obj.get("Scripts").replace(/\n/g, "<br />") +
                     "</p>";
               }
-                if (obj.get("missionNotes")) {
+
+            if (obj.get("isBroken") === true) {
+                data +=
+                    '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>Yes</p>';
+                
+            }
+            else data +=
+             '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>No</p>';
+
+            if (obj.get("needsRevision") === true) {
                     data +=
-                        '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>Yes</p>';
-                    if (obj.get("missionNotes")) data +=
+                        '<p class="fullInfo"><span class="cellDropdownSubtitle">Needs Revision</span><br>Yes</p>';
+                    
+             }
+            else data +=
+             '<p class="fullInfo"><span class="cellDropdownSubtitle">Needs Revision</span><br>No</p>';
+
+              if (obj.get("missionNotes")) data +=
                         '<p><span class="cellDropdownSubtitle">Mission Notes</span><br>' +
                         obj.get("missionNotes").replace(/\n/g,
                             "<br />") + "</p>";
-                }
-                else data +=
-                    '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>No</p>';
+
+                
+
+
                 data += '</td></tr>';
                 $("#missionTable > tbody").append(data);
                 var ACL = obj.getACL();
