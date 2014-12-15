@@ -286,37 +286,7 @@ SECTION: MISSIONSLIST
     text-align:left
 }
 
-#missionsListTableContainer table.tableMissions th.cellHeaderSlots {
-    display:none;
-    text-align:left
-}
-
-#missionsListTableContainer table.tableMissions th.cellHeaderIsland {
-    display:none;
-    text-align:left
-}
-
-#missionsListTableContainer table.tableMissions th.cellHeaderPlayed {
-    display:none;
-    text-align:left
-}
-
-#missionsListTableContainer table.tableMissions th.cellHeaderLastPlayed {
-    display:none;
-    text-align:left
-}
-
-#missionsListTableContainer table.tableMissions th.cellHeaderAuthor {
-    display:none;
-    text-align:left
-}
-
-#missionsListTableContainer table.tableMissions th.cellHeaderModified {
-    display:none;
-    text-align:left
-}
-
-#missionsListTableContainer table.tableMissions th.cellHeaderBroken, th.cellHeaderRevision {
+#missionsListTableContainer table.tableMissions th.cellHeaderSlots, th.cellHeaderIsland, th.cellHeaderPlayed, th.cellHeaderLastPlayed, th.cellHeaderAuthor, th.cellHeaderModified, th.cellHeaderBroken, th.cellHeaderRevision {
     display:none;
     text-align:left
 }
@@ -333,31 +303,7 @@ SECTION: MISSIONSLIST
     padding:1em .5em
 }
 
-#missionsListTableContainer table.tableMissions td.cellSlots {
-    display:none
-}
-
-#missionsListTableContainer table.tableMissions td.cellIsland {
-    display:none
-}
-
-#missionsListTableContainer table.tableMissions td.cellPlayed {
-    display:none
-}
-
-#missionsListTableContainer table.tableMissions td.cellLastPlayed {
-    display:none
-}
-
-#missionsListTableContainer table.tableMissions td.cellAuthor {
-    display:none
-}
-
-#missionsListTableContainer table.tableMissions td.cellModified {
-    display:none
-}
-
-#missionsListTableContainer table.tableMissions td.cellBroken {
+#missionsListTableContainer table.tableMissions td.cellSlots, td.cellIsland, td.cellPlayed, td.cellLastPlayed, td.cellAuthor, td.cellModified, td.cellBroken {
     display:none
 }
 
