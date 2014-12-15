@@ -25,9 +25,6 @@ function LoadData() {
 	}
 	query.containedIn("missionType",strings);
 
-
-
-
     if (searchVal !== "") query.contains("missionName", searchVal);
     query.greaterThanOrEqualTo("missionPlayers", Number($("#slotsMin").val()));
     query.lessThanOrEqualTo("missionPlayers", Number($("#slotsMax").val()));
