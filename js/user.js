@@ -1,11 +1,11 @@
 function UpdateLogin() {
     var currentUser = Parse.User.current();
     if (currentUser) {
-        $("#LogoutButton").text("Logout");
+        $("#LogoutButton").html("<i class='fa fa-sign-out'></i>Logout");
         $("#AddButton").show();
     }
     else {
-        $("#LogoutButton").text("Login");
+        $("#LogoutButton").html("<i class='fa fa-sign-in'></i>Login");
         $("#AddButton").hide();
     }
 }

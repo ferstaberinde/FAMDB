@@ -24,10 +24,10 @@ function LoadData() {
 		}
 	}
 	query.containedIn("missionType",strings);
-	
-	
-	
-	
+
+
+
+
     if (searchVal !== "") query.contains("missionName", searchVal);
     query.greaterThanOrEqualTo("missionPlayers", Number($("#slotsMin").val()));
     query.lessThanOrEqualTo("missionPlayers", Number($("#slotsMax").val()));
@@ -70,7 +70,7 @@ function LoadData() {
                 data = '<tr class="row">';
                 flip = !flip;
                 data +=
-                    '<td class="cellMissions"><a href="#"><span class="up">&#9701</span> ' +
+                    '<td class="cellMissions"><a href="#"><i id="chevron" class="fa fa-chevron-up"></i> ' +
                     obj.get("missionName") + '</a></td>';
 				data +=
 					'<td class="cellPlayed">' +
@@ -93,16 +93,16 @@ function LoadData() {
                         obj.updatedAt).format("YYYY MM DD") +
                     '</td>';
                 if (obj.get("isBroken") === true) data +=
-                    '<td class="cellBroken">x</td>';
+                    '<td class="cellBroken"><i class="fa fa-exclamation-triangle"></i></td>';
                 else data += '<td class="cellBroken"></td>';
                 if (obj.get("needsRevision") === true) data +=
-                    '<td class="cellRevision">x</td>';
+                    '<td class="cellRevision"><i class="fa fa-exclamation-circle"></i></td>';
                 else data += '<td class="cellRevision"></td>';
                 data += '</tr>';
                 data +=
                     '<tr id="descRow" class="row descRow"><td id="' +
                     obj.id +
-                    '" class="cellDropdown" colspan="7">';
+                    '" class="cellDropdown" colspan="9">';
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Island</span><br>' +
                     obj.get("missionMap") + "</p>";
@@ -160,29 +160,8 @@ function LoadData() {
                 },
                 cssChildRow: "descRow"
             });
-            $("#missionTable tr.odd").click(function() {
-                if ($(this).find(".up").text() == "◥") {
-                    $(this).find(".up").text("◢");
-                    $('body, html').animate({
-                        scrollTop: $(this).offset()
-                            .top
-                    }, 1000);
-                }
-                else {
-                    $(this).find(".up").text("◥");
-                }
-            });
-            $("#missionTable tr.even").click(function() {
-                if ($(this).find(".up").text() == "◥") {
-                    $(this).find(".up").text("◢");
-                    $('body, html').animate({
-                        scrollTop: $(this).offset()
-                            .top
-                    }, 1000);
-                }
-                else {
-                    $(this).find(".up").text("◥");
-                }
+            $("#missionTable tr").click(function() {
+              $(this).find("#chevron").toggleClass("fa-chevron-down fa-chevron-up");
             });
             setTimeout(function() {
                 var resort = false, // re-apply the current sort
@@ -205,12 +184,11 @@ function CheckRights(rowid, userid, ACL) {
     var currentUser = Parse.User.current();
     if (currentUser.id == userid) {
       $("#" + rowid).append(
-        '<ul><li><a href="#" onClick="DeletePopup(\'' +
+        '<ul><li><a href="edit.html?row=' +
+        rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
         rowid +
-        '\')">Delete</a></li><li><a href="edit.html?row=' +
-        rowid + '">Edit</a></li></ul>');
-
-        return;
+        '\')">Delete</a></li></ul>');
+      return;
     }
     var query = new Parse.Query(Parse.Role);
     query.equalTo("users", currentUser);
@@ -220,10 +198,10 @@ function CheckRights(rowid, userid, ACL) {
             for (var x = 0; x < roles.length; x++) {
                 if (ACL.getWriteAccess(roles[x])) {
                     $("#" + rowid).append(
-                        '<ul><li><a href="#" onClick="DeletePopup(\'' +
+                      '<ul style="float:right"><li><a href="edit.html?row=' +
+                        rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
                         rowid +
-                        '\')">Delete</a></li><li><a href="edit.html?row=' +
-                        rowid + '">Edit</a></li></ul>');
+                        '\')">Delete</a></li></ul>');
                     return;
                 }
             }

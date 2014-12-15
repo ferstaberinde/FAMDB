@@ -36,6 +36,10 @@ header {
     text-transform:uppercase
 }
 
+#fixme {
+  float: right;
+};
+
 #logo {
     margin:0
 }
