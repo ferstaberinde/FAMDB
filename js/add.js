@@ -3,6 +3,7 @@ Parse.initialize("1IijmSndIGJFPg6cw6xDl5PRe5AiGCHliyPzIgPc",
 if (!Parse.User.current()) {
     window.location.href = "index.html";
 }
+UpdateLogin();
 function MissionSaveError(string)
 {
 	$("#errorEdit").text(string);

@@ -3,7 +3,7 @@ Parse.initialize("1IijmSndIGJFPg6cw6xDl5PRe5AiGCHliyPzIgPc",
 if (Parse.User.current() === null) {
     window.location.href = "index.html";
 }
-
+UpdateLogin();
 function LoadRow() {
     var queryDict = {};
     location.search.substr(1).split("&").forEach(function(item) {
@@ -70,7 +70,7 @@ function LoadRow() {
                                 ).val(object.get(
                                     "Scripts"
                                 ));
-                                
+
                                 var bool = object.get(
                                     "isBroken");
                                 if (bool) {
