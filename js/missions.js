@@ -106,6 +106,7 @@ function LoadData() {
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Island</span><br>' +
                     obj.get("missionMap") + "</p>";
+              data += '<p class="fullInfo"><span class="cellDropdownSubtitle"># Slots</span><br>'+obj.get("missionPlayers")+'</p>';
                 if (obj.get("playedCounter") !== null) data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>' +
                     obj.get("playedCounter") + "</p>";

@@ -36,7 +36,7 @@ header {
     text-transform:uppercase
 }
 
-#float-right {
+.float-right {
   float: right;
 };
 
@@ -234,7 +234,15 @@ SECTION: MISSIONSLIST
 #missionsListHeader {
     display:none
 }
+/*
+#missionsListHeader i {
+  margin-top:0.2em;
+  float:right;
+}*/
+#missionsList nav {
+  margin:6px 0 -10px;
 
+}
 #missionsList h3 {
     margin:0 0 10px;
     font-size:1em;
@@ -357,9 +365,17 @@ SECTION: MISSIONSLIST
     display:none
 }
 
-#missionsListTableContainer table.tableMissions td.cellBroken {
-    display:none
-}
+	#missionsListTableContainer table.tableMissions td.cellBroken {
+		display: table-cell;
+		padding: 0.5em 1em;
+		color: #f00;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellRevision {
+		display: table-cell;
+		padding: 0.5em 1em;
+		color: #576AFA;
+	}
 
 #missionsListTableContainer table.tableMissions td.cellDropdown {
     display:table-cell;
