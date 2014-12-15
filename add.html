@@ -9,6 +9,7 @@
     <link href=
     'http://fonts.googleapis.com/css?family=Ubuntu:300,500|Ubuntu+Condensed'
     rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <!-- <meta name="viewport" content"width=device-width, initial-scale=1.0"> -->
@@ -136,14 +137,15 @@
                         </select><br>
                         <label for="missionAuthors">Author(s)</label><br>
                         <input id="missionAuthors" maxlength="56" name=
-                        "missionAuthors" type="text" value="Seperate authors by comma"><br>
+                        "missionAuthors" type="text" placeholder="Seperate authors by comma"><br>
                     </div>
 
                     <div id="editMissionsContainerBottom">
 
                         <label for="missionDescription">Description</label><br>
                         <textarea id="missionDescription" name=
-                        "missionDescription">Short description of the mission as well as any special gameplay features.</textarea><br>
+                        "missionDescription" placeholder="Short description of the mission as well as any special gameplay features."></textarea>
+                        <br>
                         <input id="missionBroken" name="missionBroken" type=
                         "checkbox">&nbsp;<label for=
                         "missionBroken">Broken?</label><br>
@@ -152,14 +154,14 @@
                         "missionNeedsRevision">Needs Revision?</label><br>
                         <label for="missionNotes">Mission Notes</label><br>
                         <textarea id="missionNotes" name=
-                        "missionNotes">Notes on mission playability, balance etc.</textarea><br>
+                        "missionNotes" placeholder="Notes on mission playability, balance etc."></textarea><br>
                     </div>
 					<span id="errorEdit"></span><br>
 					<input id="missionSave" type="submit" value="Save"><br>
                 </form>
             </div>
 
-            <p><a href="#top">&#9650; Back to top</a></p>
+            <p style="float:right;"><a href="#top"><i class="fa  fa-arrow-up"></i> Back to top</a></p>
         </section>
     </div>
 
@@ -167,7 +169,7 @@
         <p>&copy; 2014 <a href="http://www.folkarps.com">Folk ARPS</a></p>
     </footer>
 
-    <div class="popupWindow" id="loginWindow">
+ <div class="popupWindow" id="loginWindow">
         <div id="loginScreen">
             <label for="loginName">Username</label><br>
             <input class="searchBox" id="loginName" maxlength="56" name=
@@ -175,9 +177,10 @@
             <label for="loginName">Password</label><br>
             <input class="searchBox" id="PasswordInput" maxlength="56" name=
             "PasswordInput" type="password" value=""><br>
-            <span id="errorLogin"></span> <a id="forgottonPassword">Forgotten
+            <a id="forgottonPassword">Forgotten
             your password?</a>
-
+			<br><span id="errorLogin"></span>
+			<buttongroup>
             <ul>
                 <li>
                     <a href="#" id="loginWindowCancel">Cancel</a>
@@ -191,22 +194,26 @@
                     <a href="#" id="loginWindowOk">Login</a>
                 </li>
             </ul>
+			</buttongroup>
         </div>
 
         <div id="forgottenScreen" style="display:none">
             <label for="email">Email</label><br>
             <input class="searchBox" id="forgottonUsername" maxlength="56"
             name="email" type="email" value=""><br>
+			<buttongroup>
+				<ul>
+					<li>
+						<a href="#" id="forgottenWindowCancel">Cancel</a>
+					</li>
 
-            <ul>
-                <li>
-                    <a href="#" id="forgottenWindowCancel">Cancel</a>
-                </li>
-
-                <li>
-                    <a href="#" id="forgottenWindowOk">Send</a>
-                </li>
-            </ul>
+					<li>
+						<a href="#" id="forgottenWindowOk">Send</a>
+					</li>
+				</ul>
+			</buttongroup>
+			<br>
+			<span id="errorForgot"></span>
         </div>
 
         <div id="signupScreen" style="display:none">
@@ -220,7 +227,7 @@
             <input class="searchBox" id="signupEmail" maxlength="56" name=
             "email" type="email" value=""><br>
             <span id="errorSignup"></span>
-
+			<buttongroup>
             <ul>
                 <li>
                     <a href="#" id="signupWindowCancel">Cancel</a>
@@ -230,7 +237,9 @@
                     <a href="#" id="signupWindowOk">SignUp</a>
                 </li>
             </ul>
+			</buttongroup>
         </div>
-    </div><script src="js/jquery-2.1.0.js" type="text/javascript"></script> <script src="js/parse-1.2.16.min.js" type="text/javascript"></script> <script src="js/moment.min.js" type="text/javascript"></script> <script src="js/jExpand.js" type="text/javascript"></script> <script src="js/popup.js" type="text/javascript"></script> <script src="js/user.js" type="text/javascript"></script> <script src="js/add.js" type="text/javascript"></script> <script src="js/jquery.tablesorter.js" type="text/javascript"></script>
+    </div>
+    <script src="js/jquery-2.1.0.js" type="text/javascript"></script> <script src="js/parse-1.2.16.min.js" type="text/javascript"></script> <script src="js/moment.min.js" type="text/javascript"></script> <script src="js/jExpand.js" type="text/javascript"></script> <script src="js/popup.js" type="text/javascript"></script> <script src="js/user.js" type="text/javascript"></script> <script src="js/add.js" type="text/javascript"></script> <script src="js/jquery.tablesorter.js" type="text/javascript"></script>
 </body>
 </html>

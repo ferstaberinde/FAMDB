@@ -8,10 +8,10 @@ function LoadData() {
     if (mapVal != "All Islands") query.equalTo("missionMap", mapVal);
     if (authorVal != "All Authors") query.contains("missionAuthor",
         authorVal);
-		/*
+
     if ($("#missionBroken:checked").val()) query.equalTo("isBroken", true);
     if ($("#missionNeedsRevision:checked").val()) query.equalTo("needsRevision", true);
-    if (!$("#Adversarial:checked").val()) query.notEqualTo("missionType",
+ /*   if (!$("#Adversarial:checked").val()) query.notEqualTo("missionType",
         "Adversarial");
     if (!$("#Coop:checked").val()) query.notEqualTo("missionType", "Coop");
     if ($("#Other:checked").val()) query.notEqualTo("missionType", "Other");*/
@@ -136,7 +136,7 @@ function LoadData() {
             if (obj.get("isBroken") === true) {
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>Yes</p>';
-                
+
             }
             else data +=
              '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>No</p>';
@@ -144,7 +144,7 @@ function LoadData() {
             if (obj.get("needsRevision") === true) {
                     data +=
                         '<p class="fullInfo"><span class="cellDropdownSubtitle">Needs Revision</span><br>Yes</p>';
-                    
+
              }
             else data +=
              '<p class="fullInfo"><span class="cellDropdownSubtitle">Needs Revision</span><br>No</p>';
@@ -154,7 +154,7 @@ function LoadData() {
                         obj.get("missionNotes").replace(/\n/g,
                             "<br />") + "</p>";
 
-                
+
 
 
                 data += '</td></tr>';

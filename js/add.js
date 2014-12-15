@@ -4,14 +4,7 @@ if (!Parse.User.current()) {
     window.location.href = "index.html";
 }
 
-$('textarea,input').focus(function() {
-       defaultTexts = ["Short description of the mission as well as any special gameplay features.","Notes on mission playability, balance etc.","Seperate authors by comma"]
-
-       if ($.inArray($(this).val(),defaultTexts) != -1 ) {
-            $(this).val('');
-        }
-});
-
+UpdateLogin();
 function MissionSaveError(string)
 {
 	$("#errorEdit").text(string);
