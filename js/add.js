@@ -3,6 +3,15 @@ Parse.initialize("1IijmSndIGJFPg6cw6xDl5PRe5AiGCHliyPzIgPc",
 if (!Parse.User.current()) {
     window.location.href = "index.html";
 }
+
+$('textarea,input').focus(function() {
+       defaultTexts = ["Short description of the mission as well as any special gameplay features.","Notes on mission playability, balance etc.","Seperate authors by comma"]
+
+       if ($.inArray($(this).val(),defaultTexts) != -1 ) {
+            $(this).val('');
+        }
+});
+
 function MissionSaveError(string)
 {
 	$("#errorEdit").text(string);
@@ -21,39 +30,41 @@ $('#missionSave').click(function() {
     var isBroken = $('#missionBroken').prop('checked');
     var needsRevision = $('#missionNeedsRevision').prop('checked');
     if (missionName === "" || missionName === null) {
-        MissionSaveError("Name is invaild.");
+        MissionSaveError("Name is Invalid.");
         return false;
     }
     if (missionGame === "" || missionGame === null) {
-        MissionSaveError("Invaild game selection");
+        MissionSaveError("Invalid game selection");
         return false;
     }
     if (missionIsland === "" || missionIsland === null) {
-        MissionSaveError("Invaild Island selection");
+        MissionSaveError("Invalid Island selection");
         return false;
     }
     if (missionSession === "" || missionSession === null) {
-        MissionSaveError("Invaild Session selection");
+        MissionSaveError("Invalid Session selection");
         return false;
     }
     if (missionType === "" || missionType === null) {
-        MissionSaveError("Invaild mission type selection");
+        MissionSaveError("Invalid mission type selection");
         return false;
     }
     if ((missionSlots <= 0) || missionSlots === null) {
-        MissionSaveError("Invaild data in Slots field");
+        MissionSaveError("Invalid data in Slots field");
         return false;
     }
+
     if (missionsAuthors === "" || missionsAuthors === null) {
-        MissionSaveError("Invaild data in Author field");
+        MissionSaveError("Invalid data in Author field");
         return false;
     }
+
     if (missionDescription === "" || missionDescription === null) {
-        MissionSaveError("Invaild data in Mission Description field");
+        MissionSaveError("Invalid data in Mission Description field");
         return false;
     }
     if (missionF3version === "" || missionF3version === null) {
-        MissionSaveError("Invaild data in F3 version field");
+        MissionSaveError("Invalid data in F3 version field");
         return false;
     }
     if (isBroken) {
