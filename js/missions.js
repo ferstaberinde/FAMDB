@@ -168,6 +168,7 @@ function LoadData() {
             $("#missionTable").tablesorter({
                 // sort on the first column and third column, order asc
                 widgets: ["zebra"], // initialize zebra striping of the table
+                sortList: [[0,0]], // Sort table alphabetically by default
                 widgetZebra: {
                     css: ["normal-row", "odd"]
                 },
