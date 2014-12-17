@@ -273,7 +273,6 @@ SECTION: MISSIONSLIST
 }
 
 #missionsListTableContainer table.tableMissions thead.rowHeader {
-    background-color:#000;
     text-transform:uppercase
 }
 
