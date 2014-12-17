@@ -172,7 +172,7 @@ $('#missionSave').click(function() {
     var isBroken = $('#missionBroken').prop('checked');
     var needsRevision = $('#missionNeedsRevision').prop('checked');
     
-    if ( !(missionName.match(/^[a-zA-Z0-9][a-zA-Z0-9 ]+$/)) || missionName === "" || missionName === null) {
+    if ( !(missionName.match(/^[a-zA-Z0-9'-_][a-zA-Z0-9'-_ ]+$/)) || missionName === "" || missionName === null) {
         MissionSaveError("Enter a mission name!");
         return false;
     }
