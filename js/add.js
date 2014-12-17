@@ -23,8 +23,8 @@ $('#missionSave').click(function() {
     var isBroken = $('#missionBroken').prop('checked');
     var needsRevision = $('#missionNeedsRevision').prop('checked');
     
-    if (missionName === "" || missionName === null) {
-        MissionSaveError("Enter a mission name!");
+    if ( !(missionName.match(/^[a-zA-Z0-9][a-zA-Z0-9 ]+$/)) || missionName === "" || missionName === null) {
+        MissionSaveError("Mission can't be empty or begin with a whitespace!");
         return false;
     }
     if (missionGame === "" || missionGame === null) {
