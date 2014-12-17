@@ -22,58 +22,54 @@ $('#missionSave').click(function() {
     var missionF3version = $("#f3Version").val();
     var isBroken = $('#missionBroken').prop('checked');
     var needsRevision = $('#missionNeedsRevision').prop('checked');
+    
     if (missionName === "" || missionName === null) {
-        MissionSaveError("Name is Invalid.");
+        MissionSaveError("Enter a mission name!");
         return false;
     }
     if (missionGame === "" || missionGame === null) {
-        MissionSaveError("Invalid game selection");
+        MissionSaveError("Select a game!");
         return false;
     }
     if (missionIsland === "" || missionIsland === null) {
-        MissionSaveError("Invalid Island selection");
+        MissionSaveError("Select an island!");
         return false;
     }
     if (missionSession === "" || missionSession === null) {
-        MissionSaveError("Invalid Session selection");
+        MissionSaveError("Select a session!");
         return false;
     }
     if (missionType === "" || missionType === null) {
-        MissionSaveError("Invalid mission type selection");
+        MissionSaveError("Select a mission type!");
         return false;
     }
-    if ((missionSlots <= 0) || missionSlots === null) {
-        MissionSaveError("Invalid data in Slots field");
+
+    if (isNaN(missionSlots)  || missionSlots <= 0 || missionSlots === null) {
+        MissionSaveError("Slots must be a number > 0");
         return false;
     }
 
     if (missionsAuthors === "" || missionsAuthors === null) {
-        MissionSaveError("Invalid data in Author field");
+        MissionSaveError("Select or enter an author!");
         return false;
     }
 
     if (missionDescription === "" || missionDescription === null) {
-        MissionSaveError("Invalid data in Mission Description field");
+        MissionSaveError("Enter a description for your mission!");
         return false;
     }
     if (missionF3version === "" || missionF3version === null) {
-        MissionSaveError("Invalid data in F3 version field");
+        MissionSaveError("Select a F3 version!");
         return false;
     }
-    if (isBroken) {
+    if (isBroken || needsRevision) {
         if (missionNotes === "" || missionNotes ===
             null) {
-            MissionSaveError("Missing mission notes");
+            MissionSaveError("Please enter notes on the state of the mission!");
             return false;
         }
     }
-    if (needsRevision) {
-        if (missionNotes === "" || missionNotes ===
-            null) {
-            MissionSaveError("Missing mission notes");
-            return false;
-        }
-    }
+
     var Mission = Parse.Object.extend("Missions");
     var objMission = new Mission();
     var currentUser = Parse.User.current();
