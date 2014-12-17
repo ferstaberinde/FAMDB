@@ -203,7 +203,7 @@ $('#missionSave').click(function() {
         return false;
     }
 
-    if (missionDescription === "" || missionDescription === null) {
+    if (missionDescription.trim().length < 1  || missionDescription === null) {
         MissionSaveError("Enter a description for your mission!");
         return false;
     }
@@ -212,7 +212,7 @@ $('#missionSave').click(function() {
         return false;
     }
     if (isBroken || needsRevision) {
-        if (missionNotes === "" || missionNotes ===
+        if (missionNotes.trim().length < 1 || missionNotes ===
             null) {
             MissionSaveError("Please enter notes on the state of the mission!");
             return false;
