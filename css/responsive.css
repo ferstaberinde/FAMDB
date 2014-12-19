@@ -58,7 +58,7 @@
 	}
 
 	nav li {
-		margin: 0.25em 0px 0.25em 10px; 
+		margin: 0.25em 0px 0.25em 10px;
 		padding: 0.20em 0px;
 		font-size: 1em;
 	}
@@ -68,7 +68,7 @@
 	}
 
 	#missionsListTableContainer table.tableMissions td.cellDropdown li {
-		margin: 0.25em 5px 1em 0px; 
+		margin: 0.25em 5px 1em 0px;
 		padding: 0.20em 0px;
 		font-size: 1em;
 	}
@@ -90,7 +90,7 @@
 	#filtersHeader {
 		display: block;
 	}
-	
+
 	#filtersHeader h3 {
 		margin: 0.5em 0px;
 		font-size: 1.2em;
@@ -151,7 +151,7 @@
 	#missionsListHeader {
 		display: block;
 	}
-	
+
 	#missionsListHeader h3 {
 		margin: 0.5em 0px;
 		font-size: 1.2em;
@@ -274,7 +274,7 @@
 
 	#missionsListTableContainer table.tableMissions td.cellDropdown p.fullInfo {
 		display: none;
-	}	
+	}
 
 
 
@@ -291,7 +291,7 @@
 	#actions #actionsHeader {
 		display: block;
 	}
-	
+
 	#actions #actionsHeader h3 {
 		margin: 0.5em 0px;
 		font-size: 1.2em;
@@ -335,7 +335,7 @@
 	#editMissionsHeader {
 		display: block;
 	}
-	
+
 	#editMissionsHeader h3 {
 		margin: 0.5em 0px;
 		font-size: 1.2em;
@@ -400,7 +400,11 @@
 		padding: 5px;
 		font-size: 1em
 	}
-
+	#editMissionsContainer #editMissionsContainerRight input[type="text"] {
+		margin: 10px 0px 15px 0px;
+		padding: 5px;
+		font-size: 1em
+	}
 	#editMissionsContainer input.slots[type="text"] {
 		padding: 5px;
 		margin-bottom: 15px;

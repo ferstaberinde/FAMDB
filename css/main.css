@@ -544,7 +544,16 @@ SECTION: EDITMISSIONS
     color:#aaa;
     background-color:#303030
 }
-
+	#editMissionsContainer #editMissionsContainerRight input[type="text"] {
+    margin:10px 0;
+    padding:6px 0;
+    width:92%;
+    font-family:'Ubuntu Condensed';
+    font-size:1em;
+    font-weight:400;
+    color:#aaa;
+    background-color:#303030
+}
 #editMissionsContainer input[type="text"] {
     font-size:1em;
     margin:10px 0;
