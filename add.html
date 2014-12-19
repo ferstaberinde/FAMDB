@@ -135,7 +135,13 @@
 								3.1.x or older
 							</option>
                         </select><br>
-                        <label for="missionAuthors">Author(s)</label><br>
+                        <label for="missionAuthors">Author(s)</label> <i class="fa fa-plus-square-o fa-fw" onClick="toggleAuthors()"></i><br>
+                        <select id=
+                    "authorSelected" name="authorSelected">
+                        <option>
+                            All Authors
+                        </option>
+                    </select>
                         <input id="missionAuthors" maxlength="56" name=
                         "missionAuthors" type="text" placeholder="Seperate authors by comma"><br>
                     </div>
@@ -240,6 +246,6 @@
 			</buttongroup>
         </div>
     </div>
-    <script src="js/jquery-2.1.0.js" type="text/javascript"></script> <script src="js/parse-1.2.16.min.js" type="text/javascript"></script> <script src="js/moment.min.js" type="text/javascript"></script> <script src="js/jExpand.js" type="text/javascript"></script> <script src="js/popup.js" type="text/javascript"></script> <script src="js/user.js" type="text/javascript"></script> <script src="js/add.js" type="text/javascript"></script> <script src="js/jquery.tablesorter.js" type="text/javascript"></script>
+    <script src="js/jquery-2.1.0.js" type="text/javascript"></script> <script src="js/parse-1.2.16.min.js" type="text/javascript"></script> <script src="js/moment.min.js" type="text/javascript"></script> <script src="js/jExpand.js" type="text/javascript"></script> <script src="js/popup.js" type="text/javascript"></script><script src="js/common.js" type="text/javascript"></script> <script src="js/user.js" type="text/javascript"></script><script src="js/add.js" type="text/javascript"></script> <script src="js/jquery.tablesorter.js" type="text/javascript">
 </body>
 </html>

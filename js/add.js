@@ -5,10 +5,9 @@ if (!Parse.User.current()) {
 }
 
 UpdateLogin();
-function MissionSaveError(string)
-{
-	$("#errorEdit").text(string);
-}
+GetMissionAuthor();
+$("#missionAuthors").hide();
+
 $('#missionSave').click(function() {
     var missionName = $("#missionName").val();
     var missionGame = $("#missionGame").val();
@@ -16,7 +15,10 @@ $('#missionSave').click(function() {
     var missionSession = $("#missionSession").val();
     var missionType = $("#missionType").val();
     var missionSlots = Number($("#missionSlots").val());
-    var missionsAuthors = $("#missionAuthors").val();
+    var missionsAuthors = $("#authorSelected").val();
+    if ($("#missionAuthors").val().trim().length > 1) {
+        missionsAuthors = $("#missionAuthors").val();
+    };
     var missionDescription = $("#missionDescription").val();
     var missionNotes = $("#missionNotes").val();
     var missionF3version = $("#f3Version").val();
@@ -49,8 +51,8 @@ $('#missionSave').click(function() {
         return false;
     }
 
-    if (missionsAuthors === "" || missionsAuthors === null) {
-        MissionSaveError("Select or enter an author!");
+    if (missionsAuthors === "All Authors" || missionsAuthors.trim().length < 1 || missionsAuthors === null) {
+        MissionSaveError("Select an existing author or create a new one!");
         return false;
     }
 
