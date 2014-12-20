@@ -1,4 +1,4 @@
-function GetMissionAuthor() {
+function GetMissionAuthor(preSelect) {
     var MissionObject = Parse.Object.extend("Missions");
     var query = new Parse.Query(MissionObject);
     query.limit(1000);
@@ -7,8 +7,10 @@ function GetMissionAuthor() {
            // $("#authorSelected").empty();
             //$("#authorSelected").append(
             //    "<option>All Authors</option>");
-            var arr = [];
-            var authors = [];
+            var 
+                arr = [],
+                authors = [];
+
             for (var x = 0; x < results.length; x++) {
                 var obj = results[x];
                 authors = authors.concat(obj.get("missionAuthor").split(','));
@@ -21,14 +23,20 @@ function GetMissionAuthor() {
                 }
             }
 
-            arr.sort();
+            arr.sort(function (a, b){
+                var aName = a.toLowerCase();
+                var bName = b.toLowerCase(); 
+                return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+              }
+            );
+
             for (var y = 0;y < arr.length;y++) {
                 $("#authorSelected").append("<option>" +
                 arr[y] +
                 "</option>");
             }
 
-            if (arr.indexOf(Parse.User.current().get("username")) != -1) {
+           if (preSelect && arr.indexOf(Parse.User.current().get("username")) != -1) {
                 $("#authorSelected").val(Parse.User.current().get("username"));
             };
         },
@@ -37,6 +45,15 @@ function GetMissionAuthor() {
         }
     });
 }
+
+function preSelectAuthor() {
+    $("#authorSelected").each(function()
+    {
+        if ($(this).val() == (Parse.User.current().get("username"))) {
+            return $("#authorSelected").val(Parse.User.current().get("username"));
+        }
+    })
+};
 
 function MissionSaveError(string) {
     $("#errorEdit").text(string);
