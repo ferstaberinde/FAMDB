@@ -46,15 +46,6 @@ function GetMissionAuthor(preSelect) {
     });
 }
 
-function preSelectAuthor() {
-    $("#authorSelected").each(function()
-    {
-        if ($(this).val() == (Parse.User.current().get("username"))) {
-            return $("#authorSelected").val(Parse.User.current().get("username"));
-        }
-    })
-};
-
 function MissionSaveError(string) {
     $("#errorEdit").text(string);
 }
