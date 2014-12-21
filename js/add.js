@@ -5,7 +5,7 @@ if (!Parse.User.current()) {
 }
 
 UpdateLogin();
-GetMissionAuthor();
+GetMissionAuthor(true);
 $("#missionAuthors").hide();
 
 $('#missionSave').click(function() {
@@ -106,3 +106,4 @@ $('#missionSave').click(function() {
     });
     return false;
 });
+
