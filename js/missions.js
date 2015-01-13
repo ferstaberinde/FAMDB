@@ -168,7 +168,16 @@ function LoadData() {
                    obj.get("createdBy").id, ACL);
             }
 
-            $("#missionTable").jExpand();
+            // Hide all description rows
+            $('.descRow').hide()
+
+            // Setup hide/show toggle on clicking the mission name
+            $(".cellMissions").click(function() {
+              $(this).find("#chevron").toggleClass("fa-chevron-down fa-chevron-up");
+              $(this).parent().next('#descRow').toggle()
+            });
+
+            // Sort the table
             $("#missionTable").tablesorter({
                 // sort on the first column and third column, order asc
                 widgets: ["zebra"], // initialize zebra striping of the table
@@ -177,10 +186,6 @@ function LoadData() {
                     css: ["normal-row", "odd"]
                 },
                 cssChildRow: "descRow"
-            });
-
-            $("#missionTable tr").click(function() {
-              $(this).find("#chevron").toggleClass("fa-chevron-down fa-chevron-up");
             });
 
             setTimeout(function() {
