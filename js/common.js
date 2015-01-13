@@ -46,6 +46,45 @@ function GetMissionAuthor(preSelect) {
     });
 }
 
+function CheckRights(obj, userid, ACL) {
+    var currentUser = Parse.User.current();
+    var rowid = obj.id;
+
+    // If current user has created the entry, add edit & delete options
+    if (currentUser.id == userid) {
+          $("#" + rowid).append(
+            '<ul><li><a href="edit.html?row=' +
+            rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
+            rowid +
+            '\')">Delete</a></li></ul>');
+    }
+
+    var query = new Parse.Query(Parse.Role);
+    query.equalTo("users", currentUser);
+    var value = null;
+    query.find({
+        success: function(roles) {
+
+                for (var x = 0; x < roles.length; x++) {
+                    
+                    if (ACL.getWriteAccess(roles[x])) {
+                        $("#" + rowid).append(
+                          '<ul style="float:right"><li><a href="edit.html?row=' +
+                            rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
+                            rowid +
+                            '\')">Delete</a></li></ul>');
+
+                        $('#'+rowid+'.cellPlayed').append(' +');
+                        return;
+                    }
+                }
+        },
+        error: function(error) {
+            console.log("Error: " + error.code + " " + error.message);
+        }
+    });
+}
+
 function MissionSaveError(string) {
     $("#errorEdit").text(string);
 }

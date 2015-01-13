@@ -229,6 +229,11 @@
 		padding: 0.5em 1em;
 	}
 
+	#missionsListTableContainer table.tableMissions td.cellSlots {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
 	#missionsListTableContainer table.tableMissions td.cellPlayed {
 		display: table-cell;
 		padding: 0.5em 1em;

@@ -136,25 +136,6 @@ function FixRows() {
     });
 }
 
-function CheckRights(rowid, userid, ACL) {
-    var currentUser = Parse.User.current();
-    var query = new Parse.Query(Parse.Role);
-    query.equalTo("users", currentUser);
-    var value = null;
-    query.find({
-        success: function(roles) {
-            for (var x = 0; x < roles.length; x++) {
-                if (ACL.getWriteAccess(roles[x])) {
-                    return;
-                }
-            }
-        },
-        error: function(error) {
-            alert("Error: " + error.code + " " + error.message);
-        }
-    });
-}
-
 function MissionSaveError(string) {
     $("#errorEdit").text(string);
 }
@@ -171,6 +152,7 @@ $('#missionSave').click(function() {
     var missionF3version = $("#f3Version").val();
     var isBroken = $('#missionBroken').prop('checked');
     var needsRevision = $('#missionNeedsRevision').prop('checked');
+    var playedCounter = $('#playedCounter').val();
     
     if ( !(missionName.match(/^[a-zA-Z0-9'-_][a-zA-Z0-9'-_ ]+$/)) || missionName === "" || missionName === null) {
         MissionSaveError("Enter a mission name!");
