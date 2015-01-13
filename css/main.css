@@ -569,11 +569,11 @@ SECTION: EDITMISSIONS
     font-size:1em;
     margin:10px 0;
     padding:15px 0;
-    width:95%;
+    width:40%;
     border:1px solid #ccc;
     background-color:#303030;
     padding-left:2px;
-    color:#ccc
+    color:#ccc;
 }
 
 #editMissionsContainer input[type="checkbox"] {
@@ -581,7 +581,7 @@ SECTION: EDITMISSIONS
     border:1px solid #ccc;
     background-color:#303030;
     padding-left:0;
-    color:#ccc
+    color:#ccc;
 }
 
 #editMissionsContainer textarea {

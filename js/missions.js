@@ -76,7 +76,7 @@ function LoadData() {
                 data += '<td class="cellIsland">' + obj.get(
                     "missionMap") + '</td>';
                 
-                data += '<td class="cellPlayed">' + obj.get(
+                data += '<td id="' +  obj.id + '_cellPlayed">' + obj.get(
                         "playedCounter") + '</td>';
 
                 if (obj.get("lastPlayed")) data +=
@@ -164,7 +164,7 @@ function LoadData() {
                 $("#missionTable > tbody").append(data);
 
                 var ACL = obj.getACL();
-                if (Parse.User.current()) CheckRights(obj,
+                if (Parse.User.current()) CheckRights(obj.id,
                    obj.get("createdBy").id, ACL);
             }
 
@@ -220,4 +220,8 @@ function DeleteRow() {
             alert("Error: " + error.code + " " + error.message);
         }
     });
+}
+
+function UpdatePlaycount () {
+    
 }

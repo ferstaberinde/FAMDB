@@ -189,6 +189,11 @@
 		padding: 0.5em 1em;
 	}
 
+	#missionsListTableContainer table.tableMissions th.cellHeaderSlots {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
 	#missionsListTableContainer table.tableMissions th.cellHeaderIsland {
 		display: table-cell;
 		padding: 0.5em 1em;
@@ -414,8 +419,7 @@
 		padding: 5px;
 		margin-bottom: 15px;
 		font-size: 1em;
-
-		width: 10%;
+		width: 40%;
 		border: 1px solid #ccc;
 		background-color: #303030;
 		color: #ccc;

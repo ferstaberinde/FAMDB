@@ -51,6 +51,10 @@ function LoadRow() {
                                     object.get(
                                         "missionPlayers"
                                     ));
+                                 $("#missionPlaycount").val(
+                                    object.get(
+                                        "playedCounter"
+                                    ));
                                 $("#missionAuthors")
                                     .val(object.get(
                                         "missionAuthor"
@@ -146,13 +150,13 @@ $('#missionSave').click(function() {
     var missionSession = $("#missionSession").val();
     var missionType = $("#missionType").val();
     var missionSlots = Number($("#missionSlots").val());
+    var missionPlaycount = Number($('#missionPlaycount').val());
     var missionsAuthors = $("#missionAuthors").val();
     var missionDescription = $("#missionDescription").val();
     var missionNotes = $("#missionNotes").val();
     var missionF3version = $("#f3Version").val();
     var isBroken = $('#missionBroken').prop('checked');
     var needsRevision = $('#missionNeedsRevision').prop('checked');
-    var playedCounter = $('#playedCounter').val();
     
     if ( !(missionName.match(/^[a-zA-Z0-9'-_][a-zA-Z0-9'-_ ]+$/)) || missionName === "" || missionName === null) {
         MissionSaveError("Enter a mission name!");
@@ -177,6 +181,11 @@ $('#missionSave').click(function() {
 
     if (isNaN(missionSlots)  || missionSlots <= 0 || missionSlots === null) {
         MissionSaveError("Slots must be a number > 0");
+        return false;
+    }
+
+    if (isNaN(missionPlaycount)  || missionPlaycount < 0 || missionPlaycount === null) {
+        MissionSaveError("Playcount must be at least 0");
         return false;
     }
 
@@ -207,6 +216,7 @@ $('#missionSave').click(function() {
     window.row.set("Session", missionSession);
     window.row.set("missionType", missionType);
     window.row.set("missionPlayers", missionSlots);
+    window.row.set("playedCounter", missionPlaycount);
     window.row.set("missionAuthor", missionsAuthors);
     window.row.set("missionDesc", missionDescription);
     window.row.set("isBroken", isBroken);

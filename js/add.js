@@ -15,6 +15,7 @@ $('#missionSave').click(function() {
     var missionSession = $("#missionSession").val();
     var missionType = $("#missionType").val();
     var missionSlots = Number($("#missionSlots").val());
+    var missionPlaycount = Number($('#missionPlaycount').val());
     var missionsAuthors = $("#authorSelected").val();
     if ($("#missionAuthors").val().trim().length > 1) {
         missionsAuthors = $("#missionAuthors").val();
@@ -51,6 +52,11 @@ $('#missionSave').click(function() {
         return false;
     }
 
+    if (isNaN(missionPlaycount)  || missionPlaycount < 0 || missionPlaycount === null) {
+        MissionSaveError("Playcount must be at least 0");
+        return false;
+    }
+
     if (missionsAuthors === "All Authors" || missionsAuthors.trim().length < 1 || missionsAuthors === null) {
         MissionSaveError("Select an existing author or create a new one!");
         return false;
@@ -81,13 +87,13 @@ $('#missionSave').click(function() {
     objMission.set("Session", missionSession);
     objMission.set("missionType", missionType);
     objMission.set("missionPlayers", missionSlots);
+    objMission.set("playedCounter", missionPlaycount);
     objMission.set("missionAuthor", missionsAuthors);
     objMission.set("missionDesc", missionDescription);
     objMission.set("isBroken", isBroken);
     objMission.set("needsRevision", needsRevision);
     objMission.set("Scripts",missionF3version);
     objMission.set("missionNotes", missionNotes);
-    objMission.set("playedCounter", 0);
     objMission.set("createdBy", Parse.User.current());
     var postACL = new Parse.ACL();
     postACL.setRoleWriteAccess("Administrator", true);
