@@ -364,17 +364,9 @@ SECTION: MISSIONSLIST
     display:none
 }
 
-	#missionsListTableContainer table.tableMissions td.cellBroken {
-		display: table-cell;
-		padding: 0.5em 1em;
-		color: #f00;
-	}
-
-	#missionsListTableContainer table.tableMissions td.cellRevision {
-		display: table-cell;
-		padding: 0.5em 1em;
-		color: #576AFA;
-	}
+#missionsListTableContainer table.tableMissions td.cellBroken, td.cellRevision, td.cellPlayedcounter {
+	display: none;
+}
 
 #missionsListTableContainer table.tableMissions td.cellDropdown {
     display:table-cell;
