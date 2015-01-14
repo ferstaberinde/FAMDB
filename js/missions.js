@@ -69,35 +69,9 @@ function LoadData() {
                 data +=
                     '<td class="cellMissions"><a href="#"><i id="chevron" class="fa fa-chevron-up"></i> ' +
                     obj.get("missionName") + '</a></td>';
-				
-                var missiontype = obj.get("missionType");
-                    console.log(missiontype == "Coop");
-                    switch (missiontype) {
-                        case "Coop":
-                            missiontype = "C";
-                            break;   
-                        case "Coop (ZEUS)":
-                            missiontype = "CZ";
-                            break;
-                        case "Adversarial":
-                            missiontype = "A";
-                            break;
-                        case "Adversarial (ZEUS)":
-                            missiontype = "AZ";
-                            break;
-                        case "ZEUS vs. Players":
-                            missiontype = "ZvP";
-                            break;
-                        case "ZEUS vs. Zeus":
-                            missiontype = "ZvZ";
-                            break;
-                        case "Other":
-                            missiontype = "ZZ";
-                            break;
-                }
                 
                 data += '<td class="cellType">' + 
-					missiontype + '</td>';
+					obj.get("missionType") + '</td>';
 
                 data += '<td class="cellSlots">' + 
 					obj.get("missionPlayers") + '</td>';
