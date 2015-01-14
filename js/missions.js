@@ -138,18 +138,20 @@ function LoadData() {
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Island</span><br>' +
                     obj.get("missionMap") + "</p>";
-              data += '<p class="fullInfo"><span class="cellDropdownSubtitle"># Slots</span><br>'+obj.get("missionPlayers")+'</p>';
-                if (obj.get("playedCounter") !== null) data +=
-                    '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>' +
+                data +=     '<p class="fullInfo"><span class="cellDropdownSubtitle">Type</span><br>' +
+                    obj.get("missionType"); + "</p>";        
+            
+                data += '<p class="fullInfo"><span class="cellDropdownSubtitle"># Slots</span><br>'+obj.get("missionPlayers")+'</p>';
+                
+                data += '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>' +
                     obj.get("playedCounter") + "</p>";
-                else data +=
-                    '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>0</p>';
-                if (obj.get("lastPlayed") !== null) data +=
+                
+                if (obj.get("lastPlayed")) data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>' +
                     moment(obj.get("lastPlayed")).format(
                         "YYYY MM DD") + "</p>";
-                else data +=
-                    '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';
+                else data += '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';
+                
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Author(s)</span><br>' +
                     obj.get("missionAuthor") + "</p>";
