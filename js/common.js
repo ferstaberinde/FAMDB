@@ -46,9 +46,9 @@ function GetMissionAuthor(preSelect) {
     });
 }
 
-function CheckRights(rowid, userid, ACL) {
+function CheckRights(obj, userid, ACL) {
     var currentUser = Parse.User.current();
-
+    var rowid = obj.id;
     // If the current user has created the entry, add edit & delete buttons
     if (currentUser.id == userid) {
       $("#" + rowid).append(
@@ -70,8 +70,8 @@ function CheckRights(rowid, userid, ACL) {
 
                     // Add modifiers for play-counter
                     $('#' + rowid + '_cellPlayed')
-                        .append(' <a href="#" title="Increase playcount" onClick ="ChangePlayedCount(,true)">+</a>')
-                        .prepend('<a href="#" title="Decrease playcount" onClick="ChangePlayedCount(,false)"">-</a> ');
+                        .append(' <a href="#" class="' + rowid + '" title="Increase playcount" onClick ="ChangePlayedCount(true,true)">+</a>')
+                        .prepend('<a href="#" title="Decrease playcount" onClick="ChangePlayedCount(false,false)">- </a>');
                     
                     // If admin is not creator of the entry, add edit & delete buttons
                     if (currentUser.id != userid) {
@@ -94,7 +94,7 @@ function CheckRights(rowid, userid, ACL) {
 }
 
 function ChangePlayedCount(obj,increase) {
-    
+
 }
 
 function MissionSaveError(string) {

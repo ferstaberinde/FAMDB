@@ -70,9 +70,39 @@ function LoadData() {
                     '<td class="cellMissions"><a href="#"><i id="chevron" class="fa fa-chevron-up"></i> ' +
                     obj.get("missionName") + '</a></td>';
 				
-                data += '<td class="cellSlots">' +
+                var missiontype = obj.get("missionType");
+                    console.log(missiontype == "Coop");
+                    switch (missiontype) {
+                        case "Coop":
+                            missiontype = "C";
+                            break;   
+                        case "Coop (ZEUS)":
+                            missiontype = "CZ";
+                            break;
+                        case "Adversarial":
+                            missiontype = "A";
+                            break;
+                        case "Adversarial (ZEUS)":
+                            missiontype = "AZ";
+                            break;
+                        case "ZEUS vs. Players":
+                            missiontype = "ZvP";
+                            break;
+                        case "ZEUS vs. Zeus":
+                            missiontype = "ZvZ";
+                            break;
+                        case "Other":
+                            missiontype = "ZZ";
+                            break;
+                }
+                
+                data += '<td class="cellType">' + 
+					missiontype + '</td>';
+
+                data += '<td class="cellSlots">' + 
 					obj.get("missionPlayers") + '</td>';
-               
+                
+                
                 data += '<td class="cellIsland">' + obj.get(
                     "missionMap") + '</td>';
                 
@@ -164,7 +194,7 @@ function LoadData() {
                 $("#missionTable > tbody").append(data);
 
                 var ACL = obj.getACL();
-                if (Parse.User.current()) CheckRights(obj.id,
+                if (Parse.User.current()) CheckRights(obj,
                    obj.get("createdBy").id, ACL);
             }
 
@@ -225,8 +255,4 @@ function DeleteRow() {
             alert("Error: " + error.code + " " + error.message);
         }
     });
-}
-
-function UpdatePlaycount () {
-    
 }
