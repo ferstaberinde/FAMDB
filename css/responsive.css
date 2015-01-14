@@ -188,6 +188,12 @@
 		display: table-cell;
 		padding: 0.5em 1em;
 	}
+    
+    
+	#missionsListTableContainer table.tableMissions th.cellHeaderType {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
 
 	#missionsListTableContainer table.tableMissions th.cellHeaderSlots {
 		display: table-cell;
@@ -230,6 +236,11 @@
 	}
 
 	#missionsListTableContainer table.tableMissions td.cellIsland {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+    
+    #missionsListTableContainer table.tableMissions td.cellType {
 		display: table-cell;
 		padding: 0.5em 1em;
 	}
