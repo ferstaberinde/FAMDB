@@ -293,7 +293,7 @@ SECTION: MISSIONSLIST
     text-align:left
 }
 
-#missionsListTableContainer table.tableMissions th.cellHeaderSlots {
+#missionsListTableContainer table.tableMissions th.cellHeaderType, th.cellHeaderSlots {
     display:none;
     text-align:left
 }
@@ -340,7 +340,7 @@ SECTION: MISSIONSLIST
     padding:1em .5em
 }
 
-#missionsListTableContainer table.tableMissions td.cellSlots {
+#missionsListTableContainer table.tableMissions td.cellSlots, td.cellType {
     display:none
 }
 
