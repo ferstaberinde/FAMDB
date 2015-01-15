@@ -1,3 +1,5 @@
+// Functions used to populate the main table
+
 function LoadData() {
     var sessionVal = $("#sessionSelected").val();
     var mapVal = $("#islandSelected").val();

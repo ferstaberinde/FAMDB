@@ -1,3 +1,5 @@
+// Functions used by both form.js and missions.js
+
 // Function to populate #authorsSelected dropdown field with all authors from the DB
 function GetMissionAuthor(preSelect) {
     var MissionObject = Parse.Object.extend("Missions");
@@ -104,7 +106,7 @@ function ChangePlayedCount(id,mod) {
                 var counterPlayed = $('#'+obj.id+'_counterPlayed');
                 var counterPlayedVal = Number(counterPlayed.html());
                 
-                if (counterPlayedVal + (mod) < 0 || counterPlayedVal + (mod) > 99) return;
+                if (counterPlayedVal + (mod) < 0 || counterPlayedVal + (mod) > 100) return;
                 
                 counterPlayed.html(counterPlayedVal + (mod));
                 obj.set("playedCounter", obj.get("playedCounter") + (mod));
