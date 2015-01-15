@@ -272,6 +272,10 @@ SECTION: MISSIONSLIST
     text-align:left
 }
 
+#playCounterMod {
+    display: none;
+}
+
 #missionsListTableContainer table.tableMissions thead.rowHeader {
     text-transform:uppercase
 }

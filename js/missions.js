@@ -82,8 +82,8 @@ function LoadData() {
                 data += '<td class="cellIsland">' + obj.get(
                     "missionMap") + '</td>';
                 
-                data += '<td class="cellPlayed"><span id="' +  obj.id + '_counterPlayed">' + obj.get(
-                        "playedCounter") + '</span></td>';
+                data += '<td class="cellPlayed"><a class="playCounterMod" href="#" title="Decrease playcount">-</a> <span id="' +  obj.id + '_counterPlayed">' + obj.get(
+                        "playedCounter") + '</span> <a class="playCounterMod" href="#" title="Increase playcount">+</a></td>';
 
                 if (obj.get("lastPlayed")) data +=
                     '<td class="cellLastPlayed">' + moment(obj.get(
@@ -175,9 +175,12 @@ function LoadData() {
                 if (Parse.User.current()) CheckRights(obj,
                    obj.get("createdBy").id, ACL);
             }
-
+            
             // Hide all description rows
-            $('.descRow').hide()
+            $('.descRow').hide();
+            
+            // Hide the playcounter buttons
+            $('.playCounterMod').hide();
 
             // Setup hide/show toggle on clicking the mission name
             $(".cellMissions").click(function() {

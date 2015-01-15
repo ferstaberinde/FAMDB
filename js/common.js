@@ -66,16 +66,16 @@ function CheckRights(obj, userid, ACL) {
     var query = new Parse.Query(Parse.Role);
     query.equalTo("users", currentUser);
     var value = null;
+    //$('.playCounterMod').hide();
     query.find({
         success: function(roles) {
             for (var x = 0; x < roles.length; x++) {
                 if (ACL.getWriteAccess(roles[x])) {
 
-                    // Add modifiers for play-counter
-                   $('#' + rowid + '_counterPlayed').parent()
-                        .append(' <a href="#" title="Increase playcount" onClick ="ChangePlayedCount(\''+ rowid +'\',+1)">+</a>')
-                        .prepend('<a href="#" title="Decrease playcount" onClick="ChangePlayedCount(\''+ rowid +'\',-1)">- </a>');
-                    
+                   // Add modifiers for play-counter
+                   $('#' + rowid + '_counterPlayed').next().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,+1)});
+                   $('#' + rowid + '_counterPlayed').prev().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,-1)});                                                          
+
                     // If admin is not creator of the entry, add edit & delete buttons
                     if (currentUser.id != userid) {
                         $("#" + rowid).append(
@@ -85,7 +85,7 @@ function CheckRights(obj, userid, ACL) {
                             '\')">Delete</a></li></ul>');
                     }
                     
-                    return;
+                    return $('.playCounterMod').show();
                 }
             }
         },
@@ -94,10 +94,11 @@ function CheckRights(obj, userid, ACL) {
         }
 
     });
+    
 }
 
 function ChangePlayedCount(id,mod) {
-        
+
     var MissionObject = Parse.Object.extend("Missions");
     var query = new Parse.Query(MissionObject);
     
