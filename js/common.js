@@ -70,9 +70,9 @@ function CheckRights(obj, userid, ACL) {
                 if (ACL.getWriteAccess(roles[x])) {
 
                     // Add modifiers for play-counter
-                    $('#' + rowid + '_cellPlayed')
-                        .append(' <a href="#" class="' + rowid + '" title="Increase playcount" onClick ="ChangePlayedCount(true,true)">+</a>')
-                        .prepend('<a href="#" title="Decrease playcount" onClick="ChangePlayedCount(false,false)">- </a>');
+                   $('#' + rowid + '_counterPlayed').parent()
+                        .append(' <a href="#" title="Increase playcount" onClick ="ChangePlayedCount(\''+ rowid +'\',+1)">+</a>')
+                        .prepend('<a href="#" title="Decrease playcount" onClick="ChangePlayedCount(\''+ rowid +'\',-1)">- </a>');
                     
                     // If admin is not creator of the entry, add edit & delete buttons
                     if (currentUser.id != userid) {
@@ -94,8 +94,27 @@ function CheckRights(obj, userid, ACL) {
     });
 }
 
-function ChangePlayedCount(obj,increase) {
-
+function ChangePlayedCount(id,mod) {
+        
+    var MissionObject = Parse.Object.extend("Missions");
+    var query = new Parse.Query(MissionObject);
+    
+    query.get(id, {
+            success: function(obj) {
+                var counterPlayed = $('#'+obj.id+'_counterPlayed');
+                var counterPlayedVal = Number(counterPlayed.html());
+                
+                if (counterPlayedVal + (mod) < 0 || counterPlayedVal + (mod) > 99) return;
+                
+                counterPlayed.html(counterPlayedVal + (mod));
+                obj.set("playedCounter", obj.get("playedCounter") + (mod));
+                SaveMission(obj,Parse.User.current(),false);
+            },
+            error: function(error) {
+                console.log("Error: " + error.code + " " + error.message);
+            }
+    });
+    
 }
 
 function ToggleAuthors() {
@@ -103,7 +122,22 @@ function ToggleAuthors() {
     $("#missionAuthors").toggle(); 
 }
 
-
-function MissionSaveError(string) {
-    $("#errorEdit").text(string);
+// Saves mission to DB
+function SaveMission(objMission,currentUser,close) {
+    var postACL = new Parse.ACL();
+    postACL.setRoleWriteAccess("Administrator", true);
+    postACL.setPublicReadAccess(true);
+    postACL.setWriteAccess(currentUser.id, true);
+    objMission.setACL(postACL);
+    objMission.save(null, {
+        success: function() {
+            if (close) {window.location.href = "index.html";}
+        },
+        error: function(error) {
+            // Execute any logic that should take place if the save fails.
+            // error is a Parse.Error with an error code and description.
+            $("#errorEdit").text(error.message);
+        }
+    });
+    return false;
 }

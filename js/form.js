@@ -141,11 +141,11 @@ function LoadMission(newMission,object) {
     
     
     $('#missionSave').click({param1: object}, function(event) {
-        SaveMission(event.data.param1);
+        WriteMission(event.data.param1);
     });
 }
 
-function SaveMission(object) {
+function WriteMission(object) {
     
     var missionName = $("#missionName").val();
     var missionGame = $("#missionGame").val();
@@ -190,8 +190,8 @@ function SaveMission(object) {
         return false;
     }
 
-    if (isNaN(missionPlaycount)  || missionPlaycount < 0 || missionPlaycount === null) {
-        MissionSaveError("Playcount must be at least 0");
+    if (isNaN(missionPlaycount)  || missionPlaycount < 0 || missionPlaycount > 99 || missionPlaycount === null) {
+        MissionSaveError("Playcount must be a number between 0 and 99");
         return false;
     }
 
@@ -241,31 +241,13 @@ function SaveMission(object) {
     objMission.set("Scripts",missionF3version);
     objMission.set("missionNotes", missionNotes);
     
-    var postACL = new Parse.ACL();
-    postACL.setRoleWriteAccess("Administrator", true);
-    postACL.setPublicReadAccess(true);
-    postACL.setWriteAccess(currentUser.id, true);
-    objMission.setACL(postACL);
-    objMission.save(null, {
-        success: function() {
-            window.location.href = "index.html";
-        },
-        error: function(error) {
-            // Execute any logic that should take place if the save fails.
-            // error is a Parse.Error with an error code and description.
-            $("#errorEdit").text(error.message);
-        }
-    });
+    SaveMission(objMission,currentUser,true);
+    
     return false;
 }
 
 function MissionSaveError(string) {
     $("#errorEdit").text(string);
-}
-
-function ToggleAuthors() {
-    $("#authorSelected").toggle();
-    $("#missionAuthors").toggle(); 
 }
 
 UpdateLogin();

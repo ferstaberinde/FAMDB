@@ -80,8 +80,8 @@ function LoadData() {
                 data += '<td class="cellIsland">' + obj.get(
                     "missionMap") + '</td>';
                 
-                data += '<td class="cellPlayed" id="' +  obj.id + '_cellPlayed">' + obj.get(
-                        "playedCounter") + '</td>';
+                data += '<td class="cellPlayed"><span id="' +  obj.id + '_counterPlayed">' + obj.get(
+                        "playedCounter") + '</span></td>';
 
                 if (obj.get("lastPlayed")) data +=
                     '<td class="cellLastPlayed">' + moment(obj.get(
