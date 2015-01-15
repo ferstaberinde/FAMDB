@@ -247,10 +247,10 @@ function SaveMission(object) {
     postACL.setWriteAccess(currentUser.id, true);
     objMission.setACL(postACL);
     objMission.save(null, {
-        success: function(gameScore) {
+        success: function() {
             window.location.href = "index.html";
         },
-        error: function(gameScore, error) {
+        error: function(error) {
             // Execute any logic that should take place if the save fails.
             // error is a Parse.Error with an error code and description.
             $("#errorEdit").text(error.message);
