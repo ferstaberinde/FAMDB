@@ -1,3 +1,4 @@
+// Function to populate #authorsSelected dropdown field with all authors from the DB
 function GetMissionAuthor(preSelect) {
     var MissionObject = Parse.Object.extend("Missions");
     var query = new Parse.Query(MissionObject);
@@ -99,9 +100,4 @@ function ChangePlayedCount(obj,increase) {
 
 function MissionSaveError(string) {
     $("#errorEdit").text(string);
-}
-
-function toggleAuthors() {
-    $("#authorSelected").toggle();
-    $("#missionAuthors").toggle(); 
 }

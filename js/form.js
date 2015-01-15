@@ -16,7 +16,7 @@ location.search.substr(1).split("&").forEach(function(item) {
 var MissionObject = Parse.Object.extend("Missions");
 var query = new Parse.Query(MissionObject);
 query.get(queryDict.row, {
-            success: function(object) {  
+            success: function(object) {
                 saveWriteMission(false,object);
             },
             error: function(model,error) {
@@ -25,112 +25,6 @@ query.get(queryDict.row, {
                 }
             }
 });
-
-function saveWriteMission(newMission,object) {
-    var currentUser = Parse.User.current();
-    if (currentUser === null) return;
-
-    // If mission exists, populate the elements
-    if (newMission) {
-        $('.editMissionsTitle').append(' Add Mission');
-        $('#editMissionsHeader').children().append('Add Mission');
-        GetMissionAuthor(newMission);     
-    } else {
-        $('.editMissionsTitle').append(' Edit Mission');
-        $('#editMissionsHeader').children().append('Edit Mission');
-        GetMissionAuthor(newMission);
-        var MissionObject = object;
-        var ACL = object.getACL();
-        query.find({
-                    success: function(roles) {
-                        for (var x = 0; x < roles.length; x++) {
-                            if (ACL.getWriteAccess(
-                                    roles[x]) ||
-                                ACL.getWriteAccess(
-                                    currentUser)) {
-                                window.row = object;
-                                $("#missionName").val(
-                                    object.get(
-                                        "missionName"
-                                    ));
-                                $("#missionGame").val(
-                                    object.get(
-                                        "game")
-                                );
-                                $("#missionIsland")
-                                    .val(object.get(
-                                        "missionMap"
-                                    ));
-                                $("#missionSession")
-                                    .val(object.get(
-                                        "Session"
-                                    ));
-                                $("#missionType").val(
-                                    object.get(
-                                        "missionType"
-                                    ));
-                                $("#missionSlots").val(
-                                    object.get(
-                                        "missionPlayers"
-                                    ));
-                                 $("#missionPlaycount").val(
-                                    object.get(
-                                        "playedCounter"
-                                    ));
-                                $("#missionAuthors")
-                                    .val(object.get(
-                                        "missionAuthor"
-                                    ));
-                                $(
-                                    "#missionDescription"
-                                ).val(object.get(
-                                    "missionDesc"
-                                ));
-                                $(
-                                    "#missionNotes"
-                                ).val(object.get(
-                                    "missionNotes"
-                                ));
-                                $(
-                                    "#f3Version"
-                                ).val(object.get(
-                                    "Scripts"
-                                ));
-
-                                var bool = object.get(
-                                    "isBroken");
-                                if (bool) {
-                                    $(
-                                        "#missionBroken"
-                                    ).prop(
-                                        'checked',
-                                        true);
-                                }
-
-                                var bool = object.get(
-                                    "needsRevision");
-                                if (bool) {
-                                    $(
-                                        "#missionNeedsRevision"
-                                    ).prop(
-                                        'checked',
-                                        true);
-                                }
-
-                                $("#loading").hide();
-                                //   $("#form_edit").show();
-                                return;
-                            }
-                        }
-                    },
-                    error: function(error) {
-                        alert("Error: " + error.code +
-                            " " + error.message
-                        );
-                    }
-                });
-    }
-}
 
 // On button click, parse the set elements
 /*
@@ -202,10 +96,122 @@ $('#missionSave').click(function() {
         }
 }*/
 
+function saveWriteMission(newMission,object) {
+    var currentUser = Parse.User.current();
+    if (currentUser === null) return;
+
+    // If mission exists, populate the elements
+    if (newMission) {
+        $('.editMissionsTitle').append(' Add Mission');
+        $('#editMissionsHeader').children().append('Add Mission');
+        GetMissionAuthor(newMission);     
+    } else {
+        $("#loading").show();
+        $('.editMissionsTitle').append(' Edit Mission');
+        $('#editMissionsHeader').children().append('Edit Mission');
+        $("#authorSelected").hide();
+        $("#missionAuthors").show();
+        var MissionObject = object;
+        var ACL = object.getACL();
+        query.find({
+                    success: function(roles) {
+                        for (var x = 0; x < roles.length; x++) {
+                            if (ACL.getWriteAccess(
+                                    roles[x]) ||
+                                ACL.getWriteAccess(
+                                    currentUser)) {
+                                window.row = object;
+                                $("#missionName").val(
+                                    object.get(
+                                        "missionName"
+                                    ));
+                                $("#missionGame").val(
+                                    object.get(
+                                        "game")
+                                );
+                                $("#missionIsland")
+                                    .val(object.get(
+                                        "missionMap"
+                                    ));
+                                $("#missionSession")
+                                    .val(object.get(
+                                        "Session"
+                                    ));
+                                $("#missionType").val(
+                                    object.get(
+                                        "missionType"
+                                    ));
+                                $("#missionSlots").val(
+                                    object.get(
+                                        "missionPlayers"
+                                    ));
+                                 $("#missionPlaycount").val(
+                                    object.get(
+                                        "playedCounter"
+                                    ));
+                                $("#authorSelected")
+                                    .val(object.get(
+                                        "missionAuthor"
+                                    ));
+                                $("#missionAuthors")
+                                    .val(object.get(
+                                        "missionAuthor"
+                                    ));
+                                $(
+                                    "#missionDescription"
+                                ).val(object.get(
+                                    "missionDesc"
+                                ));
+                                $(
+                                    "#missionNotes"
+                                ).val(object.get(
+                                    "missionNotes"
+                                ));
+                                $(
+                                    "#f3Version"
+                                ).val(object.get(
+                                    "Scripts"
+                                ));
+
+                                var bool = object.get(
+                                    "isBroken");
+                                if (bool) {
+                                    $(
+                                        "#missionBroken"
+                                    ).prop(
+                                        'checked',
+                                        true);
+                                }
+
+                                var bool = object.get(
+                                    "needsRevision");
+                                if (bool) {
+                                    $(
+                                        "#missionNeedsRevision"
+                                    ).prop(
+                                        'checked',
+                                        true);
+                                }
+
+                                $("#loading").hide();
+                                //   $("#form_edit").show();
+                                return;
+                            }
+                        }
+                    },
+                    error: function(error) {
+                        alert("Error: " + error.code +
+                            " " + error.message
+                        );
+                    }
+                });
+    }
+}
+
 function MissionSaveError(string) {
     $("#errorEdit").text(string);
 }
 
-//$("#loading").show();
+//
 //LoadRow();
 UpdateLogin();
