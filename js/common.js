@@ -107,10 +107,9 @@ function ChangePlayedCount(id,mod) {
                 var counterPlayedVal = Number(counterPlayed.html());
                 
                 if (counterPlayedVal + (mod) < 0 || counterPlayedVal + (mod) > 100) return;
-                
-                counterPlayed.html(counterPlayedVal + (mod));
                 obj.set("playedCounter", obj.get("playedCounter") + (mod));
                 SaveMission(obj,Parse.User.current(),false);
+                counterPlayed.html(counterPlayedVal + (mod));
             },
             error: function(error) {
                 console.log("Error: " + error.code + " " + error.message);
