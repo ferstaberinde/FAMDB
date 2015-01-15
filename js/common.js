@@ -36,7 +36,7 @@ function GetMissionAuthor(preSelect) {
                 "</option>");
             }
 
-           if (preSelect && arr.indexOf(Parse.User.current().get("username")) != -1) {
+           if (preSelect && (arr.indexOf(Parse.User.current().get("username"))) != -1) {        
                 $("#authorSelected").val(Parse.User.current().get("username"));
             };
         },
@@ -52,7 +52,7 @@ function CheckRights(obj, userid, ACL) {
     // If the current user has created the entry, add edit & delete buttons
     if (currentUser.id == userid) {
       $("#" + rowid).append(
-        '<ul><li><a href="edit.html?row=' +
+        '<ul><li><a href="form.html?row=' +
         rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
         rowid +
         '\')">Delete</a></li></ul>');
@@ -76,7 +76,7 @@ function CheckRights(obj, userid, ACL) {
                     // If admin is not creator of the entry, add edit & delete buttons
                     if (currentUser.id != userid) {
                         $("#" + rowid).append(
-                          '<ul><li><a href="edit.html?row=' +
+                          '<ul><li><a href="form.html?row=' +
                             rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
                             rowid +
                             '\')">Delete</a></li></ul>');
