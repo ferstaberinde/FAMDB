@@ -139,9 +139,8 @@ function SaveMission(objMission,currentUser,close) {
         success: function() {
             if (close) {window.location.href = "index.html";}
         },
-        error: function(error) {
-            // Execute any logic that should take place if the save fails.
-            // error is a Parse.Error with an error code and description.
+        error: function(objMission,error) {
+            console.log("Error: " + error.code + " " + error.message);
             $("#errorEdit").text(error.message);
         }
     });
