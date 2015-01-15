@@ -49,9 +49,11 @@ function GetMissionAuthor(preSelect) {
     });
 }
 
+// Check if user belongs to a group with write access
 function CheckRights(obj, userid, ACL) {
     var currentUser = Parse.User.current();
     var rowid = obj.id;
+    
     // If the current user has created the entry, add edit & delete buttons
     if (currentUser.id == userid) {
       $("#" + rowid).append(
@@ -61,29 +63,32 @@ function CheckRights(obj, userid, ACL) {
         '\')">Delete</a></li></ul>');
       //return;
     }
-
-    // Check if admin
+    
     var query = new Parse.Query(Parse.Role);
     query.equalTo("users", currentUser);
     var value = null;
-    //$('.playCounterMod').hide();
     query.find({
         success: function(roles) {
             for (var x = 0; x < roles.length; x++) {
                 if (ACL.getWriteAccess(roles[x])) {
-
-                   // Add modifiers for play-counter
-                   $('#' + rowid + '_counterPlayed').next().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,+1);return false;});
-                   $('#' + rowid + '_counterPlayed').prev().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,-1);return false;});                                                          
-
-                    // If admin is not creator of the entry, add edit & delete buttons
+                    
+                    // Don't add the edit/delete to the admin's own missions (otherwise duplicates occur)
                     if (currentUser.id != userid) {
                         $("#" + rowid).append(
-                          '<ul><li><a href="form.html?row=' +
-                            rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
-                            rowid +
-                            '\')">Delete</a></li></ul>');
+                              '<ul><li><a href="form.html?row=' +
+                                rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
+                                rowid +
+                        '\')">Delete</a></li></ul>');
                     }
+
+                   // Only administrators are allowed to modify the played counter
+                    if (roles[x].getName() === "Administrator") {
+                       $('#' + rowid + '_counterPlayed').next().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,+1);return false;});
+                       $('#' + rowid + '_counterPlayed').prev().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,-1);return false;});
+                        
+                        //TODO: Add last played date
+                    };
+                    
                     
                     return $('.playCounterMod').show();
                 }
