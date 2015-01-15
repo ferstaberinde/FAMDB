@@ -133,7 +133,7 @@
 		font-size: 1em;
 	}
 
-	#filters input[type="submit"] {
+	#filters input[type="submit"], #filters input[type="button"]{
 		padding: 0.2em 1em;
 		font-size: 1em;
 	}
@@ -436,7 +436,7 @@
 		color: #ccc;
 	}
 
-	#editMissionsContainer input[type="submit"] {
+	#editMissionsContainer input[type="submit"], input[type="button"] {
 		margin: 10px 10px 10px 0px;
 		padding: 0.2em 1em;
 		font-size: 1em;

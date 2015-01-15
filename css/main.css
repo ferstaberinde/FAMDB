@@ -587,7 +587,7 @@ SECTION: EDITMISSIONS
     color:#ccc
 }
 
-#editMissionsContainer input[type="submit"] {
+#editMissionsContainer input[type="submit"], input[type="button"] {
     margin:10px 10px 10px 0;
     background-color:#eaa724;
     border:none;
@@ -600,7 +600,7 @@ SECTION: EDITMISSIONS
     text-transform:uppercase
 }
 
-#editMissionsContainer input[type="submit"]:hover,#filters input[type="submit"]:active {
+#editMissionsContainer input[type="submit"]:hover,#filters input[type="submit"]:active, input[type="button"]: hover,#filters input[type="button"]:active {
     border:1px none;
     background-color:#ffcb05;
     color:#000

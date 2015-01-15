@@ -98,6 +98,12 @@ function ChangePlayedCount(obj,increase) {
 
 }
 
+function ToggleAuthors() {
+    $("#authorSelected").toggle();
+    $("#missionAuthors").toggle(); 
+}
+
+
 function MissionSaveError(string) {
     $("#errorEdit").text(string);
 }
