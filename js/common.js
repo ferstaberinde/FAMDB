@@ -73,8 +73,8 @@ function CheckRights(obj, userid, ACL) {
                 if (ACL.getWriteAccess(roles[x])) {
 
                    // Add modifiers for play-counter
-                   $('#' + rowid + '_counterPlayed').next().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,+1)});
-                   $('#' + rowid + '_counterPlayed').prev().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,-1)});                                                          
+                   $('#' + rowid + '_counterPlayed').next().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,+1);return false;});
+                   $('#' + rowid + '_counterPlayed').prev().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,-1);return false;});                                                          
 
                     // If admin is not creator of the entry, add edit & delete buttons
                     if (currentUser.id != userid) {
@@ -107,7 +107,7 @@ function ChangePlayedCount(id,mod) {
                 var counterPlayed = $('#'+obj.id+'_counterPlayed');
                 var counterPlayedVal = Number(counterPlayed.html());
                 
-                if (counterPlayedVal + (mod) < 0 || counterPlayedVal + (mod) > 100) return;
+                if (counterPlayedVal + (mod) < 0 || counterPlayedVal + (mod) > 100) return false;
                 obj.set("playedCounter", obj.get("playedCounter") + (mod));
                 SaveMission(obj,Parse.User.current(),false);
                 counterPlayed.html(counterPlayedVal + (mod));
@@ -116,7 +116,6 @@ function ChangePlayedCount(id,mod) {
                 console.log("Error: " + error.code + " " + error.message);
             }
     });
-    
 }
 
 function ToggleAuthors() {
