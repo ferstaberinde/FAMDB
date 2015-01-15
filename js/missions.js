@@ -185,7 +185,8 @@ function LoadData() {
             // Setup hide/show toggle on clicking the mission name
             $(".cellMissions").click(function() {
               $(this).find("#chevron").toggleClass("fa-chevron-down fa-chevron-up");
-              $(this).parent().next('#descRow').toggle()
+              $(this).parent().next('#descRow').toggle();
+                return false;
             });
 
             // Sort the table
