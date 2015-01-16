@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Folk ARPS | Missions DB | Add Mission</title>
+    <title class="editMissionsTitle">Folk ARPS | Missions DB |</title>
     <link href="css/normalize.css" rel="stylesheet">
     <!-- NOTE: The link to Google fonts is optional and commented-out by default. -->
     <link href=
@@ -24,7 +24,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="add.html" id="AddButton">Add</a>
+                    <a href="form.html" id="AddButton">Add</a>
                 </li>
 
                 <li>
@@ -49,7 +49,7 @@
 
         <section id="editMissions">
             <div id="editMissionsHeader">
-                <h3>Add Mission</h3>
+                <h3>&nbsp;</h3>
             </div>
 
             <div id="editMissionsContainer">
@@ -85,9 +85,16 @@
                                 Vanilla
                             </option>
                         </select><br>
+                        <span style="display:inline-block;">
                         <label for="missionSlots">Slots</label><br>
                         <input class="slots" id="missionSlots" maxlength="3"
-                        name="missionSlots" size="3" type="text" value=""><br>
+                        name="missionSlots" size="3" type="text" value="">
+                         </span>          
+                        <span style="display:inline-block;">
+                        <label for="missionPlaycount">Playcount</label><br>
+                        <input class="slots" id="missionPlaycount" maxlength="3"
+                        name="missionSlots" size="3" type="text" value="0">
+                        </span>
                     </div>
 
                     <div id="editMissionsContainerRight">
@@ -112,6 +119,10 @@
                             <option>
                                 ZEUS vs. Players
                             </option>
+                            
+                            <option>
+                                ZEUS vs. Zeus
+                            </option>
 
                             <option>
                                 Other
@@ -135,7 +146,7 @@
 								3.1.x or older
 							</option>
                         </select><br>
-                        <label for="missionAuthors">Author(s)</label> <i class="fa fa-plus-square-o fa-fw" onClick="toggleAuthors()"></i><br>
+                        <label for="missionAuthors">Author(s)</label> <i id="editMissionsAuthorToggle" class="fa fa-plus-square-o fa-fw" onClick="ToggleAuthors()"></i><br>
                         <select id="authorSelected" name="authorSelected">
                         </select>
                         <input id="missionAuthors" maxlength="56" name="authorSelected" type="text" placeholder="Seperate authors by comma"><br>
@@ -158,7 +169,7 @@
                         "missionNotes" placeholder="Notes on mission playability, balance etc."></textarea><br>
                     </div>
 					<span id="errorEdit"></span><br>
-					<input id="missionSave" type="submit" value="Save"><br>
+					<input id="missionSave" type="button" value="Save"><br>
                 </form>
             </div>
 
@@ -245,10 +256,10 @@
     <script src="js/jquery-2.1.0.js" type="text/javascript"></script>
     <script src="js/parse-1.2.16.min.js" type="text/javascript"></script>
     <script src="js/moment.min.js" type="text/javascript"></script>
-    <script src="js/jExpand.js" type="text/javascript"></script>
     <script src="js/popup.js" type="text/javascript"></script>
     <script src="js/user.js" type="text/javascript"></script>
     <script src="js/common.js" type="text/javascript"></script>
-    <script src="js/add.js" type="text/javascript"></script>
+    <script src="js/form.js" type="text/javascript"></script>
+    <!--<script src="js/add.js" type="text/javascript"></script>-->
     <script src="js/jquery.tablesorter.js" type="text/javascript"></script>
 </html>

@@ -1,4 +1,11 @@
 FAMDB
 =====
 
-ArmAx missions database
+ArmAx missions database.
+
+Credits
+=====
+* Fer
+* Head
+* Tigershark
+* Wolfenswan

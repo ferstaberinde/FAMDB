@@ -16,6 +16,7 @@ function Login() {
         success: function(user) {
             HidePopup("#loginWindow");
             UpdateLogin();
+            window.location.href = "index.html";
         },
         error: function(user, error) {
             $("#errorLogin").text(error.message);
@@ -45,6 +46,7 @@ $('#LogoutButton').click(function() {
     if (Parse.User.current()) {
         Parse.User.logOut();
         UpdateLogin();
+        window.location.href = "index.html";
     }
     else {
         OpenPopup("#loginWindow");

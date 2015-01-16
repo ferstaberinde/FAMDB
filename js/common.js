@@ -1,3 +1,6 @@
+// Functions used by both form.js and missions.js
+
+// Function to populate #authorsSelected dropdown field with all authors from the DB
 function GetMissionAuthor(preSelect) {
     var MissionObject = Parse.Object.extend("Missions");
     var query = new Parse.Query(MissionObject);
@@ -36,7 +39,7 @@ function GetMissionAuthor(preSelect) {
                 "</option>");
             }
 
-           if (preSelect && arr.indexOf(Parse.User.current().get("username")) != -1) {
+           if (preSelect && (arr.indexOf(Parse.User.current().get("username"))) != -1) {        
                 $("#authorSelected").val(Parse.User.current().get("username"));
             };
         },
@@ -46,11 +49,100 @@ function GetMissionAuthor(preSelect) {
     });
 }
 
-function MissionSaveError(string) {
-    $("#errorEdit").text(string);
+// Check if user belongs to a group with write access
+function CheckRights(obj, userid, ACL) {
+    var currentUser = Parse.User.current();
+    var rowid = obj.id;
+    
+    // If the current user has created the entry, add edit & delete buttons
+    if (currentUser.id == userid) {
+      $("#" + rowid).append(
+        '<ul><li><a href="form.html?row=' +
+        rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
+        rowid +
+        '\')">Delete</a></li></ul>');
+      //return;
+    }
+    
+    var query = new Parse.Query(Parse.Role);
+    query.equalTo("users", currentUser);
+    var value = null;
+    query.find({
+        success: function(roles) {
+            for (var x = 0; x < roles.length; x++) {
+                if (ACL.getWriteAccess(roles[x])) {
+                    
+                    // Don't add the edit/delete to the admin's own missions (otherwise duplicates occur)
+                    if (currentUser.id != userid) {
+                        $("#" + rowid).append(
+                              '<ul><li><a href="form.html?row=' +
+                                rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
+                                rowid +
+                        '\')">Delete</a></li></ul>');
+                    }
+
+                   // Only administrators are allowed to modify the played counter
+                    if (roles[x].getName() === "Administrator") {
+                       $('#' + rowid + '_counterPlayed').next().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,+1);return false;});
+                       $('#' + rowid + '_counterPlayed').prev().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,-1);return false;});
+                        
+                        //TODO: Add last played date
+                    };
+                    
+                    
+                    return $('.playCounterMod').show();
+                }
+            }
+        },
+        error: function(error) {
+            console.log("Error: " + error.code + " " + error.message);
+        }
+
+    });
+    
 }
 
-function toggleAuthors() {
+function ChangePlayedCount(id,mod) {
+
+    var MissionObject = Parse.Object.extend("Missions");
+    var query = new Parse.Query(MissionObject);
+    
+    query.get(id, {
+            success: function(obj) {
+                var counterPlayed = $('#'+obj.id+'_counterPlayed');
+                var counterPlayedVal = Number(counterPlayed.html());
+                
+                if (counterPlayedVal + (mod) < 0 || counterPlayedVal + (mod) > 100) return false;
+                obj.set("playedCounter", obj.get("playedCounter") + (mod));
+                SaveMission(obj,Parse.User.current(),false);
+                counterPlayed.html(counterPlayedVal + (mod));
+            },
+            error: function(error) {
+                console.log("Error: " + error.code + " " + error.message);
+            }
+    });
+}
+
+function ToggleAuthors() {
     $("#authorSelected").toggle();
     $("#missionAuthors").toggle(); 
+}
+
+// Saves mission to DB
+function SaveMission(objMission,currentUser,close) {
+    var postACL = new Parse.ACL();
+    postACL.setRoleWriteAccess("Administrator", true);
+    postACL.setPublicReadAccess(true);
+    postACL.setWriteAccess(currentUser.id, true);
+    objMission.setACL(postACL);
+    objMission.save(null, {
+        success: function() {
+            if (close) {window.location.href = "index.html";}
+        },
+        error: function(objMission,error) {
+            console.log("Error: " + error.code + " " + error.message);
+            $("#errorEdit").text(error.message);
+        }
+    });
+    return false;
 }

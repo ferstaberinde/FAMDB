@@ -272,6 +272,10 @@ SECTION: MISSIONSLIST
     text-align:left
 }
 
+#playCounterMod {
+    display: none;
+}
+
 #missionsListTableContainer table.tableMissions thead.rowHeader {
     text-transform:uppercase
 }
@@ -293,7 +297,7 @@ SECTION: MISSIONSLIST
     text-align:left
 }
 
-#missionsListTableContainer table.tableMissions th.cellHeaderSlots {
+#missionsListTableContainer table.tableMissions th.cellHeaderType, th.cellHeaderSlots {
     display:none;
     text-align:left
 }
@@ -340,7 +344,7 @@ SECTION: MISSIONSLIST
     padding:1em .5em
 }
 
-#missionsListTableContainer table.tableMissions td.cellSlots {
+#missionsListTableContainer table.tableMissions td.cellSlots, td.cellType {
     display:none
 }
 
@@ -364,17 +368,9 @@ SECTION: MISSIONSLIST
     display:none
 }
 
-	#missionsListTableContainer table.tableMissions td.cellBroken {
-		display: table-cell;
-		padding: 0.5em 1em;
-		color: #f00;
-	}
-
-	#missionsListTableContainer table.tableMissions td.cellRevision {
-		display: table-cell;
-		padding: 0.5em 1em;
-		color: #576AFA;
-	}
+#missionsListTableContainer table.tableMissions td.cellBroken, td.cellRevision, td.cellPlayedcounter {
+	display: none;
+}
 
 #missionsListTableContainer table.tableMissions td.cellDropdown {
     display:table-cell;
@@ -569,11 +565,11 @@ SECTION: EDITMISSIONS
     font-size:1em;
     margin:10px 0;
     padding:15px 0;
-    width:95%;
+    width:40%;
     border:1px solid #ccc;
     background-color:#303030;
     padding-left:2px;
-    color:#ccc
+    color:#ccc;
 }
 
 #editMissionsContainer input[type="checkbox"] {
@@ -581,7 +577,7 @@ SECTION: EDITMISSIONS
     border:1px solid #ccc;
     background-color:#303030;
     padding-left:0;
-    color:#ccc
+    color:#ccc;
 }
 
 #editMissionsContainer textarea {
@@ -595,7 +591,7 @@ SECTION: EDITMISSIONS
     color:#ccc
 }
 
-#editMissionsContainer input[type="submit"] {
+#editMissionsContainer input[type="submit"], input[type="button"] {
     margin:10px 10px 10px 0;
     background-color:#eaa724;
     border:none;
@@ -608,7 +604,7 @@ SECTION: EDITMISSIONS
     text-transform:uppercase
 }
 
-#editMissionsContainer input[type="submit"]:hover,#filters input[type="submit"]:active {
+#editMissionsContainer input[type="submit"]:hover,#filters input[type="submit"]:active, input[type="button"]: hover,#filters input[type="button"]:active {
     border:1px none;
     background-color:#ffcb05;
     color:#000
