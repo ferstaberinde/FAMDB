@@ -256,5 +256,3 @@ function WriteMission(object) {
 function MissionSaveError(string) {
     $("#errorEdit").text(string);
 }
-
-UpdateLogin();
