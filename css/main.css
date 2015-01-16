@@ -272,7 +272,7 @@ SECTION: MISSIONSLIST
     text-align:left
 }
 
-#playCounterMod {
+.playCounterMod {
     display: none;
 }
 

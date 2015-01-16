@@ -174,9 +174,6 @@ function LoadData() {
             
             // Hide all description rows
             $('.descRow').hide();
-            
-            // Hide the playcounter buttons
-            $('.playCounterMod').hide();
 
             // Setup hide/show toggle on clicking the mission name
             $(".cellMissions").click(function() {
