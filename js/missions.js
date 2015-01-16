@@ -13,10 +13,6 @@ function LoadData() {
 
     if ($("#missionBroken:checked").val()) query.equalTo("isBroken", true);
     if ($("#missionNeedsRevision:checked").val()) query.equalTo("needsRevision", true);
- /*   if (!$("#Adversarial:checked").val()) query.notEqualTo("missionType",
-        "Adversarial");
-    if (!$("#Coop:checked").val()) query.notEqualTo("missionType", "Coop");
-    if ($("#Other:checked").val()) query.notEqualTo("missionType", "Other");*/
 	var checkboxes = $("#missionTypes").find(':checkbox');
 	var strings = [];
 	for(var x = 0;x<checkboxes.length;x++) {
@@ -227,6 +223,7 @@ function DeleteRow() {
                 success: function(myObject) {
                     HidePopup("#deleteWindow");
                     LoadData();
+                    return false;
                 },
                 error: function(myObject, error) {
                     Alert("Error:" + error.message);

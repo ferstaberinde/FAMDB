@@ -156,10 +156,15 @@ function WriteMission(object) {
     var missionType = $("#missionType").val();
     var missionSlots = Number($("#missionSlots").val());
     var missionPlaycount = Number($('#missionPlaycount').val());
-    var missionsAuthors = $("#missionAuthors").val();
-    if (missionsAuthors === "" || missionsAuthors === null) {
+    var missionsAuthors = "";
+    
+    // Only if the missionAuthors field is visible and not empty it is used to pass the author's name
+    if ($("#missionAuthors").is(":visible") && $("#missionAuthors") !== "") {
+        missionsAuthors = $("#missionAuthors");
+    } else {
         missionsAuthors = $("#authorSelected").val();
     }
+    
     var missionDescription = $("#missionDescription").val();
     var missionNotes = $("#missionNotes").val();
     var missionF3version = $("#f3Version").val();

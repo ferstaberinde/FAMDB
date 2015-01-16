@@ -38,10 +38,15 @@ function GetMissionAuthor(preSelect) {
                 arr[y] +
                 "</option>");
             }
-
-           if (preSelect && (arr.indexOf(Parse.User.current().get("username"))) != -1) {        
-                $("#authorSelected").val(Parse.User.current().get("username"));
-            };
+            var currentUser = Parse.User.current();
+            if (currentUser === null) return;
+            
+           if (preSelect && (arr.indexOf(currentUser.get("username"))) != -1) {        
+                $("#authorSelected").val(currentUser.get("username"));
+            } else {
+                ToggleAuthors();   
+                $("#missionAuthors").val(currentUser.get("username"));
+            }
         },
         error: function(error) {
             alert("Error: " + error.code + " " + error.message);
