@@ -1,5 +1,10 @@
 function RunIfAdmin(successFunc,failureFunc)
 {
+  if(!Parse.User.current())
+  {
+    failureFunc();
+    return;
+  }
   var query = (new Parse.Query(Parse.Role));
   query.equalTo("name", "Administrator");
   query.equalTo("users", Parse.User.current());
@@ -23,7 +28,7 @@ function RunIfAdmin(successFunc,failureFunc)
 
 function LoadUsers()
 {
-  $("#missionTable").empty();
+  $("#missionTable > tbody").html("");
   var query = new Parse.Query(Parse.User);
   query.find({
     success: function(users) {
@@ -168,7 +173,12 @@ function RemoveAdmin(user)
 }
 function HideAll()
 {
+  $("#missionsList").hide();
+  $("#getout").show();
+  $("#getout").append('                <iframe width="560" height="315" src="http://www.youtube.com/embed/gvdf5n-zI14?autoplay=1" frameborder="0" allowfullscreen></iframe>');
 }
 
 Parse.initialize("1IijmSndIGJFPg6cw6xDl5PRe5AiGCHliyPzIgPc", "NHQLKq3nL8i0aK6Hz9J4EOMbAvHgkEu2XY5RAq8Q");
+$("#getout").hide();
+UpdateLogin();
 RunIfAdmin(LoadUsers,HideAll)
