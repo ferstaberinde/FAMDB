@@ -81,9 +81,8 @@ function LoadData() {
                 data += '<td class="cellPlayed"><a class="playCounterMod" href="#" title="Decrease playcount">-</a> <span id="' +  obj.id + '_counterPlayed">' + obj.get(
                         "playedCounter") + '</span> <a class="playCounterMod" href="#" title="Increase playcount">+</a></td>';
                 
-                if (obj.get("lastPlayed")) {data +=
-                    '<td class="cellLastPlayed"> <span title="Set last date played" id="' +  obj.id + '_lastPlayed">' + moment(obj.get(
-                        "lastPlayed")).format("YYYY MM DD") +
+                if (obj.get("lastPlayed") && obj.get("lastPlayed").split(' ')[0] > 2013) {data +=
+                    '<td class="cellLastPlayed"> <span title="Set last date played" id="' +  obj.id + '_lastPlayed">' + obj.get("lastPlayed") +
                     '</span></td>'}
                 else {data += '<td class="cellLastPlayed"><span title="Set last date played" id="' +  obj.id + '_lastPlayed">Never</span></td>'};
 
@@ -117,10 +116,9 @@ function LoadData() {
                 data += '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>' +
                     obj.get("playedCounter") + "</p>";
                 
-                if (obj.get("lastPlayed")) data +=
+                if (obj.get("lastPlayed") && obj.get("lastPlayed").split(' ')[0] > 2013) data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>' +
-                    moment(obj.get("lastPlayed")).format(
-                        "YYYY MM DD") + "</p>";
+                    obj.get("lastPlayed") + "</p>";
                 else data += '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';
                 
                 data +=

@@ -95,7 +95,15 @@ function CheckRights(obj, userid, ACL) {
                         
                        $('.playCounterMod').show();     
                         
-                       $('#' + rowid + '_lastPlayed').click({param1: rowid}, function(event){ChangeLastPlayed(event.data.param1);return false;});
+                       $('#' + rowid + '_lastPlayed').datetimepicker({
+                            lazyInit: true,
+                            timepicker:false,
+                            startDate:0,
+                           closeOnDateSelect:true,
+                            onSelectDate: function(date,$i){
+                                ChangeLastPlayed(rowid,date);
+                            }
+                        });
                     };
                     
                 }
@@ -131,13 +139,21 @@ function ChangePlayedCount(id,mod) {
 }
 
 // Opens date-input prompt
-function ChangeLastPlayed(id) {
+function ChangeLastPlayed(rowid,date) {
     var MissionObject = Parse.Object.extend("Missions");
     var query = new Parse.Query(MissionObject);
     
-    query.get(id, {
+    query.get(rowid, {
         success: function(obj) {
-                
+                var fieldLastPlayed = $('#'+obj.id+'_lastPlayed');
+                date = moment(date).format("YYYY MM DD");    
+                if (date.split(" ")[0] > 2013) {
+                    fieldLastPlayed.html(date);
+                } else {
+                    fieldLastPlayed.html("Never");
+                }
+                obj.set("lastPlayed", date);
+                SaveMission(obj,Parse.User.current(),false);
             },
             error: function(error) {
                 console.log("Error: " + error.code + " " + error.message);
