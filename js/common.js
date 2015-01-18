@@ -93,18 +93,22 @@ function CheckRights(obj, userid, ACL) {
                        $('#' + rowid + '_counterPlayed').next().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,+1);return false;});
                        $('#' + rowid + '_counterPlayed').prev().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,-1);return false;});
                         
-                       $('.playCounterMod').show();     
+                           
                         
                        $('#' + rowid + '_lastPlayed').datetimepicker({
                             lazyInit: true,
                             timepicker:false,
                             startDate:0,
                            closeOnDateSelect:true,
+                           theme:"dark",
                             onSelectDate: function(date,$i){
                                 ChangeLastPlayed(rowid,date);
                             }
                         });
                     };
+                    
+                    $('.playCounterMod').show(); 
+                    $('.cellLastPlayed').css({color:"#eaa724", cursor: "pointer"})
                     
                 }
             }
