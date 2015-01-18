@@ -163,7 +163,7 @@ function WriteMission(object) {
     
     // Only if the missionAuthors field is visible and not empty it is used to pass the author's name
     if ($("#missionAuthors").is(":visible") && $("#missionAuthors") !== "") {
-        missionsAuthors = $("#missionAuthors");
+        missionsAuthors = $("#missionAuthors").val();
     } else {
         missionsAuthors = $("#authorSelected").val();
     }
@@ -236,12 +236,12 @@ function WriteMission(object) {
     } else {
        objMission = window.row;
     }
-        
+  
     objMission.set("missionName", missionName);
     objMission.set("game", missionGame);
     objMission.set("missionMap", missionIsland);
     objMission.set("Session", missionSession);
-    objMission.set("missionType", missionType);
+    objMission.set("missionType", missionType);  
     objMission.set("missionPlayers", missionSlots);
     objMission.set("playedCounter", missionPlaycount);
     objMission.set("missionAuthor", missionsAuthors);
@@ -250,7 +250,7 @@ function WriteMission(object) {
     objMission.set("needsRevision", needsRevision);
     objMission.set("Scripts",missionF3version);
     objMission.set("missionNotes", missionNotes);
-    
+      
     SaveMission(objMission,currentUser,true);
     
     return false;

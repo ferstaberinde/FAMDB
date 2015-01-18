@@ -118,11 +118,12 @@ function LoadData() {
                 data += '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>' +
                     obj.get("playedCounter") + "</p>";
                 
-                if (obj.get("lastPlayed")) data +=
+                // Re-add once Last-Played functionality is in
+                /*if (obj.get("lastPlayed")) data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>' +
                     moment(obj.get("lastPlayed")).format(
                         "YYYY MM DD") + "</p>";
-                else data += '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';
+                else data += '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';*/
                 
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Author(s)</span><br>' +
@@ -201,7 +202,7 @@ function LoadData() {
                 $("table").trigger("updateAll", [resort,
                     callback
                 ]);
-            }, 10);
+            }, 100);
             
         },
         error: function(error) {
