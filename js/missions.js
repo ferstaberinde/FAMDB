@@ -200,7 +200,7 @@ function LoadData() {
                 $("table").trigger("updateAll", [resort,
                     callback
                 ]);
-            }, 10);
+            }, 100);
             
         },
         error: function(error) {
