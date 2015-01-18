@@ -42,7 +42,7 @@ function GetMissionAuthor(preSelect) {
             if (currentUser === null) return;
             
             if (preSelect) {
-               if (preSelect && (arr.indexOf(currentUser.get("username"))) != -1) {        
+                if ((arr.indexOf(currentUser.get("username"))) != -1) {        
                     $("#authorSelected").val(currentUser.get("username"));
                 } else {
                     ToggleAuthors();   
@@ -93,11 +93,23 @@ function CheckRights(obj, userid, ACL) {
                        $('#' + rowid + '_counterPlayed').next().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,+1);return false;});
                        $('#' + rowid + '_counterPlayed').prev().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,-1);return false;});
                         
-                        //TODO: Add last played date
+                           
+                        
+                       $('#' + rowid + '_lastPlayed').datetimepicker({
+                            lazyInit: true,
+                            timepicker:false,
+                            startDate:0,
+                           closeOnDateSelect:true,
+                           theme:"dark",
+                            onSelectDate: function(date,$i){
+                                ChangeLastPlayed(rowid,date);
+                            }
+                        });
                     };
                     
+                    $('.playCounterMod').show(); 
+                    $('.cellLastPlayed').css({color:"#eaa724", cursor: "pointer"})
                     
-                    return $('.playCounterMod').show();
                 }
             }
         },
@@ -123,6 +135,29 @@ function ChangePlayedCount(id,mod) {
                 obj.set("playedCounter", obj.get("playedCounter") + (mod));
                 SaveMission(obj,Parse.User.current(),false);
                 counterPlayed.html(counterPlayedVal + (mod));
+            },
+            error: function(error) {
+                console.log("Error: " + error.code + " " + error.message);
+            }
+    });
+}
+
+// Opens date-input prompt
+function ChangeLastPlayed(rowid,date) {
+    var MissionObject = Parse.Object.extend("Missions");
+    var query = new Parse.Query(MissionObject);
+    
+    query.get(rowid, {
+        success: function(obj) {
+                var fieldLastPlayed = $('#'+obj.id+'_lastPlayed');
+                date = moment(date).format("YYYY MM DD");    
+                if (date.split(" ")[0] > 2013) {
+                    fieldLastPlayed.html(date);
+                } else {
+                    fieldLastPlayed.html("Never");
+                }
+                obj.set("lastPlayed", date);
+                SaveMission(obj,Parse.User.current(),false);
             },
             error: function(error) {
                 console.log("Error: " + error.code + " " + error.message);
