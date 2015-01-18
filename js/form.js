@@ -47,6 +47,9 @@ function LoadMission(newMission,object) {
         $("#missionAuthors").show();
         var MissionObject = object;
         var ACL = object.getACL();
+        var query = new Parse.Query(Parse.Role);
+        var currentUser = Parse.User.current();
+        query.equalTo("users", currentUser);
         query.find({
                     success: function(roles) {
                         for (var x = 0; x < roles.length; x++) {
@@ -156,10 +159,15 @@ function WriteMission(object) {
     var missionType = $("#missionType").val();
     var missionSlots = Number($("#missionSlots").val());
     var missionPlaycount = Number($('#missionPlaycount').val());
-    var missionsAuthors = $("#missionAuthors").val();
-    if (missionsAuthors === "" || missionsAuthors === null) {
+    var missionsAuthors = "";
+    
+    // Only if the missionAuthors field is visible and not empty it is used to pass the author's name
+    if ($("#missionAuthors").is(":visible") && $("#missionAuthors") !== "") {
+        missionsAuthors = $("#missionAuthors").val();
+    } else {
         missionsAuthors = $("#authorSelected").val();
     }
+    
     var missionDescription = $("#missionDescription").val();
     var missionNotes = $("#missionNotes").val();
     var missionF3version = $("#f3Version").val();
@@ -228,12 +236,12 @@ function WriteMission(object) {
     } else {
        objMission = window.row;
     }
-        
+  
     objMission.set("missionName", missionName);
     objMission.set("game", missionGame);
     objMission.set("missionMap", missionIsland);
     objMission.set("Session", missionSession);
-    objMission.set("missionType", missionType);
+    objMission.set("missionType", missionType);  
     objMission.set("missionPlayers", missionSlots);
     objMission.set("playedCounter", missionPlaycount);
     objMission.set("missionAuthor", missionsAuthors);
@@ -242,7 +250,7 @@ function WriteMission(object) {
     objMission.set("needsRevision", needsRevision);
     objMission.set("Scripts",missionF3version);
     objMission.set("missionNotes", missionNotes);
-    
+      
     SaveMission(objMission,currentUser,true);
     
     return false;
@@ -251,5 +259,3 @@ function WriteMission(object) {
 function MissionSaveError(string) {
     $("#errorEdit").text(string);
 }
-
-UpdateLogin();

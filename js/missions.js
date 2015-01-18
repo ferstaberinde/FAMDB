@@ -13,10 +13,6 @@ function LoadData() {
 
     if ($("#missionBroken:checked").val()) query.equalTo("isBroken", true);
     if ($("#missionNeedsRevision:checked").val()) query.equalTo("needsRevision", true);
- /*   if (!$("#Adversarial:checked").val()) query.notEqualTo("missionType",
-        "Adversarial");
-    if (!$("#Coop:checked").val()) query.notEqualTo("missionType", "Coop");
-    if ($("#Other:checked").val()) query.notEqualTo("missionType", "Other");*/
 	var checkboxes = $("#missionTypes").find(':checkbox');
 	var strings = [];
 	for(var x = 0;x<checkboxes.length;x++) {
@@ -122,11 +118,12 @@ function LoadData() {
                 data += '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>' +
                     obj.get("playedCounter") + "</p>";
                 
-                if (obj.get("lastPlayed")) data +=
+                // Re-add once Last-Played functionality is in
+                /*if (obj.get("lastPlayed")) data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>' +
                     moment(obj.get("lastPlayed")).format(
                         "YYYY MM DD") + "</p>";
-                else data += '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';
+                else data += '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';*/
                 
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Author(s)</span><br>' +
@@ -178,9 +175,6 @@ function LoadData() {
             
             // Hide all description rows
             $('.descRow').hide();
-            
-            // Hide the playcounter buttons
-            $('.playCounterMod').hide();
 
             // Setup hide/show toggle on clicking the mission name
             $(".cellMissions").click(function() {
@@ -208,7 +202,7 @@ function LoadData() {
                 $("table").trigger("updateAll", [resort,
                     callback
                 ]);
-            }, 10);
+            }, 100);
             
         },
         error: function(error) {
@@ -227,6 +221,7 @@ function DeleteRow() {
                 success: function(myObject) {
                     HidePopup("#deleteWindow");
                     LoadData();
+                    return false;
                 },
                 error: function(myObject, error) {
                     Alert("Error:" + error.message);

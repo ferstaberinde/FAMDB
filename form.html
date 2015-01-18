@@ -90,8 +90,8 @@
                         <input class="slots" id="missionSlots" maxlength="3"
                         name="missionSlots" size="3" type="text" value="">
                          </span>          
-                        <span style="display:inline-block;">
-                        <label for="missionPlaycount">Playcount</label><br>
+                        <span  style="display:inline-block;">
+                        <label for="missionPlaycount"># played</label><br>
                         <input class="slots" id="missionPlaycount" maxlength="3"
                         name="missionSlots" size="3" type="text" value="0">
                         </span>
@@ -121,7 +121,7 @@
                             </option>
                             
                             <option>
-                                ZEUS vs. Zeus
+                                ZEUS vs. ZEUS
                             </option>
 
                             <option>
@@ -130,6 +130,9 @@
                         </select><br>
                          <label for="f3Version">F3 Version</label><br>
                         <select id="f3Version" name="f3Version">
+                            <option>
+                                3.2.2
+                            </option>
                             <option>
                                 3.2.1
                             </option>
@@ -146,7 +149,7 @@
 								3.1.x or older
 							</option>
                         </select><br>
-                        <label for="missionAuthors">Author(s)</label> <i id="editMissionsAuthorToggle" class="fa fa-plus-square-o fa-fw" onClick="ToggleAuthors()"></i><br>
+                        <label for="missionAuthors">Author(s)</label> <i id="editMissionsAuthorToggle" class="fa fa-plus-square-o fa-fw" title="Toggle between author selection and text field" onClick="ToggleAuthors()"></i><br>
                         <select id="authorSelected" name="authorSelected">
                         </select>
                         <input id="missionAuthors" maxlength="56" name="authorSelected" type="text" placeholder="Seperate authors by comma"><br>
