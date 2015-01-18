@@ -41,11 +41,13 @@ function GetMissionAuthor(preSelect) {
             var currentUser = Parse.User.current();
             if (currentUser === null) return;
             
-           if (preSelect && (arr.indexOf(currentUser.get("username"))) != -1) {        
-                $("#authorSelected").val(currentUser.get("username"));
-            } else {
-                ToggleAuthors();   
-                $("#missionAuthors").val(currentUser.get("username"));
+            if (preSelect) {
+               if (preSelect && (arr.indexOf(currentUser.get("username"))) != -1) {        
+                    $("#authorSelected").val(currentUser.get("username"));
+                } else {
+                    ToggleAuthors();   
+                    $("#missionAuthors").val(currentUser.get("username"));
+                }
             }
         },
         error: function(error) {
