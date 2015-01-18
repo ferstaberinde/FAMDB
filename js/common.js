@@ -41,11 +41,13 @@ function GetMissionAuthor(preSelect) {
             var currentUser = Parse.User.current();
             if (currentUser === null) return;
             
-           if (preSelect && (arr.indexOf(currentUser.get("username"))) != -1) {        
-                $("#authorSelected").val(currentUser.get("username"));
-            } else {
-                ToggleAuthors();   
-                $("#missionAuthors").val(currentUser.get("username"));
+            if (preSelect) {
+                if ((arr.indexOf(currentUser.get("username"))) != -1) {        
+                    $("#authorSelected").val(currentUser.get("username"));
+                } else {
+                    ToggleAuthors();   
+                    $("#missionAuthors").val(currentUser.get("username"));
+                }
             }
         },
         error: function(error) {
@@ -91,11 +93,11 @@ function CheckRights(obj, userid, ACL) {
                        $('#' + rowid + '_counterPlayed').next().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,+1);return false;});
                        $('#' + rowid + '_counterPlayed').prev().click({param1: rowid}, function(event) {ChangePlayedCount(event.data.param1,-1);return false;});
                         
-                        //TODO: Add last played date
+                       $('.playCounterMod').show();     
+                        
+                       $('#' + rowid + '_lastPlayed').click({param1: rowid}, function(event){ChangeLastPlayed(event.data.param1);return false;});
                     };
                     
-                    
-                    return $('.playCounterMod').show();
                 }
             }
         },
@@ -121,6 +123,21 @@ function ChangePlayedCount(id,mod) {
                 obj.set("playedCounter", obj.get("playedCounter") + (mod));
                 SaveMission(obj,Parse.User.current(),false);
                 counterPlayed.html(counterPlayedVal + (mod));
+            },
+            error: function(error) {
+                console.log("Error: " + error.code + " " + error.message);
+            }
+    });
+}
+
+// Opens date-input prompt
+function ChangeLastPlayed(id) {
+    var MissionObject = Parse.Object.extend("Missions");
+    var query = new Parse.Query(MissionObject);
+    
+    query.get(id, {
+        success: function(obj) {
+                
             },
             error: function(error) {
                 console.log("Error: " + error.code + " " + error.message);

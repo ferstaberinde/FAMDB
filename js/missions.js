@@ -80,13 +80,12 @@ function LoadData() {
                 
                 data += '<td class="cellPlayed"><a class="playCounterMod" href="#" title="Decrease playcount">-</a> <span id="' +  obj.id + '_counterPlayed">' + obj.get(
                         "playedCounter") + '</span> <a class="playCounterMod" href="#" title="Increase playcount">+</a></td>';
-
-                if (obj.get("lastPlayed")) data +=
-                    '<td class="cellLastPlayed">' + moment(obj.get(
+                
+                if (obj.get("lastPlayed")) {data +=
+                    '<td class="cellLastPlayed"> <span title="Set last date played" id="' +  obj.id + '_lastPlayed">' + moment(obj.get(
                         "lastPlayed")).format("YYYY MM DD") +
-                    '</td>';
-                else data +=
-                    '<td class="cellLastPlayed">Never</td>';
+                    '</span></td>'}
+                else {data += '<td class="cellLastPlayed"><span title="Set last date played" id="' +  obj.id + '_lastPlayed">Never</span></td>'};
 
                 data += '<td class="cellAuthor">' + obj.get(
                     "missionAuthor") + '</td>';
