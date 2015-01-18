@@ -47,6 +47,9 @@ function LoadMission(newMission,object) {
         $("#missionAuthors").show();
         var MissionObject = object;
         var ACL = object.getACL();
+        var query = new Parse.Query(Parse.Role);
+        var currentUser = Parse.User.current();
+        query.equalTo("users", currentUser);
         query.find({
                     success: function(roles) {
                         for (var x = 0; x < roles.length; x++) {
