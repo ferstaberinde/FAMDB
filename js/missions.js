@@ -80,13 +80,11 @@ function LoadData() {
                 
                 data += '<td class="cellPlayed"><a class="playCounterMod" href="#" title="Decrease playcount">-</a> <span id="' +  obj.id + '_counterPlayed">' + obj.get(
                         "playedCounter") + '</span> <a class="playCounterMod" href="#" title="Increase playcount">+</a></td>';
-
-                if (obj.get("lastPlayed")) data +=
-                    '<td class="cellLastPlayed">' + moment(obj.get(
-                        "lastPlayed")).format("YYYY MM DD") +
-                    '</td>';
-                else data +=
-                    '<td class="cellLastPlayed">Never</td>';
+                
+                if (obj.get("lastPlayed") && obj.get("lastPlayed").split(' ')[0] > 2013) {data +=
+                    '<td class="cellLastPlayed"> <span title="Set last date played" id="' +  obj.id + '_lastPlayed">' + obj.get("lastPlayed") +
+                    '</span></td>'}
+                else {data += '<td class="cellLastPlayed"><span title="Set last date played" id="' +  obj.id + '_lastPlayed">Never</span></td>'};
 
                 data += '<td class="cellAuthor">' + obj.get(
                     "missionAuthor") + '</td>';
@@ -118,12 +116,10 @@ function LoadData() {
                 data += '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>' +
                     obj.get("playedCounter") + "</p>";
                 
-                // Re-add once Last-Played functionality is in
-                /*if (obj.get("lastPlayed")) data +=
+                if (obj.get("lastPlayed") && obj.get("lastPlayed").split(' ')[0] > 2013) data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>' +
-                    moment(obj.get("lastPlayed")).format(
-                        "YYYY MM DD") + "</p>";
-                else data += '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';*/
+                    obj.get("lastPlayed") + "</p>";
+                else data += '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';
                 
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Author(s)</span><br>' +

@@ -211,9 +211,8 @@
 	}
 
 	#missionsListTableContainer table.tableMissions th.cellHeaderLastPlayed {
-		/*display: table-cell;
-		padding: 0.5em 1em;*/
-        display: none;
+		display: table-cell;
+		padding: 0.5em 1em;
 	}
 
 	#missionsListTableContainer table.tableMissions th.cellHeaderAuthor {
@@ -257,9 +256,8 @@
 	}
 
 	#missionsListTableContainer table.tableMissions td.cellLastPlayed {
-        /*display: table-cell;
-		padding: 0.5em 1em;*/
-        display: none;
+        display: table-cell;
+		padding: 0.5em 1em;
 	}
 
 	#missionsListTableContainer table.tableMissions td.cellAuthor {

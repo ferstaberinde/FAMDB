@@ -263,7 +263,13 @@ SECTION: MISSIONSLIST
     background-color:#0f0f0f;
     padding:5px 0
 }
-
+#userListTableContainer {
+    border-width:2px 0;
+    border-style:solid;
+    border-color:#eaa724;
+    background-color:#0f0f0f;
+    padding:5px 0
+}
 #missionsListTableContainer table.tableMissions {
     width:100%;
     font-size:1em;
