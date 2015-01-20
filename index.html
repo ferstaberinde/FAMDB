@@ -13,6 +13,7 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <!-- <meta name="viewport" content"width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"> 
     <meta content="initial-scale=1.0" name="viewport">
 </head>
 
@@ -24,7 +25,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="add.html" id="AddButton">Add</a>
+                    <a href="form.html" id="AddButton">Add</a>
                 </li>
 
                 <li>
@@ -71,7 +72,6 @@
                         <option>
                             Altis
                         </option>
-                        <!-- Mis-spelt as 'Zagrabad' in Head's front-end -->
                     </select>
                 </fieldset>
 
@@ -83,10 +83,12 @@
 						<label for="Adversarial (ZEUS)">Adversarial (ZEUS)</label><br>
                     <input checked id="Coop" name="missionType" type="checkbox"value="Coop">
 						<label for="Coop">Coop</label><br>
-                    <input checked id="Coop (Zeus)" name="missionType" type="checkbox"value="Coop (Zeus)">
-						<label for="Coop (Zeus)">Coop (Zeus)</label><br>
-                    <input checked id="Zeus vs. Players" name="missionType" type="checkbox" value="Zeus vs. Players">
-						<label for="Zeus vs. Players">Zeus vs. Players</label><br>
+                    <input checked id="Coop (ZEUS)" name="missionType" type="checkbox"value="Coop (ZEUS)">
+						<label for="Coop (ZEUS)">Coop (ZEUS)</label><br>
+                    <input checked id="ZEUS vs. Players" name="missionType" type="checkbox" value="ZEUS vs. Players">
+						<label for="ZEUS vs. Players">ZEUS vs. Players</label><br>
+                    <input checked id="ZEUS vs. ZEUS" name="missionType" type="checkbox" value="ZEUS vs. ZEUS">
+						<label for="ZEUS vs. ZEUS">ZEUS vs. ZEUS</label><br>
                     <input checked id="Other" name="missionType" type="checkbox" value="Other">
 						<label for="Other">Other</label>
                 </fieldset>
@@ -120,7 +122,8 @@
 
         <section id="missionsList">
             <div id="missionsListHeader">
-                <h3>Missions</h3>
+
+                <h3>Missions<a href="form.html"><!--<i title="Add a new mission"  class="fa fa-plus-square-o fa-fw"></i>--></a></h3>
             </div>
 
             <div id="missionsListTableContainer">
@@ -131,9 +134,15 @@
                             <th class="cellHeaderMissions">
                                 <a href="#">Mission</a>
                             </th>
-                            <th class="cellHeaderPlayed">
+
+                            <th class="cellHeaderType">
+                                <a href="#">Type</a>
+                            </th>
+
+                            <th class="cellHeaderSlots">
                                 <a href="#">Slots</a>
                             </th>
+
                             <th class="cellHeaderIsland">
                                 <a href="#">Island</a>
                             </th>
@@ -160,7 +169,7 @@
                         </tr>
                     </thead>
 
-                    <tr class="row">
+                    <!--<tr class="row">
                         <td class="cellMissions">
                             <a href="#">&#9698;
                             fa3_a76_long_name_example_v2</a>
@@ -180,13 +189,19 @@
                         <td class="cellBroken">x</td>
 
                         <td class="cellRevision">x</td>
-                    </tr>
+                    </tr>-->
 
                     <tr class="row">
                         <td class="cellDropdown" colspan="7">
                             <p class="fullInfo"><span class=
                             "cellDropdownSubtitle">Island</span><br>
                             Proving Grounds</p>
+
+                            <p class="fullInfo"><span class=
+                            "cellDropdownSubtitle">Type</span><br>Coop</p>
+
+                            <p class="fullInfo"><span class=
+                            "cellDropdownSubtitle">Slots</span><br>0</p>
 
                             <p class="fullInfo"><span class=
                             "cellDropdownSubtitle"># Played</span><br>
@@ -206,28 +221,15 @@
 
                             <p><span class=
                             "cellDropdownSubtitle">Description</span><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident, sunt in culpa
-                            qui officia deserunt mollit anim id est
-                            laborum.</p>
+                            </p>
 
                             <p class="fullInfo"><span class=
                             "cellDropdownSubtitle">Broken</span><br>
-                            Yes</p>
+                            </p>
 
                             <p><span class="cellDropdownSubtitle">Broken
                             Message</span><br>
-                            Sed ut perspiciatis unde omnis iste natus error sit
-                            voluptatem accusantium doloremque laudantium, totam
-                            rem aperiam, eaque ipsa quae ab illo inventore
-                            veritatis et quasi architecto beatae vitae dicta
-                            sunt explicabo.</p>
+                           </p>
 
                             <ul>
                                 <li>
@@ -339,7 +341,13 @@
 		</buttongroup>
     </div>
 
-    <div class="backgroundPopup" id="backgroundPopup"></div><script src=
-    "js/jquery-2.1.0.js" type="text/javascript"></script> <script src="js/parse-1.2.16.min.js" type="text/javascript"></script> <script src="js/moment.min.js" type="text/javascript"></script> <script src="js/jExpand.js" type="text/javascript"></script> <script src="js/popup.js" type="text/javascript"></script> <script src="js/user.js" type="text/javascript"></script> <script src="js/jquery.tablesorter.js" type="text/javascript"></script>  <script src="js/missions.js" type="text/javascript"></script> <script src="js/init.js" type="text/javascript"></script>
+    <div class="backgroundPopup" id="backgroundPopup"></div>
+    <script src="js/jquery-2.1.0.js" type="text/javascript"></script>
+    <script src="js/parse-1.2.16.min.js" type="text/javascript"></script>
+    <script src="js/moment.min.js" type="text/javascript"></script> <script src="js/popup.js" type="text/javascript"></script>
+    <script src="js/user.js" type="text/javascript"></script> <script src="js/jquery.tablesorter.js" type="text/javascript"></script>
+    <script src="js/missions.js" type="text/javascript"></script><script src="js/common.js" type="text/javascript"></script>
+    <script src="js/init.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.datetimepicker.js"></script>
 </body>
 </html>

@@ -16,6 +16,7 @@ function Login() {
         success: function(user) {
             HidePopup("#loginWindow");
             UpdateLogin();
+            RefreshPage();
         },
         error: function(user, error) {
             $("#errorLogin").text(error.message);
@@ -41,10 +42,21 @@ function SignUp() {
         }
     });
 }
+
+// Refresh page. If user is on index.html it'll only reload the data
+function RefreshPage() {
+    if (location.href.split(location.host)[1].indexOf("index") === -1) {
+        return window.location.href = "index.html";
+    } else {
+        LoadData();
+    }
+}
+
 $('#LogoutButton').click(function() {
     if (Parse.User.current()) {
         Parse.User.logOut();
         UpdateLogin();
+        RefreshPage();
     }
     else {
         OpenPopup("#loginWindow");

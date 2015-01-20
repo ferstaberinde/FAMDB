@@ -5,7 +5,7 @@
 	************************************************************/
 
 	body {
-		background: #1c1c1c; /* Old browsers */
+	background: #1c1c1c; /* Old browsers */
 	background: -moz-linear-gradient(top, #1c1c1c 0%, #4f4f4f 40%, #000000 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1c1c1c), color-stop(40%,#4f4f4f), color-stop(100%,#000000)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #1c1c1c 0%,#4f4f4f 40%,#000000 100%); /* Chrome10+,Safari5.1+ */
@@ -58,7 +58,7 @@
 	}
 
 	nav li {
-		margin: 0.25em 0px 0.25em 10px; 
+		margin: 0.25em 0px 0.25em 10px;
 		padding: 0.20em 0px;
 		font-size: 1em;
 	}
@@ -68,7 +68,7 @@
 	}
 
 	#missionsListTableContainer table.tableMissions td.cellDropdown li {
-		margin: 0.25em 5px 1em 0px; 
+		margin: 0.25em 5px 1em 0px;
 		padding: 0.20em 0px;
 		font-size: 1em;
 	}
@@ -90,7 +90,7 @@
 	#filtersHeader {
 		display: block;
 	}
-	
+
 	#filtersHeader h3 {
 		margin: 0.5em 0px;
 		font-size: 1.2em;
@@ -133,7 +133,7 @@
 		font-size: 1em;
 	}
 
-	#filters input[type="submit"] {
+	#filters input[type="submit"], #filters input[type="button"]{
 		padding: 0.2em 1em;
 		font-size: 1em;
 	}
@@ -151,7 +151,7 @@
 	#missionsListHeader {
 		display: block;
 	}
-	
+
 	#missionsListHeader h3 {
 		margin: 0.5em 0px;
 		font-size: 1.2em;
@@ -185,6 +185,17 @@
 	}
 
 	#missionsListTableContainer table.tableMissions th.cellHeaderMissions {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+    
+    
+	#missionsListTableContainer table.tableMissions th.cellHeaderType {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions th.cellHeaderSlots {
 		display: table-cell;
 		padding: 0.5em 1em;
 	}
@@ -228,6 +239,16 @@
 		display: table-cell;
 		padding: 0.5em 1em;
 	}
+    
+    #missionsListTableContainer table.tableMissions td.cellType {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
+
+	#missionsListTableContainer table.tableMissions td.cellSlots {
+		display: table-cell;
+		padding: 0.5em 1em;
+	}
 
 	#missionsListTableContainer table.tableMissions td.cellPlayed {
 		display: table-cell;
@@ -235,7 +256,7 @@
 	}
 
 	#missionsListTableContainer table.tableMissions td.cellLastPlayed {
-		display: table-cell;
+        display: table-cell;
 		padding: 0.5em 1em;
 	}
 
@@ -274,7 +295,7 @@
 
 	#missionsListTableContainer table.tableMissions td.cellDropdown p.fullInfo {
 		display: none;
-	}	
+	}
 
 
 
@@ -291,7 +312,7 @@
 	#actions #actionsHeader {
 		display: block;
 	}
-	
+
 	#actions #actionsHeader h3 {
 		margin: 0.5em 0px;
 		font-size: 1.2em;
@@ -335,7 +356,7 @@
 	#editMissionsHeader {
 		display: block;
 	}
-	
+
 	#editMissionsHeader h3 {
 		margin: 0.5em 0px;
 		font-size: 1.2em;
@@ -400,19 +421,22 @@
 		padding: 5px;
 		font-size: 1em
 	}
-
+	#editMissionsContainer #editMissionsContainerRight input[type="text"] {
+		margin: 10px 0px 15px 0px;
+		padding: 5px;
+		font-size: 1em
+	}
 	#editMissionsContainer input.slots[type="text"] {
 		padding: 5px;
 		margin-bottom: 15px;
 		font-size: 1em;
-
-		width: 10%;
+		width: 40%;
 		border: 1px solid #ccc;
 		background-color: #303030;
 		color: #ccc;
 	}
 
-	#editMissionsContainer input[type="submit"] {
+	#editMissionsContainer input[type="submit"], input[type="button"] {
 		margin: 10px 10px 10px 0px;
 		padding: 0.2em 1em;
 		font-size: 1em;

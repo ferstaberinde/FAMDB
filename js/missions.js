@@ -1,3 +1,5 @@
+// Functions used to populate the main table
+
 function LoadData() {
     var sessionVal = $("#sessionSelected").val();
     var mapVal = $("#islandSelected").val();
@@ -8,13 +10,9 @@ function LoadData() {
     if (mapVal != "All Islands") query.equalTo("missionMap", mapVal);
     if (authorVal != "All Authors") query.contains("missionAuthor",
         authorVal);
-		/*
+
     if ($("#missionBroken:checked").val()) query.equalTo("isBroken", true);
     if ($("#missionNeedsRevision:checked").val()) query.equalTo("needsRevision", true);
-    if (!$("#Adversarial:checked").val()) query.notEqualTo("missionType",
-        "Adversarial");
-    if (!$("#Coop:checked").val()) query.notEqualTo("missionType", "Coop");
-    if ($("#Other:checked").val()) query.notEqualTo("missionType", "Other");*/
 	var checkboxes = $("#missionTypes").find(':checkbox');
 	var strings = [];
 	for(var x = 0;x<checkboxes.length;x++) {
@@ -24,9 +22,6 @@ function LoadData() {
 		}
 	}
 	query.containedIn("missionType",strings);
-
-
-
 
     if (searchVal !== "") query.contains("missionName", searchVal);
     query.greaterThanOrEqualTo("missionPlayers", Number($("#slotsMin").val()));
@@ -72,32 +67,39 @@ function LoadData() {
                 data +=
                     '<td class="cellMissions"><a href="#"><i id="chevron" class="fa fa-chevron-up"></i> ' +
                     obj.get("missionName") + '</a></td>';
-				data +=
-					'<td class="cellPlayed">' +
+                
+                data += '<td class="cellType">' + 
+					obj.get("missionType") + '</td>';
+
+                data += '<td class="cellSlots">' + 
 					obj.get("missionPlayers") + '</td>';
+                
+                
                 data += '<td class="cellIsland">' + obj.get(
                     "missionMap") + '</td>';
-                if (obj.get("playedCounter")) data +=
-                    '<td class="cellPlayed">' + obj.get(
-                        "playedCounter") + '</td>';
-                else data += '<td class="cellPlayed">0</td>';
-                if (obj.get("lastPlayed")) data +=
-                    '<td class="cellLastPlayed">' + moment(obj.get(
-                        "lastPlayed")).format("YYYY MM DD") +
-                    '</td>';
-                else data +=
-                    '<td class="cellLastPlayed">Never</td>';
+                
+                data += '<td class="cellPlayed"><a class="playCounterMod" href="#" title="Decrease playcount">-</a> <span id="' +  obj.id + '_counterPlayed">' + obj.get(
+                        "playedCounter") + '</span> <a class="playCounterMod" href="#" title="Increase playcount">+</a></td>';
+                
+                if (obj.get("lastPlayed") && obj.get("lastPlayed").split(' ')[0] > 2013) {data +=
+                    '<td class="cellLastPlayed"> <span title="Set last date played" id="' +  obj.id + '_lastPlayed">' + obj.get("lastPlayed") +
+                    '</span></td>'}
+                else {data += '<td class="cellLastPlayed"><span title="Set last date played" id="' +  obj.id + '_lastPlayed">Never</span></td>'};
+
                 data += '<td class="cellAuthor">' + obj.get(
                     "missionAuthor") + '</td>';
                 data += '<td class="cellModified">' + moment(
                         obj.updatedAt).format("YYYY MM DD") +
                     '</td>';
+                
                 if (obj.get("isBroken") === true) data +=
-                    '<td class="cellBroken"><i class="fa fa-exclamation-triangle"></i></td>';
+                    '<td class="cellBroken"><i title="Broken" class="fa fa-exclamation-triangle"></i></td>';
                 else data += '<td class="cellBroken"></td>';
+                
                 if (obj.get("needsRevision") === true) data +=
-                    '<td class="cellRevision"><i class="fa fa-exclamation-circle"></i></td>';
+                    '<td class="cellRevision"><i title="Revision" class="fa fa-exclamation-circle"></i></td>';
                 else data += '<td class="cellRevision"></td>';
+                
                 data += '</tr>';
                 data +=
                     '<tr id="descRow" class="row descRow"><td id="' +
@@ -106,17 +108,19 @@ function LoadData() {
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Island</span><br>' +
                     obj.get("missionMap") + "</p>";
-                if (obj.get("playedCounter") !== null) data +=
-                    '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>' +
+                data +=     '<p class="fullInfo"><span class="cellDropdownSubtitle">Type</span><br>' +
+                    obj.get("missionType"); + "</p>";        
+            
+                data += '<p class="fullInfo"><span class="cellDropdownSubtitle"># Slots</span><br>'+obj.get("missionPlayers")+'</p>';
+                
+                data += '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>' +
                     obj.get("playedCounter") + "</p>";
-                else data +=
-                    '<p class="fullInfo"><span class="cellDropdownSubtitle"># Played</span><br>0</p>';
-                if (obj.get("lastPlayed") !== null) data +=
+                
+                if (obj.get("lastPlayed") && obj.get("lastPlayed").split(' ')[0] > 2013) data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>' +
-                    moment(obj.get("lastPlayed")).format(
-                        "YYYY MM DD") + "</p>";
-                else data +=
-                    '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';
+                    obj.get("lastPlayed") + "</p>";
+                else data += '<p class="fullInfo"><span class="cellDropdownSubtitle">Last Played</span><br>Never';
+                
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Author(s)</span><br>' +
                     obj.get("missionAuthor") + "</p>";
@@ -135,34 +139,57 @@ function LoadData() {
                     obj.get("Scripts").replace(/\n/g, "<br />") +
                     "</p>";
               }
-                if (obj.get("missionNotes")) {
+
+            if (obj.get("isBroken") === true) {
+                data +=
+                    '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>Yes</p>';
+
+            }
+            else data +=
+             '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>No</p>';
+
+            if (obj.get("needsRevision") === true) {
                     data +=
-                        '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>Yes</p>';
-                    if (obj.get("missionNotes")) data +=
+                        '<p class="fullInfo"><span class="cellDropdownSubtitle">Needs Revision</span><br>Yes</p>';
+
+             }
+            else data +=
+             '<p class="fullInfo"><span class="cellDropdownSubtitle">Needs Revision</span><br>No</p>';
+
+              if (obj.get("missionNotes")) data +=
                         '<p><span class="cellDropdownSubtitle">Mission Notes</span><br>' +
                         obj.get("missionNotes").replace(/\n/g,
                             "<br />") + "</p>";
-                }
-                else data +=
-                    '<p class="fullInfo"><span class="cellDropdownSubtitle">Broken</span><br>No</p>';
+
                 data += '</td></tr>';
                 $("#missionTable > tbody").append(data);
+
                 var ACL = obj.getACL();
-                if (Parse.User.current()) CheckRights(obj.id,
-                    obj.get("createdBy").id, ACL);
+                if (Parse.User.current()) CheckRights(obj,
+                   obj.get("createdBy").id, ACL);
             }
-            $("#missionTable").jExpand();
+            
+            // Hide all description rows
+            $('.descRow').hide();
+
+            // Setup hide/show toggle on clicking the mission name
+            $(".cellMissions").click(function() {
+              $(this).find("#chevron").toggleClass("fa-chevron-down fa-chevron-up");
+              $(this).parent().next('#descRow').toggle();
+                return false;
+            });
+
+            // Sort the table
             $("#missionTable").tablesorter({
                 // sort on the first column and third column, order asc
                 widgets: ["zebra"], // initialize zebra striping of the table
+                sortList: [[0,0]], // Sort table alphabetically by default
                 widgetZebra: {
                     css: ["normal-row", "odd"]
                 },
                 cssChildRow: "descRow"
             });
-            $("#missionTable tr").click(function() {
-              $(this).find("#chevron").toggleClass("fa-chevron-down fa-chevron-up");
-            });
+
             setTimeout(function() {
                 var resort = false, // re-apply the current sort
                     callback = function(table) {};
@@ -171,75 +198,14 @@ function LoadData() {
                 $("table").trigger("updateAll", [resort,
                     callback
                 ]);
-            }, 10);
+            }, 100);
+            
         },
         error: function(error) {
             console.log("Error: " + error.code + " " + error.message);
         }
     });
     // <ul><li><a href="#">Delete</a></li><li><a href="#">Edit</a></li></ul>
-}
-
-function CheckRights(rowid, userid, ACL) {
-    var currentUser = Parse.User.current();
-    if (currentUser.id == userid) {
-      $("#" + rowid).append(
-        '<ul><li><a href="edit.html?row=' +
-        rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
-        rowid +
-        '\')">Delete</a></li></ul>');
-      return;
-    }
-    var query = new Parse.Query(Parse.Role);
-    query.equalTo("users", currentUser);
-    var value = null;
-    query.find({
-        success: function(roles) {
-            for (var x = 0; x < roles.length; x++) {
-                if (ACL.getWriteAccess(roles[x])) {
-                    $("#" + rowid).append(
-                      '<ul style="float:right"><li><a href="edit.html?row=' +
-                        rowid + '">Edit</a></li><li><a href="#" onClick="DeletePopup(\'' +
-                        rowid +
-                        '\')">Delete</a></li></ul>');
-                    return;
-                }
-            }
-        },
-        error: function(error) {
-            console.log("Error: " + error.code + " " + error.message);
-        }
-    });
-}
-
-function GetMissionAuthor() {
-    var MissionObject = Parse.Object.extend("Missions");
-    var query = new Parse.Query(MissionObject);
-    query.limit(1000);
-    query.find({
-        success: function(results) {
-            $("#authorSelected").empty();
-            $("#authorSelected").append(
-                "<option>All Authors</option>");
-            var arr = [];
-            for (var x = 0; x < results.length; x++) {
-                var obj = results[x];
-				var authors = obj.get("missionAuthor").split(",");
-				for(var y = 0; y < authors.length;y++) {
-					var author = authors[y].trim();
-					if (arr.indexOf(author) == -1) {
-						$("#authorSelected").append("<option>" +
-							author +
-							"</option>");
-						arr.push(author);
-					}
-				}
-            }
-        },
-        error: function(error) {
-            alert("Error: " + error.code + " " + error.message);
-        }
-    });
 }
 
 function DeleteRow() {
@@ -251,6 +217,7 @@ function DeleteRow() {
                 success: function(myObject) {
                     HidePopup("#deleteWindow");
                     LoadData();
+                    return false;
                 },
                 error: function(myObject, error) {
                     Alert("Error:" + error.message);

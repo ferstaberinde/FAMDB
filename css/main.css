@@ -36,7 +36,7 @@ header {
     text-transform:uppercase
 }
 
-#fixme {
+.float-right {
   float: right;
 };
 
@@ -234,7 +234,15 @@ SECTION: MISSIONSLIST
 #missionsListHeader {
     display:none
 }
+/*
+#missionsListHeader i {
+  margin-top:0.2em;
+  float:right;
+}*/
+#missionsList nav {
+  margin:6px 0 -10px;
 
+}
 #missionsList h3 {
     margin:0 0 10px;
     font-size:1em;
@@ -255,7 +263,13 @@ SECTION: MISSIONSLIST
     background-color:#0f0f0f;
     padding:5px 0
 }
-
+#userListTableContainer {
+    border-width:2px 0;
+    border-style:solid;
+    border-color:#eaa724;
+    background-color:#0f0f0f;
+    padding:5px 0
+}
 #missionsListTableContainer table.tableMissions {
     width:100%;
     font-size:1em;
@@ -264,8 +278,11 @@ SECTION: MISSIONSLIST
     text-align:left
 }
 
+.playCounterMod {
+    display: none;
+}
+
 #missionsListTableContainer table.tableMissions thead.rowHeader {
-    background-color:#000;
     text-transform:uppercase
 }
 
@@ -286,7 +303,7 @@ SECTION: MISSIONSLIST
     text-align:left
 }
 
-#missionsListTableContainer table.tableMissions th.cellHeaderSlots {
+#missionsListTableContainer table.tableMissions th.cellHeaderType, th.cellHeaderSlots {
     display:none;
     text-align:left
 }
@@ -333,7 +350,7 @@ SECTION: MISSIONSLIST
     padding:1em .5em
 }
 
-#missionsListTableContainer table.tableMissions td.cellSlots {
+#missionsListTableContainer table.tableMissions td.cellSlots, td.cellType {
     display:none
 }
 
@@ -357,8 +374,8 @@ SECTION: MISSIONSLIST
     display:none
 }
 
-#missionsListTableContainer table.tableMissions td.cellBroken {
-    display:none
+#missionsListTableContainer table.tableMissions td.cellBroken, td.cellRevision, td.cellPlayedcounter {
+	display: none;
 }
 
 #missionsListTableContainer table.tableMissions td.cellDropdown {
@@ -529,7 +546,16 @@ SECTION: EDITMISSIONS
     color:#aaa;
     background-color:#303030
 }
-
+	#editMissionsContainer #editMissionsContainerRight input[type="text"] {
+    margin:10px 0;
+    padding:6px 0;
+    width:92%;
+    font-family:'Ubuntu Condensed';
+    font-size:1em;
+    font-weight:400;
+    color:#aaa;
+    background-color:#303030
+}
 #editMissionsContainer input[type="text"] {
     font-size:1em;
     margin:10px 0;
@@ -545,11 +571,11 @@ SECTION: EDITMISSIONS
     font-size:1em;
     margin:10px 0;
     padding:15px 0;
-    width:95%;
+    width:40%;
     border:1px solid #ccc;
     background-color:#303030;
     padding-left:2px;
-    color:#ccc
+    color:#ccc;
 }
 
 #editMissionsContainer input[type="checkbox"] {
@@ -557,7 +583,7 @@ SECTION: EDITMISSIONS
     border:1px solid #ccc;
     background-color:#303030;
     padding-left:0;
-    color:#ccc
+    color:#ccc;
 }
 
 #editMissionsContainer textarea {
@@ -571,7 +597,7 @@ SECTION: EDITMISSIONS
     color:#ccc
 }
 
-#editMissionsContainer input[type="submit"] {
+#editMissionsContainer input[type="submit"], input[type="button"] {
     margin:10px 10px 10px 0;
     background-color:#eaa724;
     border:none;
@@ -584,7 +610,7 @@ SECTION: EDITMISSIONS
     text-transform:uppercase
 }
 
-#editMissionsContainer input[type="submit"]:hover,#filters input[type="submit"]:active {
+#editMissionsContainer input[type="submit"]:hover,#filters input[type="submit"]:active, input[type="button"]: hover,#filters input[type="button"]:active {
     border:1px none;
     background-color:#ffcb05;
     color:#000
@@ -613,6 +639,10 @@ SECTION: EDITMISSIONS
     margin-left:auto;
     margin-right:auto;
     padding:10px 50px
+}
+
+#errorEdit {
+    color: #f00;
 }
 
 /************************************************************
