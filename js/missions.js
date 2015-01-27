@@ -7,7 +7,7 @@ function LoadData() {
     var MissionObject = Parse.Object.extend("Missions");
     var searchVal = $("#searchText").val();
     var query = new Parse.Query(MissionObject);
-    if (mapVal != "All Islands") query.equalTo("missionMap", mapVal);
+    if (mapVal != "All Maps") query.equalTo("missionMap", mapVal);
     if (authorVal != "All Authors") query.contains("missionAuthor",
         authorVal);
 
@@ -74,9 +74,9 @@ function LoadData() {
                 data += '<td class="cellSlots">' + 
 					obj.get("missionPlayers") + '</td>';
                 
-                
-                data += '<td class="cellIsland">' + obj.get(
-                    "missionMap") + '</td>';
+                var missionMap = obj.get("missionMap");
+                if (missionMap == "Virtual Reality") {missionMap = "VR"};
+                data += '<td class="cellIsland">' + missionMap + '</td>';
                 
                 data += '<td class="cellPlayed"><a class="playCounterMod" href="#" title="Decrease playcount">-</a> <span id="' +  obj.id + '_counterPlayed">' + obj.get(
                         "playedCounter") + '</span> <a class="playCounterMod" href="#" title="Increase playcount">+</a></td>';
@@ -106,7 +106,7 @@ function LoadData() {
                     obj.id +
                     '" class="cellDropdown" colspan="9">';
                 data +=
-                    '<p class="fullInfo"><span class="cellDropdownSubtitle">Island</span><br>' +
+                    '<p class="fullInfo"><span class="cellDropdownSubtitle">Map</span><br>' +
                     obj.get("missionMap") + "</p>";
                 data +=     '<p class="fullInfo"><span class="cellDropdownSubtitle">Type</span><br>' +
                     obj.get("missionType"); + "</p>";        
