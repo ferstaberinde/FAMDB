@@ -58,78 +58,28 @@ function LoadMission(newMission,object) {
                                 ACL.getWriteAccess(
                                     currentUser)) {
                                 window.row = object;
-                                $("#missionName").val(
-                                    object.get(
-                                        "missionName"
+                                $("#missionName").val(object.get("missionName"));
+                                $("#missionGame").val(object.get("game"));
+                                $("#missionIsland").val(object.get("missionMap"));
+                                $("#missionSession").val(object.get("Session"));
+                                $("#missionType").val(object.get("missionType"
                                     ));
-                                $("#missionGame").val(
-                                    object.get(
-                                        "game")
-                                );
-                                $("#missionIsland")
-                                    .val(object.get(
-                                        "missionMap"
-                                    ));
-                                $("#missionSession")
-                                    .val(object.get(
-                                        "Session"
-                                    ));
-                                $("#missionType").val(
-                                    object.get(
-                                        "missionType"
-                                    ));
-                                $("#missionSlots").val(
-                                    object.get(
-                                        "missionPlayers"
-                                    ));
-                                 $("#missionPlaycount").val(
-                                    object.get(
-                                        "playedCounter"
-                                    ));
-                                $("#authorSelected")
-                                    .val(object.get(
-                                        "missionAuthor"
-                                    ));
-                                $("#missionAuthors")
-                                    .val(object.get(
-                                        "missionAuthor"
-                                    ));
-                                $(
-                                    "#missionDescription"
-                                ).val(object.get(
-                                    "missionDesc"
-                                ));
-                                $(
-                                    "#missionNotes"
-                                ).val(object.get(
-                                    "missionNotes"
-                                ));
-                                $(
-                                    "#f3Version"
-                                ).val(object.get(
-                                    "Scripts"
-                                ));
+                                $("#missionSlots").val(object.get("missionPlayers"));
+                                $("#missionPlaycount").val(object.get("playedCounter"));
+                                $("#authorSelected").val(object.get("missionAuthor"));
+                                $("#missionAuthors").val(object.get("missionAuthor"));
+                                $("#missionDescription").val(object.get("missionDesc"));
+                                $("#missionNotes").val(object.get("missionNotes"));
+                                $("#f3Version").val(object.get("Scripts"));
 
-                                var bool = object.get(
-                                    "isBroken");
+                                var bool = object.get("isBroken");
                                 if (bool) {
-                                    $(
-                                        "#missionBroken"
-                                    ).prop(
-                                        'checked',
-                                        true);
+                                    $("#missionBroken").prop('checked',true);
                                 }
-
-                                var bool = object.get(
-                                    "needsRevision");
+                                var bool = object.get("needsRevision");
                                 if (bool) {
-                                    $(
-                                        "#missionNeedsRevision"
-                                    ).prop(
-                                        'checked',
-                                        true);
+                                    $("#missionNeedsRevision").prop('checked',true);
                                 }
-
                                 $("#loading").hide();
                                 //   $("#form_edit").show();
                                 return;

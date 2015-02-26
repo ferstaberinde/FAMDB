@@ -132,6 +132,7 @@ function ChangePlayedCount(id,mod) {
                 var counterPlayedVal = Number(counterPlayed.html());
                 
                 if (counterPlayedVal + (mod) < 0 || counterPlayedVal + (mod) > 100) return false;
+                if (mod > 1) ChangeLastPlayed(obj,$.datepicker.formatDate('yy/mm/dd', new Date()));
                 obj.set("playedCounter", obj.get("playedCounter") + (mod));
                 SaveMission(obj,Parse.User.current(),false);
                 counterPlayed.html(counterPlayedVal + (mod));
