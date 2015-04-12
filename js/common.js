@@ -171,12 +171,13 @@ function ToggleAuthors() {
     $("#missionAuthors").toggle(); 
 }
 
-// Saves mission to DB
+// Saves mission to DB and sets ACL rights
 function SaveMission(objMission,currentUser,close) {
     var postACL = new Parse.ACL();
     postACL.setRoleWriteAccess("Administrator", true);
+    postACL.setWriteAccess(objMission.get("createdBy"), true);
     postACL.setPublicReadAccess(true);
-    postACL.setWriteAccess(currentUser.id, true);
+    
     objMission.setACL(postACL);
     objMission.save(null, {
         success: function() {
