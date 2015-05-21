@@ -4,6 +4,7 @@ function LoadData() {
     var sessionVal = $("#sessionSelected").val();
     var mapVal = $("#islandSelected").val();
     var authorVal = $("#authorSelected").val();
+    var gameVal = $("#gameSelected").val();
     var MissionObject = Parse.Object.extend("Missions");
     var searchVal = $("#searchText").val();
     var query = new Parse.Query(MissionObject);
@@ -26,29 +27,13 @@ function LoadData() {
     if (searchVal !== "") query.contains("missionName", searchVal);
     query.greaterThanOrEqualTo("missionPlayers", Number($("#slotsMin").val()));
     query.lessThanOrEqualTo("missionPlayers", Number($("#slotsMax").val()));
-    switch (sessionVal) {
-        case "ArmA 3: Vanilla":
-            query.equalTo("Session", "Vanilla");
-            query.equalTo("game", "Arma 3");
-            break;
-        case "ArmA 3: V+":
-            query.equalTo("Session", "V+");
-            query.equalTo("game", "Arma 3");
-            break;
-        case "ArmA 3: All":
-            query.equalTo("game", "Arma 3");
-            break;
-        case "ArmA 2:  Vanilla":
-            query.equalTo("Session", "Vanilla");
-            query.equalTo("game", "Arma 2");
-            break;
-        case "ArmA 2: V+":
-            query.equalTo("Session", "V+");
-            query.equalTo("game", "Arma 2");
-            break;
-        case "ArmA 2: All":
-            query.equalTo("game", "Arma 2");
-            break;
+    if(sessionVal != "All Sessions")
+    {
+         query.equalTo("Session", sessionVal);
+    }
+    if(gameVal != "All Games")
+    {
+         query.equalTo("game", gameVal);
     }
     query.limit(1000);
     query.include("createdBy");
@@ -59,9 +44,6 @@ function LoadData() {
             for (var x = 0; x < results.length; x++) {
                 var obj = results[x];
                 var data = "";
-                //   if(flip)
-                //      data = '<tr class="alt">';
-                //     else
                 data = '<tr class="row">';
                 flip = !flip;
                 data +=
@@ -104,7 +86,7 @@ function LoadData() {
                 data +=
                     '<tr id="descRow" class="row descRow"><td id="' +
                     obj.id +
-                    '" class="cellDropdown" colspan="9">';
+                    '" class="cellDropdown" colspan="10">';
                 data +=
                     '<p class="fullInfo"><span class="cellDropdownSubtitle">Map</span><br>' +
                     obj.get("missionMap") + "</p>";
