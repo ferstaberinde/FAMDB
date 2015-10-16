@@ -11,9 +11,11 @@ function LoadData() {
     if (mapVal != "All Maps") query.equalTo("missionMap", mapVal);
     if (authorVal != "All Authors") query.contains("missionAuthor",
         authorVal);
-
+    
     if ($("#missionBroken:checked").val()) query.equalTo("isBroken", true);
     if ($("#missionNeedsRevision:checked").val()) query.equalTo("needsRevision", true);
+    if ($("#missionWorking:checked").val()) query.equalTo("isBroken", false);
+    //if ($("#missionFine:checked").val()) query.equalTo("needsRevision", true);
 	var checkboxes = $("#missionTypes").find(':checkbox');
 	var strings = [];
 	for(var x = 0;x<checkboxes.length;x++) {

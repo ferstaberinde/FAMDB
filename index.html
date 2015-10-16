@@ -87,7 +87,7 @@
                 </fieldset>
 
                 <fieldset>
-                    <legend align="left">Other</legend> <label for=
+                    <legend align="left">Filter</legend> <label for=
                     "searchText">Text</label><br>
                     <input class="searchBox" id="searchText" maxlength="36"
                     name="searchText" type="text" value=""> <select id=
@@ -96,10 +96,15 @@
                             All Authors
                         </option>
                     </select><br>
-                    <input id="missionBroken" name="missionBroken" type=
-                    "checkbox"><label for="missionBroken">Broken?</label>
-                    <input id="missionNeedsRevision" name="missionNeedsRevision" type=
-                    "checkbox"><label for="missionNeedsRevision">Needs Revision?</label>
+                    <input id="missionAny" name="missionFilter" type=
+                    "radio" checked><label for="missionAll">All</label>
+                    <input id="missionWorking" name="missionFilter" type=
+                    "radio"><label for="missionWorking">Working</label><br/>
+                    <input id="missionBroken" name="missionFilter" type=
+                    "radio"><label for="missionBroken">Broken</label>
+                    <input id="missionNeedsRevision" name="missionFilter" type=
+                    "radio"><label for="missionNeedsRevision">Revision</label>
+
                 </fieldset><input type="reset" value="Reset">&nbsp;<input id=
                 "submitButton" type="submit" value="Apply"><br>
             </form>
